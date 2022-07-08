@@ -1,9 +1,10 @@
-# WoofCommunity - Project Pitch
+# WoofCommunity - Project Pitch 🦴🐶🐱🏡
+
 An app to connect & create a Community with Local Pet Lovers through forums, chat, etc! 
 
 ## Background
 
-Nextdoor app meets Pet friendly type of app.
+*Nextdoor app meets Pet friendly type of app.* 
 
 Pets have statistically brought joy to many, especially during the Pandemic, many have added a furry friend to their lives, including myself.
 People AND pets thrive on connection, and what better way than to have technology help connect local pet lovers to share this common joy. 
@@ -19,7 +20,7 @@ People AND pets thrive on connection, and what better way than to have technolog
         - search for local events and pet friendly places using Yelp API
         - find adoptable dogs using AdoptAPet API
 
-### Stretch Goals
+##### *Stretch Goals*
 
 - Introduce Pet Bandanas & have them try it on (link to the website)
     - ARKit
@@ -43,7 +44,7 @@ People AND pets thrive on connection, and what better way than to have technolog
 - Yelp
 - AdoptAPet
 
-Stretch
+*Stretch:*
 
 - ARKit
 
