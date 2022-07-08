@@ -4,7 +4,7 @@ An app to connect & create a Community with Local Pet Lovers through forums, cha
 
 ## Background
 
-*Nextdoor app meets Pet friendly type of app.* 
+🤝 *Nextdoor app meets Pet friendly* 
 
 Pets have statistically brought joy to many, especially during the Pandemic, many have added a furry friend to their lives, including myself.
 People AND pets thrive on connection, and what better way than to have technology help connect local pet lovers to share this common joy. 
