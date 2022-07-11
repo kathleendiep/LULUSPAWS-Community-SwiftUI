@@ -11,7 +11,7 @@ import SwiftUI
 struct WoofCommunityApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            HomePageListView()
         }
     }
 }

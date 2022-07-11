@@ -7,16 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		81AFA1EF287CCC620099D8FB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81AFA1EE287CCC620099D8FB /* User.swift */; };
+		81AFA1F1287CCC8A0099D8FB /* HomePageListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81AFA1F0287CCC8A0099D8FB /* HomePageListView.swift */; };
 		81FB5D852878BB0400230D75 /* WoofCommunityApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FB5D842878BB0400230D75 /* WoofCommunityApp.swift */; };
-		81FB5D872878BB0400230D75 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FB5D862878BB0400230D75 /* ContentView.swift */; };
 		81FB5D892878BB0A00230D75 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81FB5D882878BB0A00230D75 /* Assets.xcassets */; };
 		81FB5D8C2878BB0A00230D75 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81FB5D8B2878BB0A00230D75 /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		81AFA1EE287CCC620099D8FB /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		81AFA1F0287CCC8A0099D8FB /* HomePageListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageListView.swift; sourceTree = "<group>"; };
 		81FB5D812878BB0400230D75 /* WoofCommunity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WoofCommunity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81FB5D842878BB0400230D75 /* WoofCommunityApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoofCommunityApp.swift; sourceTree = "<group>"; };
-		81FB5D862878BB0400230D75 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		81FB5D882878BB0A00230D75 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		81FB5D8B2878BB0A00230D75 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -32,6 +34,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		81AFA1EA287CCC3C0099D8FB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				81AFA1EE287CCC620099D8FB /* User.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		81AFA1EB287CCC400099D8FB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				81FB5D842878BB0400230D75 /* WoofCommunityApp.swift */,
+				81AFA1F0287CCC8A0099D8FB /* HomePageListView.swift */,
+				81AFA1ED287CCC4A0099D8FB /* DetailViews */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		81AFA1EC287CCC430099D8FB /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				81FB5D882878BB0A00230D75 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		81AFA1ED287CCC4A0099D8FB /* DetailViews */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DetailViews;
+			sourceTree = "<group>";
+		};
 		81FB5D782878BB0400230D75 = {
 			isa = PBXGroup;
 			children = (
@@ -51,9 +86,9 @@
 		81FB5D832878BB0400230D75 /* WoofCommunity */ = {
 			isa = PBXGroup;
 			children = (
-				81FB5D842878BB0400230D75 /* WoofCommunityApp.swift */,
-				81FB5D862878BB0400230D75 /* ContentView.swift */,
-				81FB5D882878BB0A00230D75 /* Assets.xcassets */,
+				81AFA1EB287CCC400099D8FB /* Views */,
+				81AFA1EA287CCC3C0099D8FB /* Models */,
+				81AFA1EC287CCC430099D8FB /* Resources */,
 				81FB5D8A2878BB0A00230D75 /* Preview Content */,
 			);
 			path = WoofCommunity;
@@ -137,8 +172,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				81FB5D872878BB0400230D75 /* ContentView.swift in Sources */,
 				81FB5D852878BB0400230D75 /* WoofCommunityApp.swift in Sources */,
+				81AFA1EF287CCC620099D8FB /* User.swift in Sources */,
+				81AFA1F1287CCC8A0099D8FB /* HomePageListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
