@@ -64,6 +64,7 @@ People AND pets thrive on connection, and what better way than to have technolog
     - pushed to database
 
 ## WIREFRAME
+![WoofCommunityWireframe](https://user-images.githubusercontent.com/53194460/178334753-381eb888-8657-497c-9e64-1b215c63fe0d.png)
 
 ## Roadmap
 
@@ -78,7 +79,7 @@ People AND pets thrive on connection, and what better way than to have technolog
 - MapKit 
 
 
-## Project Schedule
+#### Project Schedule
 | Day   | Deliverable                          | Status     |
 | ----- | ------------------------------------ | ---------- |
 | Day 1 |  Define, design MVP, get approval, Set up MVC based on wireframe            | Complete |
