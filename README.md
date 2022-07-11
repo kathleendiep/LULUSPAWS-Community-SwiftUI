@@ -68,6 +68,13 @@ People AND pets thrive on connection, and what better way than to have technolog
 
 ## Roadmap
 
+### Checkout more App Planning details here: 
+[click here! ](https://docs.google.com/document/d/1sBckd48B2xcUbnKlFZHFguPw07xaPJig59OZunE8oT8/edit?usp=sharing 
+)
+ 
+
+
+
 ### Sprint 1
 #### Main Goal
 
