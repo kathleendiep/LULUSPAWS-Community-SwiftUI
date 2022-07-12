@@ -7,20 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		173221C85682704D6C1ECC16 /* Pods_WoofCommunity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AE26C821AE8E16F9B9C0ADE /* Pods_WoofCommunity.framework */; };
 		81AFA1EF287CCC620099D8FB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81AFA1EE287CCC620099D8FB /* User.swift */; };
 		81AFA1F1287CCC8A0099D8FB /* HomePageListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81AFA1F0287CCC8A0099D8FB /* HomePageListView.swift */; };
+		81AFA1F3287CD8420099D8FB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 81AFA1F2287CD8420099D8FB /* GoogleService-Info.plist */; };
 		81FB5D852878BB0400230D75 /* WoofCommunityApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FB5D842878BB0400230D75 /* WoofCommunityApp.swift */; };
 		81FB5D892878BB0A00230D75 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81FB5D882878BB0A00230D75 /* Assets.xcassets */; };
 		81FB5D8C2878BB0A00230D75 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81FB5D8B2878BB0A00230D75 /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0B6F4FFFBEAC5F859D81ECA5 /* Pods-WoofCommunity.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WoofCommunity.release.xcconfig"; path = "Target Support Files/Pods-WoofCommunity/Pods-WoofCommunity.release.xcconfig"; sourceTree = "<group>"; };
+		6AE26C821AE8E16F9B9C0ADE /* Pods_WoofCommunity.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WoofCommunity.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AFA1EE287CCC620099D8FB /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		81AFA1F0287CCC8A0099D8FB /* HomePageListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageListView.swift; sourceTree = "<group>"; };
+		81AFA1F2287CD8420099D8FB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		81FB5D812878BB0400230D75 /* WoofCommunity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WoofCommunity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81FB5D842878BB0400230D75 /* WoofCommunityApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoofCommunityApp.swift; sourceTree = "<group>"; };
 		81FB5D882878BB0A00230D75 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		81FB5D8B2878BB0A00230D75 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		D77BAF110E393FD1358DC240 /* Pods-WoofCommunity.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WoofCommunity.debug.xcconfig"; path = "Target Support Files/Pods-WoofCommunity/Pods-WoofCommunity.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -28,6 +34,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				173221C85682704D6C1ECC16 /* Pods_WoofCommunity.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,6 +79,8 @@
 			children = (
 				81FB5D832878BB0400230D75 /* WoofCommunity */,
 				81FB5D822878BB0400230D75 /* Products */,
+				954958042A7796703ED807D8 /* Pods */,
+				E65BFA799EC451232396A601 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -86,6 +95,7 @@
 		81FB5D832878BB0400230D75 /* WoofCommunity */ = {
 			isa = PBXGroup;
 			children = (
+				81AFA1F2287CD8420099D8FB /* GoogleService-Info.plist */,
 				81AFA1EB287CCC400099D8FB /* Views */,
 				81AFA1EA287CCC3C0099D8FB /* Models */,
 				81AFA1EC287CCC430099D8FB /* Resources */,
@@ -102,6 +112,23 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		954958042A7796703ED807D8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D77BAF110E393FD1358DC240 /* Pods-WoofCommunity.debug.xcconfig */,
+				0B6F4FFFBEAC5F859D81ECA5 /* Pods-WoofCommunity.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		E65BFA799EC451232396A601 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6AE26C821AE8E16F9B9C0ADE /* Pods_WoofCommunity.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -109,9 +136,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 81FB5D8F2878BB0A00230D75 /* Build configuration list for PBXNativeTarget "WoofCommunity" */;
 			buildPhases = (
+				BDDC966D3420B141DAFC2571 /* [CP] Check Pods Manifest.lock */,
 				81FB5D7D2878BB0400230D75 /* Sources */,
 				81FB5D7E2878BB0400230D75 /* Frameworks */,
 				81FB5D7F2878BB0400230D75 /* Resources */,
+				5AE6DF31B5B48A3F14BC48DC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -162,10 +191,53 @@
 			files = (
 				81FB5D8C2878BB0A00230D75 /* Preview Assets.xcassets in Resources */,
 				81FB5D892878BB0A00230D75 /* Assets.xcassets in Resources */,
+				81AFA1F3287CD8420099D8FB /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5AE6DF31B5B48A3F14BC48DC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WoofCommunity/Pods-WoofCommunity-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WoofCommunity/Pods-WoofCommunity-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WoofCommunity/Pods-WoofCommunity-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BDDC966D3420B141DAFC2571 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WoofCommunity-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		81FB5D7D2878BB0400230D75 /* Sources */ = {
@@ -297,6 +369,7 @@
 		};
 		81FB5D902878BB0A00230D75 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D77BAF110E393FD1358DC240 /* Pods-WoofCommunity.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -311,6 +384,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -326,6 +400,7 @@
 		};
 		81FB5D912878BB0A00230D75 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0B6F4FFFBEAC5F859D81ECA5 /* Pods-WoofCommunity.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -340,6 +415,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
