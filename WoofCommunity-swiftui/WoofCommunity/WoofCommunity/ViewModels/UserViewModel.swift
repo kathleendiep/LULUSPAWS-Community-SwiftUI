@@ -16,8 +16,25 @@ class UserViewModel: ObservableObject {
     
     // MARK: - SOT
     @Published var users = [User]()
+    @Published var user: User
+    @Published var modified = false
+    
     private let db = Firestore.firestore()
-    private let user = "users"
+
+    private var cancellables = Set<AnyCancellable>()
+     
+    init(user: User = User(id: "", name: "", petName: "")) {
+    self.user = user
+     
+    self.$user
+      .dropFirst()
+      .sink { [weak self] user in
+        self?.modified = true
+      }
+      .store(in: &self.cancellables)
+  }
+    
+    
     // MARK: - CRUD
     /*
      - reference to db
@@ -89,66 +106,76 @@ class UserViewModel: ObservableObject {
 //       }
 //     }
     
-    func updateData(_ user: User,_ name: String,_ petName: String) {
-        
-        guard let userID = user.id else { return }
-        
-        db.collection("users").document(userID).setData(["name": name, "petName": petName])
-       
-    }
-
-
-//    func updateData(_ userToUpdate: User) {
+//    func updateData(_ user: User,_ name: String,_ petName: String) {
 //
-//        let db = Firestore.firestore()
+//        guard let userID = user.id else { return }
 //
-//        if let userID = userToUpdate.id {
-//            do {
-//                try db.collection("users").document(userID).setData( from: userToUpdate)
-//            } catch {
-//                fatalError("Unable to update card: \(error.localizedDescription).")
+//        db.collection("users").document(userID).setData(["name": name, "petName": petName])
+//
+//    }
+
+//    func updateData(userToUpdate: User, name: String, petName: String) {
+//
+//        // Set the data to update
+//        db.collection("users").document(userToUpdate.id).setData(["name":"\(petName)", "petName": petName], merge: true) { error in
+//
+//            // Check for errors
+//            if error == nil {
+//                // Get the new data
+//                self.getData()
 //            }
 //        }
-//
 //    }
-//
-   
+
+    func updateData(_ user: User) {
+       if let documentId = user.id {
+         do {
+           try db.collection("users").document(documentId).setData(from: user)
+         }
+         catch {
+           print(error)
+         }
+       }
+     }
     
     
-//
-//    func updateData(_ user: User) {
-//        let db = Firestore.firestore()
-//
-//        do {
-//            try db.collection("users").document(user.id).setData(user)
-//        } catch {
-//            fatalError("Unable to update")
-//        }
-//    }
-//
-   
+   func updateOrAdd() {
+       if let _ = user.id {
+           self.updateData(self.user)
+     }
+     else {
+         addData(name: user.name, petName: user.petName)
+     }
+   }
+    
+    func handleDoneTapped() {
+      self.updateOrAdd()
+    }
+    
     func deleteData(userToDelete: User) {
-        guard let deleteUser = userToDelete.id else { return }
         
         // Specify the document to delete
-        db.collection("users").document(deleteUser).delete { error in
-            
-            // Check for errors
-            if error == nil {
+        if let documentId = userToDelete.id {
+            db.collection("users").document(documentId).delete { error in
                 
-                // Update UI from main thread
-                DispatchQueue.main.async {
+                // Check for errors
+                if error == nil {
                     
-                    // Remove the user
-                    self.users.removeAll { user in
-                        // Check for the user to remove
-                        return user.id == userToDelete.id
+                    // Update UI from main thread
+                    DispatchQueue.main.async {
+                        
+                        // Remove the user
+                        self.users.removeAll { user in
+                            // Check for the user to remove
+                            return user.id == userToDelete.id
+                        }
                     }
                 }
             }
         }
     }
 }
+
 // MARK: FIREBASE NOTES
 /*
  
