@@ -6,3 +6,15 @@
 //
 
 import Foundation
+
+// Collection: Identifiable
+struct User: Identifiable, Codable {
+    
+    var id: String? // document type ID from db
+    
+    // label: type
+    // set the value in the DB
+    var name: String
+    var petName: String
+
+}

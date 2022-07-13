@@ -10,12 +10,9 @@ People AND pets thrive on connection, and what better way than to have technolog
 - As a user,
     - I want to:
         - able to connect with local community of pet lovers.
-        - make a profile that shows my pet & i's information so that others can get to know us a little bit.
-            - Icon - shows contact info - to message elsewhere (Maybe instagram or Discord) 
-        - post pictures, discussions and/or questions within the local community
-        - add friends 
+        - make a profile that shows our personal information so that others can get to know us a little bit.
+            - Icon - shows contact info - to message elsewhere (Maybe Instagram, Twitter, or Discord) 
         - search for local events and pet friendly places using Yelp API
-        - find adoptable dogs using AdoptAPet API
 
 ## Tech stack
 
@@ -31,8 +28,6 @@ People AND pets thrive on connection, and what better way than to have technolog
 
 
 
-## WIREFRAME
-![WoofCommunityWireframe](https://user-images.githubusercontent.com/53194460/178334753-381eb888-8657-497c-9e64-1b215c63fe0d.png)
 
 ## Roadmap
 
@@ -60,3 +55,6 @@ People AND pets thrive on connection, and what better way than to have technolog
 - Stretch Goals 
 - Finish up design 
 
+## WIREFRAME
+##### note: sketched wireframe of ideas for MVP & stretch goals
+![WoofCommunityWireframe](https://user-images.githubusercontent.com/53194460/178334753-381eb888-8657-497c-9e64-1b215c63fe0d.png)
