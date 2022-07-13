@@ -38,6 +38,8 @@ struct UserDetailView: View {
        }
      }
     
+    
+    // add item
     var saveButton: some View {
       Button(action: { self.handleDoneTapped() }) {
         Text(mode == .new ? "Done" : "Save")
@@ -46,6 +48,31 @@ struct UserDetailView: View {
     }
    
     var body: some View {
+        
+        NavigationView {
+           Form {
+             Section(header: Text("User")) {
+                 TextField("User", text: $userViewModel.user.name)
+             }
+              
+             Section(header: Text("Pet")) {
+               TextField("Pet", text: $userViewModel.user.petName)
+             }
+                
+             if mode == .edit {
+               Section {
+                 Button("Delete") { self.presentActionSheet.toggle() }
+                   .foregroundColor(.red)
+               }
+             }
+           }
+           .navigationTitle(mode == .new ? "New User" : userViewModel.user.name)
+           .navigationBarTitleDisplayMode(mode == .new ? .inline : .large)
+           .navigationBarItems(
+             leading: cancelButton,
+             trailing: saveButton // done or save? <- handle save
+           )
+         }
 //        VStack(spacing: 5) {
 //            Text("Add a user")
 //                .font(.title)
@@ -54,26 +81,26 @@ struct UserDetailView: View {
 //            TextField("Pet name", text: $userPetName)
 //                .textFieldStyle(RoundedBorderTextFieldStyle())
 //
-        VStack(spacing: 5) {
-                   Text("Add a user")
-                       .font(.title)
-                   TextField("Name", text: $userName)
-                       .textFieldStyle(RoundedBorderTextFieldStyle())
-                   TextField("Pet name", text: $userPetName)
-                       .textFieldStyle(RoundedBorderTextFieldStyle())
-        
-            Button(action: {
-               
-                // Call add data
-                userViewModel.addData(name: userName, petName: userPetName)
-                // Clear the text fields
-                userName = ""
-                userPetName = ""
-
-            }, label: {
-                Text("add user")
-            })
-        }
+//        VStack(spacing: 5) {
+//                   Text("Add a user")
+//                       .font(.title)
+//                   TextField("Name", text: $userName)
+//                       .textFieldStyle(RoundedBorderTextFieldStyle())
+//                   TextField("Pet name", text: $userPetName)
+//                       .textFieldStyle(RoundedBorderTextFieldStyle())
+//
+//            Button(action: {
+//
+//                // Call add data
+//                userViewModel.addData(name: userName, petName: userPetName)
+//                // Clear the text fields
+//                userName = ""
+//                userPetName = ""
+//
+//            }, label: {
+//                Text("add user")
+//            })
+//        }
     }
     
     // MARK: - Functions
