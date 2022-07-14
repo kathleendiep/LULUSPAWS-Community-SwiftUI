@@ -17,9 +17,8 @@ struct HomePageListView: View {
      
     var body: some View {
         NavigationView {
-            VStack{
-             
-                List (viewModel.users) { user in
+            VStack {
+                List(viewModel.users) { user in
                    
                     NavigationLink {
                         UserDetailView(userViewModel: viewModel, user: user)

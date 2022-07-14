@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		173221C85682704D6C1ECC16 /* Pods_WoofCommunity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AE26C821AE8E16F9B9C0ADE /* Pods_WoofCommunity.framework */; };
+		810AD2AB28809C9E0046B8A2 /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810AD2AA28809C9E0046B8A2 /* AuthenticationService.swift */; };
+		810AD2AD28809F510046B8A2 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810AD2AC28809F510046B8A2 /* SignInView.swift */; };
 		81AFA1EF287CCC620099D8FB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81AFA1EE287CCC620099D8FB /* User.swift */; };
 		81AFA1F1287CCC8A0099D8FB /* HomePageListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81AFA1F0287CCC8A0099D8FB /* HomePageListView.swift */; };
 		81AFA1F3287CD8420099D8FB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 81AFA1F2287CD8420099D8FB /* GoogleService-Info.plist */; };
@@ -21,6 +23,9 @@
 /* Begin PBXFileReference section */
 		0B6F4FFFBEAC5F859D81ECA5 /* Pods-WoofCommunity.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WoofCommunity.release.xcconfig"; path = "Target Support Files/Pods-WoofCommunity/Pods-WoofCommunity.release.xcconfig"; sourceTree = "<group>"; };
 		6AE26C821AE8E16F9B9C0ADE /* Pods_WoofCommunity.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WoofCommunity.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		72F8370D0B69E11C4AFE00C4 /* Pods-WoofCommunity.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WoofCommunity.release.xcconfig"; path = "Target Support Files/Pods-WoofCommunity/Pods-WoofCommunity.release.xcconfig"; sourceTree = "<group>"; };
+		810AD2AA28809C9E0046B8A2 /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
+		810AD2AC28809F510046B8A2 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		81AFA1EE287CCC620099D8FB /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		81AFA1F0287CCC8A0099D8FB /* HomePageListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageListView.swift; sourceTree = "<group>"; };
 		81AFA1F2287CD8420099D8FB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -30,6 +35,7 @@
 		81FB5D842878BB0400230D75 /* WoofCommunityApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoofCommunityApp.swift; sourceTree = "<group>"; };
 		81FB5D882878BB0A00230D75 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		81FB5D8B2878BB0A00230D75 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		A0A9FC287D4AB99C1918E001 /* Pods-WoofCommunity.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WoofCommunity.debug.xcconfig"; path = "Target Support Files/Pods-WoofCommunity/Pods-WoofCommunity.debug.xcconfig"; sourceTree = "<group>"; };
 		D77BAF110E393FD1358DC240 /* Pods-WoofCommunity.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WoofCommunity.debug.xcconfig"; path = "Target Support Files/Pods-WoofCommunity/Pods-WoofCommunity.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -45,6 +51,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		491E735FDCAA764D31FD9D2E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A0A9FC287D4AB99C1918E001 /* Pods-WoofCommunity.debug.xcconfig */,
+				72F8370D0B69E11C4AFE00C4 /* Pods-WoofCommunity.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		810AD2A928809C920046B8A2 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				810AD2AA28809C9E0046B8A2 /* AuthenticationService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		81AFA1EA287CCC3C0099D8FB /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -59,6 +83,7 @@
 				81FB5D842878BB0400230D75 /* WoofCommunityApp.swift */,
 				81AFA1F0287CCC8A0099D8FB /* HomePageListView.swift */,
 				81AFA1ED287CCC4A0099D8FB /* DetailViews */,
+				810AD2AC28809F510046B8A2 /* SignInView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -92,8 +117,8 @@
 			children = (
 				81FB5D832878BB0400230D75 /* WoofCommunity */,
 				81FB5D822878BB0400230D75 /* Products */,
-				954958042A7796703ED807D8 /* Pods */,
 				E65BFA799EC451232396A601 /* Frameworks */,
+				491E735FDCAA764D31FD9D2E /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -108,6 +133,7 @@
 		81FB5D832878BB0400230D75 /* WoofCommunity */ = {
 			isa = PBXGroup;
 			children = (
+				810AD2A928809C920046B8A2 /* Services */,
 				81AFA1F2287CD8420099D8FB /* GoogleService-Info.plist */,
 				81AFA1EA287CCC3C0099D8FB /* Models */,
 				81AFA233287E1DA80099D8FB /* ViewModels */,
@@ -121,6 +147,7 @@
 		81FB5D8A2878BB0A00230D75 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
+				954958042A7796703ED807D8 /* Pods */,
 				81FB5D8B2878BB0A00230D75 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
@@ -261,6 +288,8 @@
 				81FB5D852878BB0400230D75 /* WoofCommunityApp.swift in Sources */,
 				81AFA235287E1DC50099D8FB /* UserViewModel.swift in Sources */,
 				81AFA1EF287CCC620099D8FB /* User.swift in Sources */,
+				810AD2AB28809C9E0046B8A2 /* AuthenticationService.swift in Sources */,
+				810AD2AD28809F510046B8A2 /* SignInView.swift in Sources */,
 				81B57358287E5B2E00F04ABC /* UserDetailView.swift in Sources */,
 				81AFA1F1287CCC8A0099D8FB /* HomePageListView.swift in Sources */,
 			);
@@ -406,7 +435,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Kathleen-Diep.WoofCommunity";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kathleendiep.woof-community";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -437,7 +466,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Kathleen-Diep.WoofCommunity";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kathleendiep.woof-community";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
