@@ -25,9 +25,11 @@ struct HomePageListView: View {
                         UserDetailView(userViewModel: viewModel, user: user)
                     
                     } label: {
+                        VStack(alignment: .leading) {
                             Text(user.name)
+                                .fontWeight(.bold)
                             Text(user.petName)
-
+                        }
                     }
                 }
                 Divider()
