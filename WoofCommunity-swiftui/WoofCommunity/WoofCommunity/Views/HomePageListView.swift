@@ -17,6 +17,25 @@ struct HomePageListView: View {
     var body: some View {
         NavigationView {
             VStack {
+               
+                VStack {
+                    NavigationLink {
+                        SignInView()
+                        
+                    } label: {
+                        Button(
+                            Text("Create")
+                                .foregroundColor(Color.white)
+                                .frame(width: 200, height: 50)
+                                .cornerRadius(8)
+                                .background(Color.blue) as! PrimitiveButtonStyleConfiguration
+                        )
+                    }
+                }
+            
+           
+                
+                
                 List(viewModel.users) { user in
                    
                     NavigationLink {

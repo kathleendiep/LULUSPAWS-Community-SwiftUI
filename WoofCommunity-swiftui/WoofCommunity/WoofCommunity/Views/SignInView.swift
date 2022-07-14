@@ -11,6 +11,7 @@ import FirebaseAuth
 // similar to AppViewModel
 class SignInViewModel: NSObject, ObservableObject {
     
+    
     let auth = Auth.auth()
     
     @Published var signedIn = false
@@ -51,8 +52,8 @@ class SignInViewModel: NSObject, ObservableObject {
 // MARK: SignInView
 struct SignInView: View {
 
-//    @State var signInVM: SignInViewModel
     @ObservedObject var signInVM = SignInViewModel()
+    
     var isPreview: Bool = false
     
     init(isPreview: Bool=false) {
@@ -63,7 +64,7 @@ struct SignInView: View {
     
     var body: some View {
         NavigationView {
-            if signInVM.signedIn {
+            if signInVM.isSignedIn {
                 Text("You are signed in")
             } else {
                 SignInContainerView()
@@ -86,15 +87,9 @@ struct SignInContainerView: View {
     
     @State var email = ""
     @State var password = ""
-    var isPreview: Bool = false
-    @State var signInVM: SignInViewModel?
     
-    init(isPreview: Bool=false) {
-        if !isPreview {
-            signInVM = SignInViewModel()
-        }
-    }
-    
+    @ObservedObject var signInVM = SignInViewModel()
+        
     var body: some View {
             VStack {
                 Image(systemName: "square")
@@ -119,7 +114,7 @@ struct SignInContainerView: View {
                             return
                         }
                         
-                        signInVM?.signIn(email: email, password: password)
+                        signInVM.signIn(email: email, password: password)
                     }, label: {
                         Text("Sign in")
                             .foregroundColor(Color.white)
@@ -144,10 +139,8 @@ struct SignUpContainerView: View {
     
     @State var email = ""
     @State var password = ""
-   
-    @State var signInVM: SignInViewModel?
+    @ObservedObject var signInVM = SignInViewModel()
  
-    
     var body: some View {
             VStack {
                 // enter logo here
@@ -169,7 +162,7 @@ struct SignUpContainerView: View {
                             return
                         }
                         
-                        signInVM?.signUp(email: email, password: password)
+                        signInVM.signUp(email: email, password: password)
                         
                     }, label: {
                         Text("Create")
