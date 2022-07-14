@@ -93,39 +93,6 @@ class UserViewModel: ObservableObject {
             }
         }
     }
-//
-//    func updateData(_ user: User) {
-//
-//       if let UserId = user.id {
-//         do {
-//           try db.collection("users").document(UserId).setData(from: user)
-//         }
-//         catch {
-//           print(error)
-//         }
-//       }
-//     }
-    
-//    func updateData(_ user: User,_ name: String,_ petName: String) {
-//
-//        guard let userID = user.id else { return }
-//
-//        db.collection("users").document(userID).setData(["name": name, "petName": petName])
-//
-//    }
-
-//    func updateData(userToUpdate: User, name: String, petName: String) {
-//
-//        // Set the data to update
-//        db.collection("users").document(userToUpdate.id).setData(["name":"\(petName)", "petName": petName], merge: true) { error in
-//
-//            // Check for errors
-//            if error == nil {
-//                // Get the new data
-//                self.getData()
-//            }
-//        }
-//    }
 
     func updateData(_ user: User) {
        if let documentId = user.id {
