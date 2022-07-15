@@ -7,6 +7,8 @@ import FirebaseCore
 @main
 struct WoofCommunityApp: App {
     
+    @StateObject var viewModel = UserViewModel()
+    
     // add Firebase
     init() {
         FirebaseApp.configure()
@@ -14,9 +16,9 @@ struct WoofCommunityApp: App {
     
     var body: some Scene {
         WindowGroup {
-//            let viewModel = AppViewModel
+
             HomePageListView()
-//                .environmentObject(viewModel)
+                .environmentObject(viewModel) // why do i need this
         }
     }
 }

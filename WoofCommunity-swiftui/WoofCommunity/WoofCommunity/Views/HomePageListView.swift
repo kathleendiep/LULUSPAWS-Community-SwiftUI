@@ -23,10 +23,10 @@ struct HomePageListView: View {
                     
                 } label: {
                     Text("Sign in")
-                        .foregroundColor(Color.white)
-                        .frame(width: 200, height: 50)
-                        .cornerRadius(8)
-                        .background(Color.blue)
+                        .foregroundColor(Color.black)
+                        .background(.orange)
+                        .frame(width: 300, height: 50)
+                        
                     
                 }
                 

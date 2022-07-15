@@ -8,7 +8,7 @@
 import Foundation
 
 // Collection: Identifiable
-struct User: Identifiable, Codable {
+struct User: Identifiable, Encodable {
     
     var id: String? // document type ID from db
     
@@ -17,7 +17,13 @@ struct User: Identifiable, Codable {
     var name: String
     var petName: String
     
+    
+//    var email: String
+//    var userName: String
+//    var bio: String
     // how do i connect a user to a post?
+    
+    // MARK: - Location
 
 }
 

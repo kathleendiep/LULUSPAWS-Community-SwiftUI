@@ -61,7 +61,7 @@ struct UserDetailView: View {
                 
              if mode == .edit {
                Section {
-                 Button("Delete") { self.presentActionSheet.toggle() }
+                   Button("Delete") { userViewModel.deleteData}
                    .foregroundColor(.red)
                }
              }
@@ -73,36 +73,8 @@ struct UserDetailView: View {
              trailing: saveButton // done or save? <- handle save
            )
          }
-//        VStack(spacing: 5) {
-//            Text("Add a user")
-//                .font(.title)
-//            TextField("Name", text: $userName)
-//                .textFieldStyle(RoundedBorderTextFieldStyle())
-//            TextField("Pet name", text: $userPetName)
-//                .textFieldStyle(RoundedBorderTextFieldStyle())
-//
-//        VStack(spacing: 5) {
-//                   Text("Add a user")
-//                       .font(.title)
-//                   TextField("Name", text: $userName)
-//                       .textFieldStyle(RoundedBorderTextFieldStyle())
-//                   TextField("Pet name", text: $userPetName)
-//                       .textFieldStyle(RoundedBorderTextFieldStyle())
-//
-//            Button(action: {
-//
-//                // Call add data
-//                userViewModel.addData(name: userName, petName: userPetName)
-//                // Clear the text fields
-//                userName = ""
-//                userPetName = ""
-//
-//            }, label: {
-//                Text("add user")
-//            })
-//        }
     }
-    
+
     // MARK: - Functions
     func handleCancelTapped() {
        self.dismiss()
