@@ -16,6 +16,8 @@ struct User: Identifiable, Codable {
     // set the value in the DB
     var name: String
     var petName: String
+    
+    // how do i connect a user to a post?
 
 }
 

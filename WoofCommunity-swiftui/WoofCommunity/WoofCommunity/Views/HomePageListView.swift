@@ -13,34 +13,28 @@ struct HomePageListView: View {
     
     // Landing Pad
     var user: User?
-     
+    
     var body: some View {
         NavigationView {
             VStack {
-               
-                VStack {
-                    NavigationLink {
-                        SignInView()
-                        
-                    } label: {
-                        Button(
-                            Text("Create")
-                                .foregroundColor(Color.white)
-                                .frame(width: 200, height: 50)
-                                .cornerRadius(8)
-                                .background(Color.blue) as! PrimitiveButtonStyleConfiguration
-                        )
-                    }
-                }
-            
-           
                 
+                NavigationLink {
+                    SignInView()
+                    
+                } label: {
+                    Text("Sign in")
+                        .foregroundColor(Color.white)
+                        .frame(width: 200, height: 50)
+                        .cornerRadius(8)
+                        .background(Color.blue)
+                    
+                }
                 
                 List(viewModel.users) { user in
-                   
+                    
                     NavigationLink {
                         UserDetailView(userViewModel: viewModel, user: user)
-                    
+                        
                     } label: {
                         VStack(alignment: .leading) {
                             Text(user.name)
@@ -62,7 +56,7 @@ struct HomePageListView: View {
                     }
                 }
             }
-        
+            
         }
     } // end of body
     

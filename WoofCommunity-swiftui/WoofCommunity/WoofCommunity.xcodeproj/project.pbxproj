@@ -57,7 +57,6 @@
 				A0A9FC287D4AB99C1918E001 /* Pods-WoofCommunity.debug.xcconfig */,
 				72F8370D0B69E11C4AFE00C4 /* Pods-WoofCommunity.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};

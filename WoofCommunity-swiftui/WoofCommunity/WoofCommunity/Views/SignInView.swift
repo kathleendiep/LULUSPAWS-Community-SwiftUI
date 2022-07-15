@@ -47,6 +47,12 @@ class SignInViewModel: NSObject, ObservableObject {
             }
         }
     }
+    
+    func signOut() {
+        try? auth.signOut()
+        
+        self.signedIn = false
+    }
 }
 
 // MARK: SignInView
@@ -65,7 +71,20 @@ struct SignInView: View {
     var body: some View {
         NavigationView {
             if signInVM.isSignedIn {
-                Text("You are signed in")
+                VStack {
+                    Text("You are signed in")
+                    Button(action: {
+                        signInVM.signOut()
+                    }, label: {
+                    
+                        Text("Sign Out")
+                            .frame(width: 200, height: 50)
+                            .foregroundColor(Color.blue)
+                            .background(Color.red)
+                            .padding()
+                    })
+                    
+                }
             } else {
                 SignInContainerView()
             }
