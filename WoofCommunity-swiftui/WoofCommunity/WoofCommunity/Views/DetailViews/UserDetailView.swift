@@ -19,7 +19,7 @@ enum Action {
 }
 
 struct UserDetailView: View {
-
+    // these terms get passed
     @ObservedObject var userViewModel = UserViewModel()
     // Environment Values
     @Environment(\.presentationMode) private var presentationMode
@@ -58,12 +58,23 @@ struct UserDetailView: View {
              Section(header: Text("Pet")) {
                TextField("Pet", text: $userViewModel.user.petName)
              }
-                
-             if mode == .edit {
-               Section {
-                   Button("Delete") { userViewModel.deleteData}
-                   .foregroundColor(.red)
-               }
+               
+               // clears it
+            
+                   if mode == .edit {
+                       Section {
+
+                           Button(action: {
+                               if let user = user {
+                               userViewModel.deleteData(userToDelete: user)
+                               }
+                           }, label: {
+                               Text("Delete")
+                                   .foregroundColor(Color.red)
+                                 
+                           })
+                           
+                   }
              }
            }
            .navigationTitle(mode == .new ? "New User" : userViewModel.user.name)
