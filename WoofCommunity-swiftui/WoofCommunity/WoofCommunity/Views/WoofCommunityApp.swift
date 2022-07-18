@@ -18,7 +18,10 @@ struct WoofCommunityApp: App {
         WindowGroup {
 
             HomePageListView()
-                .environmentObject(viewModel) // why do i need this
+                .environmentObject(viewModel) // <-- question: how can i pass multiple environment object
         }
     }
 }
+
+
+

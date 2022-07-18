@@ -10,6 +10,12 @@
 		173221C85682704D6C1ECC16 /* Pods_WoofCommunity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AE26C821AE8E16F9B9C0ADE /* Pods_WoofCommunity.framework */; };
 		810AD2AB28809C9E0046B8A2 /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810AD2AA28809C9E0046B8A2 /* AuthenticationService.swift */; };
 		810AD2AD28809F510046B8A2 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810AD2AC28809F510046B8A2 /* SignInView.swift */; };
+		8166FD622885ED89008D7627 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8166FD612885ED89008D7627 /* SignInViewModel.swift */; };
+		8166FD662885FE6B008D7627 /* Add.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8166FD652885FE6B008D7627 /* Add.swift */; };
+		8166FD682885FF0A008D7627 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8166FD672885FF0A008D7627 /* Home.swift */; };
+		8166FD6A2885FF17008D7627 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8166FD692885FF17008D7627 /* Profile.swift */; };
+		8166FD6C2885FF44008D7627 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8166FD6B2885FF44008D7627 /* Main.swift */; };
+		8166FD6F2885FF87008D7627 /* Explore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8166FD6E2885FF87008D7627 /* Explore.swift */; };
 		8181AECF288206EF001B6D43 /* UserEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8181AECE288206EF001B6D43 /* UserEditView.swift */; };
 		8198FCEC2880F4820033421C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8198FCEB2880F4820033421C /* Extensions.swift */; };
 		8198FCF02880FCD50033421C /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8198FCEF2880FCD50033421C /* Storage.swift */; };
@@ -29,6 +35,12 @@
 		72F8370D0B69E11C4AFE00C4 /* Pods-WoofCommunity.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WoofCommunity.release.xcconfig"; path = "Target Support Files/Pods-WoofCommunity/Pods-WoofCommunity.release.xcconfig"; sourceTree = "<group>"; };
 		810AD2AA28809C9E0046B8A2 /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
 		810AD2AC28809F510046B8A2 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		8166FD612885ED89008D7627 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
+		8166FD652885FE6B008D7627 /* Add.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Add.swift; sourceTree = "<group>"; };
+		8166FD672885FF0A008D7627 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		8166FD692885FF17008D7627 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		8166FD6B2885FF44008D7627 /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
+		8166FD6E2885FF87008D7627 /* Explore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Explore.swift; sourceTree = "<group>"; };
 		8181AECE288206EF001B6D43 /* UserEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEditView.swift; sourceTree = "<group>"; };
 		8198FCEB2880F4820033421C /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		8198FCEF2880FCD50033421C /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
@@ -75,6 +87,21 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		8166FD6D2885FF59008D7627 /* Nav */ = {
+			isa = PBXGroup;
+			children = (
+				81AFA1F0287CCC8A0099D8FB /* HomePageListView.swift */,
+				8166FD672885FF0A008D7627 /* Home.swift */,
+				8166FD6B2885FF44008D7627 /* Main.swift */,
+				8166FD6E2885FF87008D7627 /* Explore.swift */,
+				8166FD692885FF17008D7627 /* Profile.swift */,
+				81B57357287E5B2E00F04ABC /* UserDetailView.swift */,
+				8181AECE288206EF001B6D43 /* UserEditView.swift */,
+				8166FD652885FE6B008D7627 /* Add.swift */,
+			);
+			path = Nav;
+			sourceTree = "<group>";
+		};
 		81AFA1EA287CCC3C0099D8FB /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -86,9 +113,8 @@
 		81AFA1EB287CCC400099D8FB /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8166FD6D2885FF59008D7627 /* Nav */,
 				81FB5D842878BB0400230D75 /* WoofCommunityApp.swift */,
-				81AFA1F0287CCC8A0099D8FB /* HomePageListView.swift */,
-				81AFA1ED287CCC4A0099D8FB /* DetailViews */,
 				810AD2AC28809F510046B8A2 /* SignInView.swift */,
 			);
 			path = Views;
@@ -103,19 +129,11 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		81AFA1ED287CCC4A0099D8FB /* DetailViews */ = {
-			isa = PBXGroup;
-			children = (
-				81B57357287E5B2E00F04ABC /* UserDetailView.swift */,
-				8181AECE288206EF001B6D43 /* UserEditView.swift */,
-			);
-			path = DetailViews;
-			sourceTree = "<group>";
-		};
 		81AFA233287E1DA80099D8FB /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
 				81AFA234287E1DC50099D8FB /* UserViewModel.swift */,
+				8166FD612885ED89008D7627 /* SignInViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -293,14 +311,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8166FD6C2885FF44008D7627 /* Main.swift in Sources */,
 				81FB5D852878BB0400230D75 /* WoofCommunityApp.swift in Sources */,
 				81AFA235287E1DC50099D8FB /* UserViewModel.swift in Sources */,
+				8166FD662885FE6B008D7627 /* Add.swift in Sources */,
+				8166FD6A2885FF17008D7627 /* Profile.swift in Sources */,
 				81AFA1EF287CCC620099D8FB /* User.swift in Sources */,
 				8181AECF288206EF001B6D43 /* UserEditView.swift in Sources */,
+				8166FD6F2885FF87008D7627 /* Explore.swift in Sources */,
 				8198FCEC2880F4820033421C /* Extensions.swift in Sources */,
+				8166FD682885FF0A008D7627 /* Home.swift in Sources */,
 				810AD2AB28809C9E0046B8A2 /* AuthenticationService.swift in Sources */,
 				810AD2AD28809F510046B8A2 /* SignInView.swift in Sources */,
 				81B57358287E5B2E00F04ABC /* UserDetailView.swift in Sources */,
+				8166FD622885ED89008D7627 /* SignInViewModel.swift in Sources */,
 				81AFA1F1287CCC8A0099D8FB /* HomePageListView.swift in Sources */,
 				8198FCF02880FCD50033421C /* Storage.swift in Sources */,
 			);

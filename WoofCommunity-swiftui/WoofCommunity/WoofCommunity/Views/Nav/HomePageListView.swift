@@ -13,6 +13,8 @@ struct HomePageListView: View {
     // Should i change this to environment
     @ObservedObject var viewModel = UserViewModel()
     
+    @EnvironmentObject var signInVM: SignInViewModel
+    
     // Landing Pad
     var user: User?
     
@@ -33,17 +35,17 @@ struct HomePageListView: View {
     var body: some View {
         NavigationView {
             VStack {
-                
-                NavigationLink {
-                    SignInView()
-                    
-                } label: {
-                    
-                    Text("Sign in")
-                        .foregroundColor(Color.black)
-                        .background(.orange).frame(width: 300, height: 50)
-                    
-                }
+                    // todo: if signed in, display logout
+                    NavigationLink {
+                        SignInView()
+                    } label: {
+                        
+                        Text("Sign in")
+                            .foregroundColor(Color.black)
+                            .background(.orange).frame(width: 300, height: 50)
+                        
+                    }
+              
                 List {
                     ForEach (viewModel.users) { user in
                         userRowView(user: user)
@@ -77,19 +79,3 @@ struct HomePageListView_Previews: PreviewProvider {
         HomePageListView(user: user)
     }
 }
-//
-//// MARK: - STRUCT VIEWS
-
-
-
-
-//struct Home : View {
-//    var body: some View {
-//        ZStack {
-//            VStack(spacing: 0) {
-//                Spacer()
-//            }
-//        }
-//    }
-//
-//}
