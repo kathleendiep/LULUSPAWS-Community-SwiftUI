@@ -10,6 +10,7 @@ import CoreLocation
 
 struct HomePageListView: View {
     
+    // Should i change this to environment
     @ObservedObject var viewModel = UserViewModel()
     
     // Landing Pad
@@ -55,8 +56,9 @@ struct HomePageListView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     NavigationLink {
+                        
                         // Destination
-                        UserDetailView(user: user!)
+                        UserDetailView(user: viewModel.user)
                     } label: {
                         Image(systemName: "plus")
                     }
@@ -72,7 +74,7 @@ struct HomePageListView: View {
 struct HomePageListView_Previews: PreviewProvider {
     static var previews: some View {
         let user = User(id: "1", name: "Kathleen", petName: "Louis")
-        HomePageListView(user:user)
+        HomePageListView(user: user)
     }
 }
 //

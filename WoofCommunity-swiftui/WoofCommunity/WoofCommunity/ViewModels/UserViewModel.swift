@@ -119,10 +119,10 @@ class UserViewModel: ObservableObject {
       self.updateOrAdd()
     }
     
-    func deleteData(userToDelete: User) {
+    func deleteData() {
         
         // Specify the document to delete
-        if let documentId = userToDelete.id {
+        if let documentId = user.id {
             db.collection("users").document(documentId).delete { error in
                 
                 // Check for errors
@@ -133,8 +133,7 @@ class UserViewModel: ObservableObject {
                         
                         // Remove the user
                         self.users.removeAll { user in
-                            // Check for the user to remove
-                            return user.id == userToDelete.id
+                            return user.id == documentId
                         }
                     }
                 }
@@ -143,7 +142,7 @@ class UserViewModel: ObservableObject {
     }
     
     func handleDeleteTapped() {
-      self.deleteData(userToDelete: user)
+      self.deleteData()
     }
 }
 
