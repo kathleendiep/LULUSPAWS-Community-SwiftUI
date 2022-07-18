@@ -9,7 +9,7 @@ import FirebaseAuth
 
 // MARK: SignInView
 struct SignInView: View {
-    // question should i do this instead
+
     // @EnvironmentObject var signInVM: SignInViewModel
     @ObservedObject var signInVM = SignInViewModel()
     

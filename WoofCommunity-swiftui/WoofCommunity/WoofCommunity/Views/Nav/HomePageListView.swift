@@ -5,8 +5,7 @@
 //
 
 import SwiftUI
-import MapKit
-import CoreLocation
+
 
 struct HomePageListView: View {
     
@@ -45,7 +44,15 @@ struct HomePageListView: View {
                             .background(.orange).frame(width: 300, height: 50)
                         
                     }
-              
+                NavigationLink {
+                    HomeView()
+                } label: {
+                    
+                    Text("Home")
+                        .foregroundColor(Color.black)
+                        .background(.orange).frame(width: 300, height: 50)
+                    
+                }
                 List {
                     ForEach (viewModel.users) { user in
                         userRowView(user: user)

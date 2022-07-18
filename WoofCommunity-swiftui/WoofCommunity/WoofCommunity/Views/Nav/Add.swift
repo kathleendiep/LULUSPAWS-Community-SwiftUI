@@ -1,4 +1,3 @@
-j//
 //  SwiftUIView.swift
 //  WoofCommunity
 //
