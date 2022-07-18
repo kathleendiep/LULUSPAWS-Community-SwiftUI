@@ -24,25 +24,24 @@ struct SignInView: View {
     var body: some View {
         NavigationView {
             
-            SignInContainerView()
-//            if signInVM.isSignedIn {
-//                VStack {
-//                    Text("You are signed in")
-//                    Button(action: {
-//                        signInVM.signOut()
-//                    }, label: {
-//
-//                        Text("Sign Out")
-//                            .frame(width: 200, height: 50)
-//                            .foregroundColor(Color.blue)
-//                            .background(Color.red)
-//                            .padding()
-//                    })
-//
-//                }
-//            } else {
-//                    SignInContainerView()
-//            }
+            if signInVM.isSignedIn {
+                VStack {
+                    Text("You are signed in")
+                    Button(action: {
+                        signInVM.signOut()
+                    }, label: {
+
+                        Text("Sign Out")
+                            .frame(width: 200, height: 50)
+                            .foregroundColor(Color.blue)
+                            .background(Color.red)
+                            .padding()
+                    })
+
+                }
+            } else {
+                    SignInContainerView()
+            }
         }
         .onAppear {
             signInVM.signedIn = signInVM.isSignedIn
@@ -132,7 +131,7 @@ struct SignUpContainerView: View {
                         .background(Color(.secondarySystemBackground))
                         .padding()
                     
-                    NavigationLink(destination: HomePageListView() , isActive: $active){
+//                    NavigationLink(destination: HomePageListView() , isActive: $active)
                         Button(action: {
                             // pass in email and password
                             guard !email.isEmpty, !password.isEmpty else {
@@ -148,7 +147,7 @@ struct SignUpContainerView: View {
                                 .cornerRadius(8)
                                 .background(Color.blue)
                         })
-                    }
+                    
                   
                 }
                 .padding()

@@ -1,8 +1,7 @@
-//
-//  Home.swift
+//  HomePageListView.swift
 //  WoofCommunity
 //
-//  Created by Kathleen Diep on 7/18/22.
+//  Created by Kathleen Diep on 7/11/22.
 //
 
 import SwiftUI
@@ -15,10 +14,9 @@ struct HomeView: View {
     }
 }
 
-
 // MARK: - TABS
 // home | explore | profile | signout
-var tabs = ["house.fill", "map.fill", "person.crop.circle.fill", "rectangle.portrait.and.arrow.right.fill"]
+var tabs = ["house.fill", "map.fill", "person.crop.circle.fill"]
 
 struct CustomTabView: View {
     @State var selectedTab = "house.fill"
@@ -61,7 +59,6 @@ struct CustomTabView: View {
     }
 }
 
-
 struct TabButton: View {
     var image: String
     
@@ -73,15 +70,9 @@ struct TabButton: View {
             Image(systemName: "\(image)")
                 .foregroundColor(selectedTab == image ? Color.gray: Color.black)
                 .padding()
-            
-            }
-            
+
         }
     }
-    
-
-struct HomeView_Previews: PreviewProvider {
-    static var previews: some View {
-        Main()
-    }
 }
+
+

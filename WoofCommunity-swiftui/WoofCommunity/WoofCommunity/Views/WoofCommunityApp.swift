@@ -16,8 +16,7 @@ struct WoofCommunityApp: App {
     
     var body: some Scene {
         WindowGroup {
-
-            HomePageListView()
+            HomeView()
                 .environmentObject(viewModel) // <-- question: how can i pass multiple environment object
         }
     }
