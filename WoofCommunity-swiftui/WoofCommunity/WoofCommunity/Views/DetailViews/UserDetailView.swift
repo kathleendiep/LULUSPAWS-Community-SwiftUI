@@ -7,94 +7,49 @@
 
 import SwiftUI
 
-enum Mode {
-  case new
-  case edit
-}
-
-enum Action {
-  case delete
-  case done
-  case cancel
-}
-
 struct UserDetailView: View {
-    // these terms get passed
-    @ObservedObject var userViewModel = UserViewModel()
+
     // Environment Values
-    @Environment(\.presentationMode) private var presentationMode
-    @State var presentActionSheet = false
-    @State var userName: String = ""
-    @State var userPetName: String = ""
-    
-    // Landing Pad
-    var user: User?
-    var mode: Mode = .new
-     var completionHandler: ((Result<Action, Error>) -> Void)?
+    @Environment(\.presentationMode) var presentationMode
+     @State var presentEditUser = false
       
-     var cancelButton: some View {
-       Button(action: { self.handleCancelTapped() }) {
-         Text("Cancel")
-       }
+    // Landing Pad
+    var user: User
+    
+   private func editButton(action: @escaping () -> Void) -> some View {
+     Button(action: { action() }) {
+       Text("Edit")
      }
+   }
     
-    
-    // add item
-    var saveButton: some View {
-      Button(action: { self.handleDoneTapped() }) {
-        Text(mode == .new ? "Done" : "Save")
-      }
-      .disabled(!userViewModel.modified)
-    }
-   
     var body: some View {
         
         NavigationView {
            Form {
              Section(header: Text("User")) {
-                 TextField("User", text: $userViewModel.user.name)
-             }
-              
-             Section(header: Text("Pet")) {
-               TextField("Pet", text: $userViewModel.user.petName)
+                 Text(user.name)
              }
                
-               // clears it
-            
-                   if mode == .edit {
-                       Section {
-
-                           Button(action: {
-                               if let user = user {
-                               userViewModel.deleteData(userToDelete: user)
-                               }
-                           }, label: {
-                               Text("Delete")
-                                   .foregroundColor(Color.red)
-                                 
-                           })
-                           
-                   }
-             }
+           Section(header: Text("Pet Name")) {
+               Text(user.petName)
            }
-           .navigationTitle(mode == .new ? "New User" : userViewModel.user.name)
-           .navigationBarTitleDisplayMode(mode == .new ? .inline : .large)
-           .navigationBarItems(
-             leading: cancelButton,
-             trailing: saveButton // done or save? <- handle save
-           )
-         }
+        // to do: can add a delete button if it's your profile
+           }
+           .navigationBarTitle(user.name)
+              .navigationBarItems(trailing: editButton {
+                self.presentEditUser.toggle()
+              })
+              .sheet(isPresented: self.$presentEditUser) {
+                  UserEditView(userViewModel: UserViewModel(user: user), mode: .edit) { result in
+                  if case .success(let action) = result, action == .delete {
+                    self.presentationMode.wrappedValue.dismiss()
+                  }
+                }
+              }
+            }
     }
 
     // MARK: - Functions
-    func handleCancelTapped() {
-       self.dismiss()
-     }
-    func handleDoneTapped() {
-      self.userViewModel.handleDoneTapped()
-      self.dismiss()
-    }
-    
     func dismiss() {
       self.presentationMode.wrappedValue.dismiss()
     }
@@ -102,61 +57,10 @@ struct UserDetailView: View {
 
 struct UserDetailView_Previews: PreviewProvider {
     static var previews: some View {
-            let user = User(id: "TestID", name: "TestUser", petName: "TestPetName")
-            let userVM = UserViewModel(user: user)
-            return UserDetailView(userViewModel: userVM, mode: .edit)
+        let user = User(id: "1", name: "Kathleen", petName: "Louis")
+        
+        return NavigationView {
+            UserDetailView(user:user)
+        }
     }
 }
-
-struct saveButton: View {
-    
-    @ObservedObject var userViewModel = UserViewModel()
-    
-    var user: User
-    var body: some View {
-        Button(action: {
-            // Call add data
-            userViewModel.updateData(user)
-            
-        }, label: {
-            Text("save")
-        })
-    }
-    
-}
-
-
-//
-//struct UserDetails: View {
-//    @ObservedObject var userViewModel = UserViewModel()
-//
-//    var user: User
-//
-//    var body: some View {
-//        HStack {
-//
-//            Text(user.name)
-//            Text(user.petName)
-//
-//
-//            Button(action: {
-//                userViewModel.updateData(userToUpdate: user, name: userName, petName: userPetName)
-//            }) {
-//                Image(systemName: "square")
-//            }
-//
-//
-//        }
-//    }
-//}
-//
-// MARK: - FUNCTIONS
-//func prepareForUpdate() {
-//    let name = userName
-//    let petName = userPetName
-//    
-//    guard !name.isEmpty, !petName.isEmpty else { return }
-//          if let user = user {
-//              userViewModel.updateData(userToUpdate: user, name: name, petName: petName)
-//          }
-//}

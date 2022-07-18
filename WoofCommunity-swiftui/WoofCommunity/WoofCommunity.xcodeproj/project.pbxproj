@@ -10,6 +10,7 @@
 		173221C85682704D6C1ECC16 /* Pods_WoofCommunity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AE26C821AE8E16F9B9C0ADE /* Pods_WoofCommunity.framework */; };
 		810AD2AB28809C9E0046B8A2 /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810AD2AA28809C9E0046B8A2 /* AuthenticationService.swift */; };
 		810AD2AD28809F510046B8A2 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810AD2AC28809F510046B8A2 /* SignInView.swift */; };
+		8181AECF288206EF001B6D43 /* UserEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8181AECE288206EF001B6D43 /* UserEditView.swift */; };
 		8198FCEC2880F4820033421C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8198FCEB2880F4820033421C /* Extensions.swift */; };
 		8198FCF02880FCD50033421C /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8198FCEF2880FCD50033421C /* Storage.swift */; };
 		81AFA1EF287CCC620099D8FB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81AFA1EE287CCC620099D8FB /* User.swift */; };
@@ -28,6 +29,7 @@
 		72F8370D0B69E11C4AFE00C4 /* Pods-WoofCommunity.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WoofCommunity.release.xcconfig"; path = "Target Support Files/Pods-WoofCommunity/Pods-WoofCommunity.release.xcconfig"; sourceTree = "<group>"; };
 		810AD2AA28809C9E0046B8A2 /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
 		810AD2AC28809F510046B8A2 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		8181AECE288206EF001B6D43 /* UserEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEditView.swift; sourceTree = "<group>"; };
 		8198FCEB2880F4820033421C /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		8198FCEF2880FCD50033421C /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		81AFA1EE287CCC620099D8FB /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				81B57357287E5B2E00F04ABC /* UserDetailView.swift */,
+				8181AECE288206EF001B6D43 /* UserEditView.swift */,
 			);
 			path = DetailViews;
 			sourceTree = "<group>";
@@ -293,6 +296,7 @@
 				81FB5D852878BB0400230D75 /* WoofCommunityApp.swift in Sources */,
 				81AFA235287E1DC50099D8FB /* UserViewModel.swift in Sources */,
 				81AFA1EF287CCC620099D8FB /* User.swift in Sources */,
+				8181AECF288206EF001B6D43 /* UserEditView.swift in Sources */,
 				8198FCEC2880F4820033421C /* Extensions.swift in Sources */,
 				810AD2AB28809C9E0046B8A2 /* AuthenticationService.swift in Sources */,
 				810AD2AD28809F510046B8A2 /* SignInView.swift in Sources */,

@@ -141,6 +141,10 @@ class UserViewModel: ObservableObject {
             }
         }
     }
+    
+    func handleDeleteTapped() {
+      self.deleteData(userToDelete: user)
+    }
 }
 
 // MARK: FIREBASE NOTES
