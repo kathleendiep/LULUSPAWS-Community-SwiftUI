@@ -11,7 +11,8 @@ struct Main: View {
     // Should i change this to environment
     @ObservedObject var viewModel = UserViewModel()
     
-    @EnvironmentObject var signInVM: SignInViewModel
+    @ObservedObject var signInVM = SignInViewModel()
+//    @EnvironmentObject var signInVM: SignInViewModel
     
     // Landing Pad
     var user: User?
@@ -33,14 +34,13 @@ struct Main: View {
     var body: some View {
         NavigationView {
             VStack {
-                    // todo: if signed in, display logout
                 
-                if !signInVM.isSignedIn {
+                if !signInVM.signedIn {
                     VStack {
                         NavigationLink {
-                            SignInView()
+                            SignUpView()
                         } label: {
-                            Text("Sign in")
+                            Text("Sign Up")
                                 .foregroundColor(Color.black)
                                 .background(.orange).frame(width: 300, height: 50)
                             
@@ -57,11 +57,7 @@ struct Main: View {
                     Image(systemName: "pawprint.circle.fill")
                         .resizable()
                 }
-              
-                
-                
-                
-                
+
                 List {
                     ForEach (viewModel.users) { user in
                         userRowView(user: user)

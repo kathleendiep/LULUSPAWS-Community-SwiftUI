@@ -7,6 +7,24 @@
 
 import SwiftUI
 
+/*
+ USER MODEL:
+ name
+ profile pic
+  var profilePic : PHAsset // asset -> jpg
+ 
+ pet names
+ 
+ pet picture
+ 
+ uuid
+ bio
+ location
+ longitude/latitude - using firebase
+
+ 
+ 
+ */
 struct Profile: View {
     var body: some View {
         Text("Profile")

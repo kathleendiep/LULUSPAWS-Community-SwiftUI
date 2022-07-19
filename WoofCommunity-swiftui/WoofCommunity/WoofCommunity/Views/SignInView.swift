@@ -96,7 +96,12 @@ struct SignInContainerView: View {
                             .background(Color.blue)
                     })
                     
-                    NavigationLink("Create an account", destination: SignUpContainerView())
+                    NavigationLink {
+                        SignUpView()
+                    } label: {
+                        Text("Sign up")
+                            .foregroundColor(Color.black)
+                    }
                     
                 }
                 .padding()
@@ -104,57 +109,6 @@ struct SignInContainerView: View {
                 Spacer()
             }
             .navigationTitle("sign in")
-        }
-    }
-
-
-struct SignUpContainerView: View {
-    
-    @State var email = ""
-    @State var password = ""
-    @State var active = true
-    
-    @ObservedObject var signInVM = SignInViewModel()
- 
-    var body: some View {
-            VStack {
-                // enter logo here
-                Image(systemName: "square")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 100, height: 150)
-                VStack {
-                    TextField("Email Address", text: $email)
-                        .background(Color(.secondarySystemBackground))
-                        .padding()
-                    SecureField("Password", text: $password)
-                        .background(Color(.secondarySystemBackground))
-                        .padding()
-                    
-//                    NavigationLink(destination: HomePageListView() , isActive: $active)
-                        Button(action: {
-                            // pass in email and password
-                            guard !email.isEmpty, !password.isEmpty else {
-                                return
-                            }
-                            
-                            signInVM.signUp(email: email, password: password)
-                            
-                        }, label: {
-                            Text("Create")
-                                .foregroundColor(Color.white)
-                                .frame(width: 200, height: 50)
-                                .cornerRadius(8)
-                                .background(Color.blue)
-                        })
-                    
-                  
-                }
-                .padding()
-                
-                Spacer()
-            }
-            .navigationTitle("Create an account")
         }
     }
 
