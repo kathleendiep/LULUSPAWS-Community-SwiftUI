@@ -9,12 +9,21 @@ import SwiftUI
 
 struct ContextView: View {
     
-    @EnvironmentObject var viewModel: UserViewModel
+    @EnvironmentObject var session: SessionStore
     
+    // Listen for session.user
+    func listen(){
+        session.listen()
+    }
     var body: some View {
-        VStack{
-            HomeView()
-        }
+        
+        Group{
+            if(session.session != nil) {
+                HomeView()
+            } else {
+                SignInView()
+            }
+        }.onAppear(perform: listen)
     }
 }
 

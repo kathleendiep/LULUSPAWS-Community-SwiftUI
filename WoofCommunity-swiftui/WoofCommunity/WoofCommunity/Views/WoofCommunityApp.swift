@@ -10,8 +10,6 @@ import FirebaseStorage
 @main
 struct WoofCommunityApp: App {
     
-    @StateObject var viewModel = UserViewModel()
-    
     // add Firebase
     init() {
         FirebaseApp.configure()
@@ -20,7 +18,7 @@ struct WoofCommunityApp: App {
     var body: some Scene {
         WindowGroup {
             ContextView()
-                .environmentObject(viewModel) // <-- question: how can i pass multiple environment object
+                .environmentObject(SessionStore()) // <-- question: how can i pass multiple environment object
         }
     }
 }

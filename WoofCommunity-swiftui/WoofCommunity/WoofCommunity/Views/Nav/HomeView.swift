@@ -7,8 +7,20 @@
 import SwiftUI
 
 struct HomeView: View {
+    
+    @EnvironmentObject var session: SessionStore
+    
     var body: some View {
         VStack {
+            Button(action: session.logout) {
+                Text("Sign Out")
+                    .font(.title)
+                    .modifier(ButtonModifiers())
+            }
+//            .alert(isPresented: $showingAlert) {
+//                Alert(title: Text(alertTitle), message: Text(error), dismissButton: .default(Text("OK")))
+//            }
+            
             CustomTabView()
         }
     }

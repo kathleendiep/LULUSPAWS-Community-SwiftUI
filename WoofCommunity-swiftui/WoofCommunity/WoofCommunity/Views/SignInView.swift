@@ -9,12 +9,12 @@ import FirebaseAuth
 
 // MARK: SignInView
 struct SignInView: View {
-
+    
     // @EnvironmentObject var signInVM: SignInViewModel
     @ObservedObject var signInVM = SignInViewModel()
     
     var isPreview: Bool = false
-
+    
     init(isPreview: Bool=false) {
         if !isPreview {
             signInVM = SignInViewModel()
@@ -23,32 +23,38 @@ struct SignInView: View {
     
     var body: some View {
         NavigationView {
-            
-            if signInVM.isSignedIn {
-                VStack {
-                    Text("You are signed in")
-                    Button(action: {
-                        signInVM.signOut()
-                    }, label: {
-
-                        Text("Sign Out")
-                            .frame(width: 200, height: 50)
-                            .foregroundColor(Color.blue)
-                            .background(Color.red)
-                            .padding()
-                    })
-
-                }
-            } else {
-                    SignInContainerView()
+            VStack {
+                SignInContainerView()
             }
+            
+            
+            //            if SignInViewModel.isSignedIn {
+            //                VStack {
+            //                    Text("You are signed in")
+            //                    Button(action: {
+            //                        SignInViewModel.signOut()
+            //                    }, label: {
+            //
+            //                        Text("Sign Out")
+            //                            .frame(width: 200, height: 50)
+            //                            .foregroundColor(Color.blue)
+            //                            .background(Color.red)
+            //                            .padding()
+            //                    })
+            //
+            //                }
+            //            } else {
+            //                    SignInContainerView()
+            //            }
+            //        }
+            //        .onAppear {
+            //            signInVM.signedIn = signInVM.isSignedIn
+            //        }
         }
-        .onAppear {
-            signInVM.signedIn = signInVM.isSignedIn
-        }
+        
     }
-    
 }
+
 
 struct SignInView_Previews: PreviewProvider {
     static var previews: some View {
@@ -59,63 +65,57 @@ struct SignInView_Previews: PreviewProvider {
 // MARK: - Views
 struct SignInContainerView: View {
     
-    @State var email = ""
-    @State var password = ""
+    @State var email: String = ""
+    @State var password: String = ""
     
-    @ObservedObject var signInVM = SignInViewModel()
-        
+    @State private var error:String = ""
+    @State private var showingAlert = false
+    @State private var alertTitle: String = "Oh no!"
+    
     var body: some View {
+        VStack {
+            Image(systemName: "square")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 100, height: 150)
             VStack {
-                Image(systemName: "square")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 100, height: 150)
-                VStack {
-                    TextField("Email Address", text: $email)
-                        .disableAutocorrection(true)
-                        .autocapitalization(.none)
-                        .background(Color(.secondarySystemBackground))
-                        .padding()
-                    SecureField("Email Address", text: $password)
-                        .disableAutocorrection(true)
-                        .autocapitalization(.none)
-                        .background(Color(.secondarySystemBackground))
-                        .padding()
-                    
-                    Button(action: {
-                        // pass in email and password
-                        guard !email.isEmpty, !password.isEmpty else {
-                            return
-                        }
-                        
-                        signInVM.signIn(email: email, password: password)
-                    }, label: {
-                        Text("Sign in")
-                            .foregroundColor(Color.white)
-                            .frame(width: 200, height: 50)
-                            .cornerRadius(8)
-                            .background(Color.blue)
-                    })
-                    
-                    NavigationLink {
-                        SignUpView()
-                    } label: {
-                        Text("Sign up")
-                            .foregroundColor(Color.black)
-                    }
-                    
+                TextField("Email Address", text: $email)
+                    .disableAutocorrection(true)
+                    .autocapitalization(.none)
+                    .background(Color(.secondarySystemBackground))
+                    .padding()
+                SecureField("Email Address", text: $password)
+                    .disableAutocorrection(true)
+                    .autocapitalization(.none)
+                    .background(Color(.secondarySystemBackground))
+                    .padding()
+                Button(action: signIn) {
+                    Text("Sign In")
+                        .font(.title)
+                        .modifier(ButtonModifiers())
+                }.alert(isPresented: $showingAlert) {
+                    Alert(title: Text(alertTitle), message: Text(error), dismissButton: .default(Text("OK")))
                 }
-                .padding()
                 
-                Spacer()
+                NavigationLink {
+                    SignUpView()
+                } label: {
+                    Text("Sign up")
+                        .foregroundColor(Color.black)
+                }
+                
             }
-            .navigationTitle("sign in")
+            .padding()
+            
+            Spacer()
         }
+        .navigationTitle("sign in")
+    }
     
-    // MARK: - Functions
     func errorCheck() -> String? {
-        if email.trimmingCharacters(in: .whitespaces).isEmpty || password.trimmingCharacters(in: .whitespaces).isEmpty {
-            return "Please fill out info"
+        if email.trimmingCharacters(in: .whitespaces).isEmpty || password.trimmingCharacters(in: .whitespaces).isEmpty
+        {
+            return "Please fill out info and provide image"
         }
         return nil
     }
@@ -125,14 +125,24 @@ struct SignInContainerView: View {
         self.password = ""
     }
     
-//    
-//    func signIn() {
-//        if let error = errorCheck() {
-//            self.error = error
-//            self.showingAlert = true
-//            self.clear()
-//            return
-//        }
-//    }
+    func signIn() {
+        if let error = errorCheck() {
+            self.error = error
+            self.showingAlert = true
+            return
+        }
+        
+        SignInViewModel.signIn(email: email, password: password, onSuccess: {
+            (user) in
+            self.clear()
+        }) {
+            (errorMessage) in
+            print("Error \(errorMessage)")
+            self.error = errorMessage
+            self.showingAlert = true
+            return
+        }
     }
+    
+}
 

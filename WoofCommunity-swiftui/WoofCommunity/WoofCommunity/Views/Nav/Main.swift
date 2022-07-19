@@ -7,13 +7,9 @@
 import SwiftUI
 
 struct Main: View {
-    
-    // Should i change this to environment
-    @ObservedObject var viewModel = UserViewModel()
-    
+
     @ObservedObject var signInVM = SignInViewModel()
-//    @EnvironmentObject var signInVM: SignInViewModel
-    
+
     // Landing Pad
     var user: User?
     
@@ -22,9 +18,9 @@ struct Main: View {
             VStack(alignment: .leading) {
                 HStack {
                     VStack(alignment: .leading) {
-                        Text(user.name)
+                        Text(user.username)
                             .fontWeight(.bold)
-                        Text(user.petName)
+                        Text(user.bio)
                     }
                 }
             }
@@ -35,38 +31,8 @@ struct Main: View {
         NavigationView {
     
             VStack {
-                
-                if !signInVM.signedIn {
-                    VStack {
-                        NavigationLink {
-                            SignUpView()
-                        } label: {
-                            Text("Sign Up")
-                                .foregroundColor(Color.black)
-                                .background(.orange).frame(width: 300, height: 50)
-                            
-                        }
-                        
-                        NavigationLink {
-                            SignInView()
-                        } label: {
-                            Text("Sign in")
-                                .foregroundColor(Color.black)
-                        }
-                    }
-                } else {
-                    Image(systemName: "pawprint.circle.fill")
-                        .resizable()
-                }
-
-                List {
-                    ForEach (viewModel.users) { user in
-                        userRowView(user: user)
-                    }
-                }
-                
-                Divider()
-                CustomTabView()
+                Text("check out some furiends")
+         
             }
             .navigationTitle("Woof Community 🦴🏡")
             // MARK: - icon: sign in? or sign out
@@ -75,7 +41,7 @@ struct Main: View {
                     NavigationLink {
                         SignInView()
                     } label: {
-                        if signInVM.isSignedIn {
+                        if SignInViewModel.isSignedIn {
                             Image(systemName: "rectangle.portrait.and.arrow.right.fill")
                         } else {
                             Image(systemName: "person.crop.circle.fill")
@@ -83,9 +49,11 @@ struct Main: View {
                 }
             }
                 }
-            .onAppear() {
-                self.viewModel.getData()
-            }
+//            .onAppear() {
+//                 let sampleUser = User(id: "", email: "", profileImageUrl: "", username: "", bio: "")
+//                SignInViewModel.getUserId( (user != nil) ? user : sampleUser)
+////                SignInViewModel.getUserId(userId: user.id)
+//            }
         
         }
     } // end of body
@@ -93,7 +61,7 @@ struct Main: View {
 
 struct Main_Previews: PreviewProvider {
     static var previews: some View {
-        let user = User(id: "1", name: "Kathleen", petName: "Louis")
-        Main(user: user)
+//        let user = User(id: "", email: "", profileImageUrl: "", username: "", bio: "")
+        Main()
     }
 }

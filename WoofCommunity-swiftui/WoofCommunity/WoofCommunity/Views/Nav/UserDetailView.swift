@@ -27,25 +27,25 @@ struct UserDetailView: View {
         NavigationView {
            Form {
              Section(header: Text("User")) {
-                 Text(user.name)
+                 Text(user.username)
              }
                
            Section(header: Text("Pet Name")) {
-               Text(user.petName)
+               Text(user.profileImageUrl)
            }
         // to do: can add a delete button if it's your profile
            }
-           .navigationBarTitle(user.name)
+           .navigationBarTitle(user.username)
               .navigationBarItems(trailing: editButton {
                 self.presentEditUser.toggle()
               })
-              .sheet(isPresented: self.$presentEditUser) {
-                  UserEditView(userViewModel: UserViewModel(user: user), mode: .edit) { result in
-                  if case .success(let action) = result, action == .delete {
-                    self.presentationMode.wrappedValue.dismiss()
-                  }
-                }
-              }
+//              .sheet(isPresented: self.$presentEditUser) {
+//                  UserEditView(userViewModel: UserViewModel(user: user), mode: .edit) { result in
+//                  if case .success(let action) = result, action == .delete {
+//                    self.presentationMode.wrappedValue.dismiss()
+//                  }
+//                }
+//              }
             }
     }
 
@@ -57,7 +57,7 @@ struct UserDetailView: View {
 
 struct UserDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        let user = User(id: "1", name: "Kathleen", petName: "Louis")
+        let user = User(email: "email", profileImageUrl: "img", username: "username", bio: "about me")
         
         return NavigationView {
             UserDetailView(user:user)

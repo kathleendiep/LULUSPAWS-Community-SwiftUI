@@ -23,7 +23,7 @@
 //
 //    private var cancellables = Set<AnyCancellable>()
 //     
-//    init(user: User = User(id: "", name: "", petName: "")) {
+//    init(user: User = User(id: "", email: "", profileImageUrl: "", username: "", bio: "")) {
 //    self.user = user
 //     
 //    self.$user
@@ -81,7 +81,7 @@
 //                        self.users = snapshot.documents.map{ d in
 //                            
 //                            // Create a User item for each document
-//                            return User(id: d.documentID,
+//                            return User(from: <#Decoder#>, id: d.documentID,
 //                                        name: d["name"] as? String ?? "" ,
 //                                        petName: d["petName"] as? String ?? "" )
 //                        }

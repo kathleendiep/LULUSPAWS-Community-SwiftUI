@@ -14,6 +14,7 @@ class SessionStore: ObservableObject {
     
     // MARK: - Properties
     var didChange = PassthroughSubject<SessionStore, Never>()
+    // see if user changed
     @Published var session: User? {didSet{self.didChange.send(self)} }
     var handle: AuthStateDidChangeListenerHandle?
     
@@ -23,7 +24,7 @@ class SessionStore: ObservableObject {
             
             if let user = user{
                 
-                let firestoreUserId = SignInViewModel.getUserId(userId: user.uid)
+                let firestoreUserId = SignInViewModel.getUserId( user.uid)
                 
                 firestoreUserId.getDocument{
                     (document, error) in

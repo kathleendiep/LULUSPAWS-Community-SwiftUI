@@ -34,8 +34,9 @@ struct SignUpContainerView: View {
     @State var showingImagePicker = false
     @State var imageData: Data = Data()
     @State var sourceType: UIImagePickerController.SourceType = .photoLibrary
-    
-    @ObservedObject var signInVM = SignInViewModel()
+    @State private var error:String = ""
+    @State private var showingAlert = false
+    @State private var alertTitle: String = "Oh no!"
     
     // MARK: - Functions
     
@@ -43,6 +44,40 @@ struct SignUpContainerView: View {
         guard let inputImage = pickedImage else { return }
         
         profileImage = inputImage
+    }
+    
+    func errorCheck() -> String? {
+        if email.trimmingCharacters(in: .whitespaces).isEmpty || password.trimmingCharacters(in: .whitespaces).isEmpty ||
+            username.trimmingCharacters(in: .whitespaces).isEmpty || imageData.isEmpty {
+            
+            return "Please fill out info and provide image"
+        }
+        return nil
+    }
+    
+    func clear(){
+        self.email = ""
+        self.username = ""
+        self.password = ""
+    }
+    
+    func signUp() {
+        if let error = errorCheck() {
+            self.error = error
+            self.showingAlert = true
+            return
+        }
+        
+        SignInViewModel.signUp(username: username, email: email, password:password, imageData: imageData, onSuccess: {
+            (user) in
+            self.clear()
+        }) {
+            (errorMessage) in
+            print("Error \(errorMessage)")
+            self.error = errorMessage
+            self.showingAlert = true
+            return
+        }
     }
     
     var body: some View {
@@ -93,19 +128,27 @@ struct SignUpContainerView: View {
                     
                     FormField(value: $password, icon: "key", placeholder: "password", isSecure: true)
                     
-                    Button(action: {
-                        // pass in email and password
-                        guard !email.isEmpty, !password.isEmpty else {
-                            return
-                        }
-                        
-                        signInVM.signUp(email: email, password: password)
-                        
-                    }, label: {
+//                    Button(action: {
+//                        // pass in email and password
+//                        guard !email.isEmpty, !password.isEmpty else {
+//                            return
+//                        }
+//
+//                        signInVM.signUp(email: email, password: password, username: username, )
+//
+//                    }, label: {
+//                        Text("Create")
+//                            .font(.title)
+//                            .modifier(ButtonModifiers())
+//                    })
+                    
+                    Button(action: signUp) {
                         Text("Create")
                             .font(.title)
                             .modifier(ButtonModifiers())
-                    })
+                    }.alert(isPresented: $showingAlert) {
+                        Alert(title: Text(alertTitle), message: Text(error), dismissButton: .default(Text("OK")))
+                    }
 
                 }
                 .padding()

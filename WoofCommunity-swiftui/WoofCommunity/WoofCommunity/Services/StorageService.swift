@@ -12,6 +12,7 @@ import FirebaseStorage
 
 // adds to storage
 class StorageService {
+
     static var storage = Storage.storage()
     
     static var storageRoot = storage.reference(forURL: "gs://woofcommunity-45000.appspot.com/profile")
@@ -51,7 +52,7 @@ class StorageService {
                         }
                     }
                     
-                    let firestoreUserId = SignInViewModel.getUserId(userId: userId)
+                    let firestoreUserId = SignInViewModel.getUserId(userId)
                     // match these to variables to the above ones
                     let user = User.init(id: userId, email: email, profileImageUrl: metaImageUrl, username: username, bio: "")
                     
