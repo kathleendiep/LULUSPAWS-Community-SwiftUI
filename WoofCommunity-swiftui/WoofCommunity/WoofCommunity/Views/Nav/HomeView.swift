@@ -17,6 +17,7 @@ struct HomeView: View {
                     .font(.title)
                     .modifier(ButtonModifiers())
             }
+            // to do: alert for when they sign out
 //            .alert(isPresented: $showingAlert) {
 //                Alert(title: Text(alertTitle), message: Text(error), dismissButton: .default(Text("OK")))
 //            }
