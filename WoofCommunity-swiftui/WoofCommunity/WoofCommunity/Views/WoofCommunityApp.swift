@@ -2,13 +2,15 @@
 //
 
 import SwiftUI
-import FirebaseCore
+import Firebase
 import FirebaseFirestore
 import FirebaseAuth
 import FirebaseStorage
 
 @main
 struct WoofCommunityApp: App {
+    
+    @StateObject var session = SessionStore()
     
     // add Firebase
     init() {
@@ -17,8 +19,8 @@ struct WoofCommunityApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContextView()
-                .environmentObject(SessionStore()) // <-- question: how can i pass multiple environment object
+            ContentView()
+                .environmentObject(session)
         }
     }
 }

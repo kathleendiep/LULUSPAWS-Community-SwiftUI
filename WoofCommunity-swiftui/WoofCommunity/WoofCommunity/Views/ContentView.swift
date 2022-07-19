@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContextView: View {
+struct ContentView: View {
     
     @EnvironmentObject var session: SessionStore
     
@@ -27,8 +27,8 @@ struct ContextView: View {
     }
 }
 
-struct ContextView_Previews: PreviewProvider {
+struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContextView()
+        ContentView()
     }
 }
