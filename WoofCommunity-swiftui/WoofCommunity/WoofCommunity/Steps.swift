@@ -1,9 +1,3 @@
-//
-//  Storage.swift
-//  WoofCommunity
-//
-//  Created by Kathleen Diep on 7/14/22.
-//
 /*
  
  Questions:
@@ -11,8 +5,14 @@
  
  plan:
  1. have user login
+ - SignInVM
+ - Goes to storage
  
  2. model: make a profile
+ - UserVM
+ - Goes to collection users
+ 
+ 
  - username
  - name
  - pet name
@@ -34,16 +34,3 @@
  
  - how do I get storage
  */
-import Foundation
-
-
-//import FirebaseAuth
-//import FirebaseStorage  
-//
-//
-//class StorageService {
-//    static var storage = Storage.storage()
-//    
-//    static var storageRoot = storage.reference(forURL: "gs://woofcommunity-45000.appspot.com/profile")
-//}
-//

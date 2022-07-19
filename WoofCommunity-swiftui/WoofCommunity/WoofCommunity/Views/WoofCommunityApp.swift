@@ -3,6 +3,9 @@
 
 import SwiftUI
 import FirebaseCore
+import FirebaseFirestore
+import FirebaseAuth
+import FirebaseStorage
 
 @main
 struct WoofCommunityApp: App {
@@ -16,7 +19,7 @@ struct WoofCommunityApp: App {
     
     var body: some Scene {
         WindowGroup {
-            Main()
+            ContextView()
                 .environmentObject(viewModel) // <-- question: how can i pass multiple environment object
         }
     }

@@ -3,7 +3,7 @@
 //  WoofCommunity
 //
 
-import Foundation
+
 import SwiftUI
 import FirebaseAuth
 
@@ -47,6 +47,7 @@ struct SignInView: View {
             signInVM.signedIn = signInVM.isSignedIn
         }
     }
+    
 }
 
 struct SignInView_Previews: PreviewProvider {
@@ -110,5 +111,28 @@ struct SignInContainerView: View {
             }
             .navigationTitle("sign in")
         }
+    
+    // MARK: - Functions
+    func errorCheck() -> String? {
+        if email.trimmingCharacters(in: .whitespaces).isEmpty || password.trimmingCharacters(in: .whitespaces).isEmpty {
+            return "Please fill out info"
+        }
+        return nil
+    }
+    
+    func clear(){
+        self.email = ""
+        self.password = ""
+    }
+    
+//    
+//    func signIn() {
+//        if let error = errorCheck() {
+//            self.error = error
+//            self.showingAlert = true
+//            self.clear()
+//            return
+//        }
+//    }
     }
 

@@ -1,21 +1,13 @@
 //
-//  User.swift
+//  UserProfile.swift
 //  WoofCommunity
 //
-//  Created by Kathleen Diep on 7/11/22.
+//  Created by Kathleen Diep on 7/19/22.
 //
 
 import Foundation
-/*
-- create Views
-- create ViewModel
- - create Utilities - Storage
-    - adding photo, email, username
- 
- */
-
 // Collection: Identifiable
-struct User: Identifiable, Encodable, Decodable {
+struct UserProfile: Identifiable, Encodable {
     
     // label: type
     // set the value in the DB
@@ -28,9 +20,15 @@ struct User: Identifiable, Encodable, Decodable {
     var bio: String
 
     // MARK: - Location
+    
+//    - username
+//    - name
+//    - pet name
+//    - humanProfilePic
+//    - dogProfilepic
+//    - email (but hidden)
+//    - location 
+
 
 }
-
-
-
 

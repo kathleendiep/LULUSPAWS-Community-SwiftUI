@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+// enter MAPKIT
+
 struct Explore: View {
     var body: some View {
         VStack {

@@ -33,6 +33,7 @@ struct Main: View {
     
     var body: some View {
         NavigationView {
+    
             VStack {
                 
                 if !signInVM.signedIn {
@@ -85,6 +86,7 @@ struct Main: View {
             .onAppear() {
                 self.viewModel.getData()
             }
+        
         }
     } // end of body
 }

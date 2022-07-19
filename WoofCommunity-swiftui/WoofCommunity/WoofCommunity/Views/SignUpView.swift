@@ -52,16 +52,18 @@ struct SignUpContainerView: View {
                 
                 // WELCOME
                 VStack(alignment: .center) {
-                    Image(systemName: "square")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 100, height: 150)
+//                    Image(systemName: "square")
+//                        .resizable()
+//                        .scaledToFit()
+//                        .frame(width: 100, height: 150)
                     Text("Welcome").font(.system(size: 32, weight: .heavy))
                     Text("Sign up to start!").font(.system(size: 16, weight: .bold))
                 }
                 
                 // PROFILE PHOTO
                 VStack(spacing: 5){
+                    Text("Profile photo")
+                        .font(.subheadline)
                     if profileImage != nil {
                         profileImage!.resizable()
                             .clipShape(Circle())
@@ -85,17 +87,11 @@ struct SignUpContainerView: View {
                 // FIELDS
                 VStack{
                     // todo: make it unique
-
-                    FormField(value: $username, icon: "person.crop.circle.fill", placeholder: "password", isSecure: true)
-//                    TextField("Username", text: $username)
-//                        .background(Color(.secondarySystemBackground))
-//                        .padding()
-                    TextField("Email Address", text: $email)
-                        .background(Color(.secondarySystemBackground))
-                        .padding()
-                    SecureField("Password", text: $password)
-                        .background(Color(.secondarySystemBackground))
-                        .padding()
+                    FormField(value: $username, icon: "person.crop.circle.fill", placeholder: "username")
+                    
+                    FormField(value: $email, icon: "mail", placeholder: "email")
+                    
+                    FormField(value: $password, icon: "key", placeholder: "password", isSecure: true)
                     
                     Button(action: {
                         // pass in email and password
