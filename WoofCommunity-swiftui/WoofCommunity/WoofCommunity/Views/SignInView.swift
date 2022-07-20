@@ -68,7 +68,7 @@ struct SignInContainerView: View {
     @State var email: String = ""
     @State var password: String = ""
     
-    @State private var error:String = ""
+    @State private var error: String = ""
     @State private var showingAlert = false
     @State private var alertTitle: String = "Oh no!"
     

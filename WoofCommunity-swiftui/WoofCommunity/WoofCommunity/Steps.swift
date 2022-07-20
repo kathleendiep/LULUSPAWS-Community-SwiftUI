@@ -1,13 +1,16 @@
 /*
  
- 
+ - move logout page elsewhere
  - add more fields to user
  - load data
  - profile
  
+ 
+ 
  STRETCH
  - how to add multiple pics
  - post
+ -
  
  
  Questions:
