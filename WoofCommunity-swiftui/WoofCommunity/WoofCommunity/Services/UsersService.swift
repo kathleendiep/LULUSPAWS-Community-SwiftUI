@@ -13,8 +13,7 @@ import FirebaseStorage
 import FirebaseFirestoreSwift
 
 class UsersService: ObservableObject{
-    
-    
+
     @Published var users: [User] = []
     @Published var isLoading = false
     

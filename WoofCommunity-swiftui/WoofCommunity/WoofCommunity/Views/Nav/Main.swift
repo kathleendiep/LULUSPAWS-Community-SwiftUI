@@ -9,8 +9,7 @@ import FirebaseAuth
 
 struct Main: View {
     
-    @StateObject var usersService = UsersService()
-    //    var user: User?
+    @ObservedObject var signInVM = SignInViewModel()
     
     var body: some View {
         ScrollView{
@@ -19,7 +18,7 @@ struct Main: View {
             List {
                 Section("My Entries") {
                     // if it has users
-                    ForEach(usersService.users) {
+                    ForEach(signInVM.users) {
                         user in
 //                        print(user)
                         Text("users go here")
@@ -33,15 +32,8 @@ struct Main: View {
             }
         }
         .navigationTitle("Woof Community 🦴🏡")
-        .onAppear() {
-            setupViews()
-        }
+
     }
-    
-    func setupViews() {
-        usersService.getAllUsers()
-    }
-    
 }
 
 struct Main_Previews: PreviewProvider {
