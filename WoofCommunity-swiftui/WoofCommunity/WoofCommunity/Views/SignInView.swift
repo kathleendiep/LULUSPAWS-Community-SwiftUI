@@ -68,7 +68,7 @@ struct SignInContainerView: View {
     @State var email: String = ""
     @State var password: String = ""
     
-    @State private var error: String = ""
+    @State private var error:String = ""
     @State private var showingAlert = false
     @State private var alertTitle: String = "Oh no!"
     
@@ -84,19 +84,24 @@ struct SignInContainerView: View {
                     .autocapitalization(.none)
                     .background(Color(.secondarySystemBackground))
                     .padding()
-                SecureField("Email Address", text: $password)
+                SecureField("Password", text: $password)
                     .disableAutocorrection(true)
                     .autocapitalization(.none)
                     .background(Color(.secondarySystemBackground))
                     .padding()
-                Button(action: signIn) {
-                    Text("Sign In")
-                        .font(.title)
-                        .modifier(ButtonModifiers())
-                }.alert(isPresented: $showingAlert) {
-                    Alert(title: Text(alertTitle), message: Text(error), dismissButton: .default(Text("OK")))
-                }
                 
+                // LINKS
+                NavigationLink {
+                    HomeView()
+                } label: {
+                    Button(action: signIn) {
+                        Text("Sign In")
+                            .font(.title)
+                            .modifier(ButtonModifiers())
+                    }.alert(isPresented: $showingAlert) {
+                        Alert(title: Text(alertTitle), message: Text(error), dismissButton: .default(Text("OK")))
+                    }
+                }
                 NavigationLink {
                     SignUpView()
                 } label: {
@@ -135,6 +140,7 @@ struct SignInContainerView: View {
         SignInViewModel.signIn(email: email, password: password, onSuccess: {
             (user) in
             self.clear()
+            
         }) {
             (errorMessage) in
             print("Error \(errorMessage)")

@@ -87,10 +87,6 @@ struct SignUpContainerView: View {
                 
                 // WELCOME
                 VStack(alignment: .center) {
-//                    Image(systemName: "square")
-//                        .resizable()
-//                        .scaledToFit()
-//                        .frame(width: 100, height: 150)
                     Text("Welcome").font(.system(size: 32, weight: .heavy))
                     Text("Sign up to start!").font(.system(size: 16, weight: .bold))
                 }
@@ -107,6 +103,8 @@ struct SignUpContainerView: View {
                             .onTapGesture{
                                 self.showingActionSheet = true
                             }
+                        Text("pick a photo!")
+                            .font(.caption)
                     } else {
                         Image(systemName: "person.circle.fill")
                             .resizable()
@@ -141,7 +139,9 @@ struct SignUpContainerView: View {
 //                            .font(.title)
 //                            .modifier(ButtonModifiers())
 //                    })
-                    
+                    NavigationLink {
+                        Profile()
+                    } label: {
                     Button(action: signUp) {
                         Text("Create")
                             .font(.title)
@@ -149,7 +149,6 @@ struct SignUpContainerView: View {
                     }.alert(isPresented: $showingAlert) {
                         Alert(title: Text(alertTitle), message: Text(error), dismissButton: .default(Text("OK")))
                     }
-
                 }
                 .padding()
                 
