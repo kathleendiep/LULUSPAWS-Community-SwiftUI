@@ -32,14 +32,14 @@ class UsersService: ObservableObject{
     func fetchUsers(userId: String, onSuccess: @escaping(_ users: [User]) -> Void ) {
         
         // fetch id of users
-        UsersService.UsersProfileId(userId: userId).collection("users").getDocuments{
+        UsersService.UsersProfileId(userId: userId).collection("users").getDocuments{ [self]
             (snapshot, error) in
             guard let snap = snapshot else {
                 print("Error")
                 return
             }
             
-            var users = [User]()
+//            var users = [User]()
             
             for doc in snap.documents {
                 let dict = doc.data()
@@ -49,10 +49,10 @@ class UsersService: ObservableObject{
                 }
                 
                 // adds to users array
-                users.append(decoder)
+                self.users.append(decoder)
                 
             }
-            onSuccess(users)
+            onSuccess(self.users)
         }
     }
     
@@ -72,7 +72,7 @@ class UsersService: ObservableObject{
             // Update the SOT property in main UI
             DispatchQueue.main.async {
                 
-                var users = [User]()
+//                var users = [User]()
                 for doc in snap.documents {
                     let dict = doc.data()
                     guard let decoder = try? User.init(fromDictionary: dict)
@@ -81,7 +81,7 @@ class UsersService: ObservableObject{
                     }
                     
                     // adds to users array
-                    users.append(decoder)
+                    self.users.append(decoder)
                     
                 }
             }

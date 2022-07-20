@@ -12,7 +12,6 @@ import CoreLocation
 
 struct MapView : UIViewRepresentable {
     
-    
     func makeCoordinator() -> Coordinator {
         
         return MapView.Coordinator(parent1: self)
