@@ -19,7 +19,7 @@ struct ContentView: View {
         
         Group{
             if(session.session != nil) {
-                HomeView()
+                Main()
             } else {
                 SignInView()
             }

@@ -36,9 +36,6 @@ struct Profile: View {
                         .font(.title)
                         .modifier(ButtonModifiers())
                 }.padding(.horizontal)
-                
-                Text("Profile")
-                
             }
         }
         .navigationTitle("Profile")

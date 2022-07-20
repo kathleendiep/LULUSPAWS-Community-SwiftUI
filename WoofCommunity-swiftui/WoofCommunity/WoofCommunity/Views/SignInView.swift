@@ -89,7 +89,6 @@ struct SignInContainerView: View {
                     .autocapitalization(.none)
                     .background(Color(.secondarySystemBackground))
                     .padding()
-                
                 // LINKS
                 NavigationLink {
                     HomeView()

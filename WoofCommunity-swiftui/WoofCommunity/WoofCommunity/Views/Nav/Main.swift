@@ -29,26 +29,25 @@ struct Main: View {
     
     var body: some View {
         NavigationView {
-    
             VStack {
                 Text("check out some furiends")
-         
             }
             .navigationTitle("Woof Community 🦴🏡")
+            
             // MARK: - icon: sign in? or sign out
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    NavigationLink {
-                        SignInView()
-                    } label: {
-                        if SignInViewModel.isSignedIn {
-                            Image(systemName: "rectangle.portrait.and.arrow.right.fill")
-                        } else {
-                            Image(systemName: "person.crop.circle.fill")
-                        }
-                }
-            }
-                }
+//            .toolbar {
+//                ToolbarItem(placement: .navigationBarTrailing) {
+//                    NavigationLink {
+//                        SignInView()
+//                    } label: {
+//                        if SignInViewModel.isSignedIn {
+//                            Image(systemName: "rectangle.portrait.and.arrow.right.fill")
+//                        } else {
+//                            Image(systemName: "person.crop.circle.fill")
+//                        }
+//                }
+//            }
+//                }
 //            .onAppear() {
 //                 let sampleUser = User(id: "", email: "", profileImageUrl: "", username: "", bio: "")
 //                SignInViewModel.getUserId( (user != nil) ? user : sampleUser)

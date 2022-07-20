@@ -9,7 +9,6 @@ import SwiftUI
 import SDWebImageSwiftUI
 
 struct ProfileHeader: View {
-    // need a user
     var user: User?
     
     // to do: add in userProfile fields
@@ -26,7 +25,7 @@ struct ProfileHeader: View {
                 Color.init(red: 0.9, green: 0.9, blue: 0.9).frame(width: 100, height: 100, alignment: .trailing)
                     .padding(.leading)
             }
-            Text(user!.username).font(.headline).bold().padding(.leading)
+            Text(user?.username ?? "").font(.headline).bold().padding(.leading)
         }
         VStack{
             HStack{

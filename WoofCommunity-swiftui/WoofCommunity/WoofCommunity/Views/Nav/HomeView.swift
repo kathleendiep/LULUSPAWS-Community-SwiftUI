@@ -9,21 +9,28 @@ import SwiftUI
 struct HomeView: View {
     
     @EnvironmentObject var session: SessionStore
+    @State private var showingAlert = false
     
     var body: some View {
         VStack {
-            Button(action: session.logout) {
-                Text("Sign Out")
-                    .font(.title)
-                    .modifier(ButtonModifiers())
-            }
-            // to do: alert for when they sign out
-//            .alert(isPresented: $showingAlert) {
-//                Alert(title: Text(alertTitle), message: Text(error), dismissButton: .default(Text("OK")))
+//            Button(action: session.logout) {
+//                Text("Sign Out")
+//                    .font(.title)
+//                    .modifier(ButtonModifiers())
 //            }
-            
+//            .alert("Are you sure??", isPresented: $showingAlert) {
+//                Button("Yes", role: .destructive) { }
+//                Button("Cancel", role: .cancel) { }
+//            }
             CustomTabView()
         }
+        .navigationTitle("Profile")
+        .navigationBarTitleDisplayMode(.inline)
+        .navigationBarItems(trailing: Button(action: {
+            session.logout()
+        }){
+            Image(systemName: "arrow.right.circle.fill")
+        })
     }
 }
 
