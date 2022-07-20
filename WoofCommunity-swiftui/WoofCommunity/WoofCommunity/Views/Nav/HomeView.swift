@@ -12,25 +12,38 @@ struct HomeView: View {
     @State private var showingAlert = false
     
     var body: some View {
-        VStack {
-//            Button(action: session.logout) {
-//                Text("Sign Out")
-//                    .font(.title)
-//                    .modifier(ButtonModifiers())
-//            }
-//            .alert("Are you sure??", isPresented: $showingAlert) {
-//                Button("Yes", role: .destructive) { }
-//                Button("Cancel", role: .cancel) { }
-//            }
-            CustomTabView()
+        NavigationView{
+            VStack {
+                //            Button(action: session.logout) {
+                //                Text("Sign Out")
+                //                    .font(.title)
+                //                    .modifier(ButtonModifiers())
+                //            }
+                //            .alert("Are you sure??", isPresented: $showingAlert) {
+                //                Button("Yes", role: .destructive) { }
+                //                Button("Cancel", role: .cancel) { }
+                //            }
+                CustomTabView()
+            }
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    if(session.session != nil) {
+                        Button(action: {
+                            session.logout()
+                        }){
+                            Image(systemName: "arrow.right.circle.fill")
+                        }
+                    } else {
+                        NavigationLink {
+                            SignUpView()
+                        } label: {
+                            Image(systemName: "person.crop.circle.fill")
+                        }
+                        
+                    }
+                }
+            }
         }
-        .navigationTitle("Profile")
-        .navigationBarTitleDisplayMode(.inline)
-        .navigationBarItems(trailing: Button(action: {
-            session.logout()
-        }){
-            Image(systemName: "arrow.right.circle.fill")
-        })
     }
 }
 
@@ -94,5 +107,4 @@ struct TabButton: View {
         }
     }
 }
-
 

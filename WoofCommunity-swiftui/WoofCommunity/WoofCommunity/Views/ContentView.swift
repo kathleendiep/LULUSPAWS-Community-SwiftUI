@@ -19,9 +19,11 @@ struct ContentView: View {
         
         Group{
             if(session.session != nil) {
-                Main()
+                HomeView()
             } else {
                 SignInView()
+                HomeView()
+                // todo: make a homeview when session = nil 
             }
         }.onAppear(perform: listen)
     }

@@ -10,7 +10,8 @@
  STRETCH
  - how to add multiple pics
  - post
- -
+- make a homeview when session = nil
+    - log in button
  
  
  Questions:

@@ -32,6 +32,7 @@
 		818C2A8B288789A70050F477 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 818C2A8A288789A70050F477 /* FirebaseStorage */; };
 		818C2A8D288789A70050F477 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 818C2A8C288789A70050F477 /* FirebaseStorageCombine-Community */; };
 		818C2A9028878B350050F477 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 818C2A8F28878B350050F477 /* SDWebImageSwiftUI */; };
+		818C2A92288873D40050F477 /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818C2A91288873D30050F477 /* ProfileService.swift */; };
 		8198FCEC2880F4820033421C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8198FCEB2880F4820033421C /* Extensions.swift */; };
 		8198FCF02880FCD50033421C /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8198FCEF2880FCD50033421C /* StorageService.swift */; };
 		81AFA1EF287CCC620099D8FB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81AFA1EE287CCC620099D8FB /* User.swift */; };
@@ -63,6 +64,7 @@
 		8181AECE288206EF001B6D43 /* UserEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEditView.swift; sourceTree = "<group>"; };
 		818C2A6C28873F030050F477 /* ProfileHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeader.swift; sourceTree = "<group>"; };
 		818C2A7128876FCA0050F477 /* oldMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = oldMain.swift; sourceTree = "<group>"; };
+		818C2A91288873D30050F477 /* ProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileService.swift; sourceTree = "<group>"; };
 		8198FCEB2880F4820033421C /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		8198FCEF2880FCD50033421C /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
 		81AFA1EE287CCC620099D8FB /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 				810AD2AA28809C9E0046B8A2 /* AuthenticationService.swift */,
 				8198FCEF2880FCD50033421C /* StorageService.swift */,
 				81392D3728872F5F00B83CFE /* SessionStore.swift */,
+				818C2A91288873D30050F477 /* ProfileService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -357,6 +360,7 @@
 				81B982D22886202F00F848EC /* ButtonModifiers.swift in Sources */,
 				818C2A7228876FCA0050F477 /* oldMain.swift in Sources */,
 				81AFA1EF287CCC620099D8FB /* User.swift in Sources */,
+				818C2A92288873D40050F477 /* ProfileService.swift in Sources */,
 				8181AECF288206EF001B6D43 /* UserEditView.swift in Sources */,
 				8166FD6F2885FF87008D7627 /* Explore.swift in Sources */,
 				81B982D928862FE500F848EC /* FormField.swift in Sources */,

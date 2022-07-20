@@ -28,12 +28,14 @@ struct Main: View {
     }
     
     var body: some View {
-        NavigationView {
+        ScrollView{
             VStack {
                 Text("check out some furiends")
+                    .font(.subheadline)
             }
-            .navigationTitle("Woof Community 🦴🏡")
-            
+           
+        }
+        .navigationTitle("Woof Community 🦴🏡")
             // MARK: - icon: sign in? or sign out
 //            .toolbar {
 //                ToolbarItem(placement: .navigationBarTrailing) {
@@ -55,7 +57,6 @@ struct Main: View {
 //            }
         
         }
-    } // end of body
 }
 
 struct Main_Previews: PreviewProvider {
