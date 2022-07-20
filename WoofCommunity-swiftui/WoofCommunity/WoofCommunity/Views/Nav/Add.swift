@@ -18,16 +18,28 @@ struct Add: View {
     @State private var showingAlert = false
     @State private var alertTitle: String = "Oh no!"
     @State private var text = ""
- 
+    
     func loadImage(){
         guard let inputImage = pickedImage else { return }
         postImage = inputImage
     }
     
+    func uploadPost() {
+        if let error = errorCheck() {
+            self.error = error
+            self.showingAlert = true
+            return
+        }
+        
+        // firebase
+        
+    }
+    
+    
     func clear() {
         self.text = ""
         self.imageData = Data()
-        self.postImage = Image(systemName: "person.circle.fill")
+        self.postImage = Image(systemName: "photo.fill")
     }
     
     func errorCheck() -> String? {
@@ -65,26 +77,28 @@ struct Add: View {
                 .background(RoundedRectangle(cornerRadius: 8).stroke(Color.black))
                 .padding(.horizontal)
             
-            Button(action: clear) {
+            Button(action: uploadPost) {
                 Text("Upload Post").font(.title).modifier(ButtonModifiers())
-            }.padding()
-                .sheet(isPresented: $showingImagePicker, onDismiss: loadImage){
-                    // from Utilities
-                    ImagePicker(pickedImage: self.$pickedImage, showImagePicker: self.$showingImagePicker, imageData: self.$imageData)
-                }.actionSheet(isPresented: $showingActionSheet) {
-                    ActionSheet(title: Text(""), buttons: [
-                        .default(Text("Choose a photo")) {
-                            self.sourceType = .photoLibrary
-                            self.showingImagePicker = true
-                        },
-                        .default(Text("Take a photo")){
-                            self.sourceType = .camera
-                            self.showingImagePicker = true
-                        },
-                        .cancel()
-                    ])
-                }
-        }
+            }.alert(isPresented: $showingAlert) {
+                Alert(title: Text(alertTitle), message: Text(error), dismissButton: .default(Text("OK")))
+            }
+        }.padding()
+            .sheet(isPresented: $showingImagePicker, onDismiss: loadImage){
+                // from Utilities
+                ImagePicker(pickedImage: self.$pickedImage, showImagePicker: self.$showingImagePicker, imageData: self.$imageData)
+            }.actionSheet(isPresented: $showingActionSheet) {
+                ActionSheet(title: Text(""), buttons: [
+                    .default(Text("Choose a photo")) {
+                        self.sourceType = .photoLibrary
+                        self.showingImagePicker = true
+                    },
+                    .default(Text("Take a photo")){
+                        self.sourceType = .camera
+                        self.showingImagePicker = true
+                    },
+                    .cancel()
+                ])
+            }
     }
 }
 
