@@ -6,7 +6,6 @@
 // https://www.youtube.com/watch?v=MjHUPgGPVwA&list=PLdBY1aYxSpPVI3wTlK1cKHNOoq4JA3X5-&index=3
  
 import Foundation
-
 import SwiftUI
 
 // to pick image

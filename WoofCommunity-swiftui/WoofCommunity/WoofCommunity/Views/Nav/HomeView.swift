@@ -49,7 +49,7 @@ struct HomeView: View {
 
 // MARK: - TABS
 // home | explore | profile | signout
-var tabs = ["house.fill", "map.fill", "person.crop.circle.fill"]
+var tabs = ["house.fill", "map.fill","plus.rectangle.fill.on.rectangle.fill", "person.crop.circle.fill"]
 
 struct CustomTabView: View {
     @State var selectedTab = "house.fill"
@@ -62,6 +62,8 @@ struct CustomTabView: View {
                     .tag("house.fill")
                 Explore()
                     .tag("map.fill")
+                Add()
+                    .tag("plus.rectangle.fill.on.rectangle.fill")
                 Profile()
                     .tag("person.crop.circle.fill")
             }
