@@ -7,7 +7,7 @@
 
 import Foundation
 import Combine
-import FirebaseCore
+import Firebase
 import FirebaseAuth
 
 class SessionStore: ObservableObject {
@@ -35,6 +35,7 @@ class SessionStore: ObservableObject {
                         self.session = decodedUser
                     }
                 }
+                //todo: find a way to return user
             }
             else {
                 self.session = nil

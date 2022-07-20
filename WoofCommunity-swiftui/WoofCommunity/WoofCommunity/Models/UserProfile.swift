@@ -8,9 +8,7 @@
 import Foundation
 // Collection: Identifiable
 struct UserProfile: Identifiable, Encodable {
-    
-    // label: type
-    // set the value in the DB
+
     var id: String? // document type ID from db
 //    var name: String
 //    var petName: String

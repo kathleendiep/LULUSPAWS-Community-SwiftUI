@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreLocation
 /*
 - create Views
 - create ViewModel
@@ -17,15 +18,22 @@ import Foundation
 // Collection: Identifiable
 struct User: Identifiable, Encodable, Decodable {
     
-    // label: type
-    // set the value in the DB
     var id: String? // document type ID from db
-//    var name: String
-//    var petName: String
     var email: String
     var profileImageUrl: String
     var username: String
     var bio: String
+    
+    // to do: Add more fields
+//    var petName: String
+//    var humanName: String
+//    var profileDogImageUrl: String
+//    var location: CLLocationCoordinate2D
+    /*
+    let exampleLocation = CLLocation(latitude: longitude:)
+     
+     */
+
 
     // MARK: - Location
 

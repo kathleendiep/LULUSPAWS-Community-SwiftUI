@@ -1,5 +1,15 @@
 /*
  
+ 
+ - add more fields to user
+ - load data
+ - profile
+ 
+ STRETCH
+ - how to add multiple pics
+ - post
+ 
+ 
  Questions:
  - what do i do after a login.. How do i match the email to the profile or post?
  
