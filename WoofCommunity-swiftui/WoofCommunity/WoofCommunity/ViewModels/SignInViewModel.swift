@@ -17,9 +17,6 @@ class SignInViewModel: NSObject, ObservableObject {
     
     // MARK: - Properties
     @Published var signedIn = false
-//    @Published var users = [User]()
-//    @Published var user: User
-//    @Published var modified = false
     static let auth = Auth.auth()
     static var storeRoot = Firestore.firestore()
     private var cancellables = Set<AnyCancellable>()
