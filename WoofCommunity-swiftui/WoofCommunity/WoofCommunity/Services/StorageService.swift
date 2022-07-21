@@ -12,12 +12,20 @@ import FirebaseStorage
 
 // adds to storage
 class StorageService {
-
+    
     static var storage = Storage.storage()
     
-    static var storageRoot = storage.reference(forURL: "gs://woofcommunity-45000.appspot.com/profile")
+    //    static var storageRoot = storage.reference(forURL: "gs://woofcommunity-45000.appspot.com/profile")
+    
+    static var storageRoot = storage.reference()
     
     static var storageProfile = storageRoot.child("profile")
+    
+    static var storagePost = storageRoot.child("posts")
+    
+    static func storagePostId(postId:String) -> StorageReference {
+        return storagePost.child(postId)
+    }
     
     static func storageProfileId(userId:String) -> StorageReference {
         return storageProfile.child(userId)
@@ -65,12 +73,75 @@ class StorageService {
                             onError(error!.localizedDescription)
                         }
                     }
-              
+                    
                     onSuccess(user)
                 }
             }
         }
         
-    } 
+    }
+    
+    // MARK: - Posts
+    
+    static func savePostPhoto(userId:String, caption: String, postId: String, imageData: Data, metadata: StorageMetadata, storagePostRef: StorageReference, onSuccess: @escaping() -> Void, onError: @escaping(_ errorMessage: String) -> Void ) {
+        
+        storagePostRef.putData(imageData, metadata: metadata) {
+            (StorageMetadata, error) in
+            
+            if error != nil {
+                onError(error!.localizedDescription)
+                return
+            }
+            
+            // put the data
+            storagePostRef.putData(imageData, metadata: metadata) {
+                (StorageMetadata, error) in
+                
+                if error != nil {
+                    onError(error!.localizedDescription)
+                    return
+                }
+                
+                storagePostRef.downloadURL{
+                    (url,error) in
+                    if let metaImageUrl = url?.absoluteString {
+                        
+                        // access the collection
+                        let firestorePostRef = PostViewModel.PostsUserId(userId: userId).collection("posts").document(postId)
+                        
+                      
+                    
+                        // set the post based on user
+                        
+                        let post = Post.init(caption: <#T##String#>, geoLocation: <#T##String#>, ownerId: <#T##String#>, postId: <#T##String#>, username: <#T##String#>, profile: <#T##String#>, mediaUrl: <#T##String#>, date: <#T##Double#>)
+//                        let post = Post.init(caption: caption, geoLocation: String, ownerId: userId, postId: postId, username: Auth.auth().currentUser!.displayName, profile: Auth.auth().currentUser!.photoURL!.absoluteString, mediaUrl: metaImageUrl, date: Date().timeIntervalSince1970)
+                        
+                        // put in dictionary
+                        guard let dict = try? post.asDictionary() else {return}
+                        
+                        // set dictionary data to collection
+                        firestorePostRef.setData(dict) {
+                            (error) in
+                            if error != nil {
+                                onError(error!.localizedDescription)
+                                return
+                            }
+                            
+                            // save dictionary to timeline
+                            PostViewModel.timelineUserId(userId: userId).collection("timeline").document(postId).setData(dict)
+                            
+                            PostViewModel.AllPosts.document(postId).setData(dict)
+                            
+                            onSuccess(user)
+                        }
+                        
+                    }
+                }
+            }
+        }
+        
+    }
 }
-
+    /*
+     to display username: Auth.auth().currentUser.displayName
+     */

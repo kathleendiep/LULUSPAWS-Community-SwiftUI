@@ -13,18 +13,8 @@ struct HomeView: View {
     
     var body: some View {
         NavigationView{
-            VStack {
-                //            Button(action: session.logout) {
-                //                Text("Sign Out")
-                //                    .font(.title)
-                //                    .modifier(ButtonModifiers())
-                //            }
-                //            .alert("Are you sure??", isPresented: $showingAlert) {
-                //                Button("Yes", role: .destructive) { }
-                //                Button("Cancel", role: .cancel) { }
-                //            }
-                CustomTabView()
-            }
+           
+            CustomTabView()
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     if(session.session != nil) {
@@ -43,7 +33,7 @@ struct HomeView: View {
                     }
                 }
             }
-        }
+        }.accentColor(.red)
     }
 }
 

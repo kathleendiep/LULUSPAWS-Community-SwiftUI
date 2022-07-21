@@ -30,7 +30,7 @@ struct Add: View {
             self.showingAlert = true
             return
         }
-        
+        self.clear()
         // firebase
         
     }
@@ -52,9 +52,8 @@ struct Add: View {
     
     var body: some View {
         VStack {
-            Text("Upload A Post").font(.largeTitle)
-            
-            VStack {
+            VStack(spacing: 5) {
+                Text("Upload A Post").font(.largeTitle)
                 if postImage != nil {
                     postImage!.resizable()
                         .frame(width: 300, height:200)
@@ -82,6 +81,7 @@ struct Add: View {
             }.alert(isPresented: $showingAlert) {
                 Alert(title: Text(alertTitle), message: Text(error), dismissButton: .default(Text("OK")))
             }
+            Spacer()
         }.padding()
             .sheet(isPresented: $showingImagePicker, onDismiss: loadImage){
                 // from Utilities
