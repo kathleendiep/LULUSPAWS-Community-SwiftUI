@@ -46,6 +46,7 @@
 		81B982D72886234C00F848EC /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B982D62886234C00F848EC /* SignUpView.swift */; };
 		81B982D928862FE500F848EC /* FormField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B982D828862FE500F848EC /* FormField.swift */; };
 		81B982DB288636E900F848EC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B982DA288636E900F848EC /* ContentView.swift */; };
+		81BB5D1D288F4FC400835BE2 /* PostCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BB5D1C288F4FC400835BE2 /* PostCardViewModel.swift */; };
 		81FB5D852878BB0400230D75 /* WoofCommunityApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FB5D842878BB0400230D75 /* WoofCommunityApp.swift */; };
 		81FB5D892878BB0A00230D75 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81FB5D882878BB0A00230D75 /* Assets.xcassets */; };
 		81FB5D8C2878BB0A00230D75 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81FB5D8B2878BB0A00230D75 /* Preview Assets.xcassets */; };
@@ -79,6 +80,7 @@
 		81B982D62886234C00F848EC /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		81B982D828862FE500F848EC /* FormField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormField.swift; sourceTree = "<group>"; };
 		81B982DA288636E900F848EC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		81BB5D1C288F4FC400835BE2 /* PostCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCardViewModel.swift; sourceTree = "<group>"; };
 		81FB5D812878BB0400230D75 /* WoofCommunity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WoofCommunity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81FB5D842878BB0400230D75 /* WoofCommunityApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoofCommunityApp.swift; sourceTree = "<group>"; };
 		81FB5D882878BB0A00230D75 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 			children = (
 				8166FD612885ED89008D7627 /* SignInViewModel.swift */,
 				818BE60128889AF800C4EF1E /* PostViewModel.swift */,
+				81BB5D1C288F4FC400835BE2 /* PostCardViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -372,6 +375,7 @@
 				810AD2AD28809F510046B8A2 /* SignInView.swift in Sources */,
 				81B57358287E5B2E00F04ABC /* UserDetailView.swift in Sources */,
 				81392D3628872EEE00B83CFE /* Steps.swift in Sources */,
+				81BB5D1D288F4FC400835BE2 /* PostCardViewModel.swift in Sources */,
 				8166FD622885ED89008D7627 /* SignInViewModel.swift in Sources */,
 				81AFA1F1287CCC8A0099D8FB /* HomeView.swift in Sources */,
 				818BE60028889A2600C4EF1E /* Post.swift in Sources */,

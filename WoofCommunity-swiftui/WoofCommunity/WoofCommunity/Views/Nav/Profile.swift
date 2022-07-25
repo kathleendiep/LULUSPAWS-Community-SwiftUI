@@ -26,6 +26,7 @@ struct Profile: View {
     @EnvironmentObject var session: SessionStore
     @State private var selection = 1
     
+    //todo: picker in #11 
     var body: some View {
         VStack {
             ScrollView{
