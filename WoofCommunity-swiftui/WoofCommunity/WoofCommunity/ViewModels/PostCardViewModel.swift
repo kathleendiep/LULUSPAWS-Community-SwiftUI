@@ -9,7 +9,7 @@ import Foundation
 import Firebase
 import SwiftUI
 
-class PostCardService: ObservableObject {
+class PostCardViewModel: ObservableObject {
     
     @Published var post: Post!
     @Published var isLiked = false
