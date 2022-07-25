@@ -16,4 +16,6 @@ struct Post: Encodable, Decodable {
     var profile: String
     var mediaUrl: String
     var date: Double
+    var likes: [String: Bool]
+    var likeCount: Int
 }

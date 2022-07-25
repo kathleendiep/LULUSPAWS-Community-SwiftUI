@@ -82,7 +82,6 @@ class StorageService {
     }
     
     // MARK: - Posts
-    
     static func savePostPhoto(userId: String, caption: String, postId: String, imageData: Data, metadata: StorageMetadata, storagePostRef: StorageReference, onSuccess: @escaping() -> Void, onError: @escaping(_ errorMessage: String) -> Void ) {
         
         storagePostRef.putData(imageData, metadata: metadata) {
@@ -108,9 +107,10 @@ class StorageService {
                         
                         // access the collection
                         let firestorePostRef = PostViewModel.PostsUserId(userId: userId).collection("posts").document(postId)
-                      
                     
-                        let post = Post.init(caption: caption, geoLocation: "", ownerId: userId, postId: postId, username: Auth.auth().currentUser!.displayName!, profile: Auth.auth().currentUser!.photoURL!.absoluteString, mediaUrl: metaImageUrl, date: Date().timeIntervalSince1970)
+                        
+                        
+                        let post = Post.init(caption: caption, geoLocation: "",  ownerId: userId, postId: postId, username: Auth.auth().currentUser!.displayName!, profile: Auth.auth().currentUser!.photoURL!.absoluteString, mediaUrl: metaImageUrl, date: Date().timeIntervalSince1970, likes: [:], likeCount: 0)
                       
                         // put in dictionary
                         guard let dict = try? post.asDictionary() else {return}
