@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import FirebaseCore
+import Firebase
 import FirebaseAuth
 import FirebaseStorage
 
@@ -83,7 +83,7 @@ class StorageService {
     
     // MARK: - Posts
     
-    static func savePostPhoto(userId:String, caption: String, postId: String, imageData: Data, metadata: StorageMetadata, storagePostRef: StorageReference, onSuccess: @escaping() -> Void, onError: @escaping(_ errorMessage: String) -> Void ) {
+    static func savePostPhoto(userId: String, caption: String, postId: String, imageData: Data, metadata: StorageMetadata, storagePostRef: StorageReference, onSuccess: @escaping() -> Void, onError: @escaping(_ errorMessage: String) -> Void ) {
         
         storagePostRef.putData(imageData, metadata: metadata) {
             (StorageMetadata, error) in
@@ -108,14 +108,10 @@ class StorageService {
                         
                         // access the collection
                         let firestorePostRef = PostViewModel.PostsUserId(userId: userId).collection("posts").document(postId)
-                        
                       
                     
-                        // set the post based on user
-                        
-                        let post = Post.init(caption: <#T##String#>, geoLocation: <#T##String#>, ownerId: <#T##String#>, postId: <#T##String#>, username: <#T##String#>, profile: <#T##String#>, mediaUrl: <#T##String#>, date: <#T##Double#>)
-//                        let post = Post.init(caption: caption, geoLocation: String, ownerId: userId, postId: postId, username: Auth.auth().currentUser!.displayName, profile: Auth.auth().currentUser!.photoURL!.absoluteString, mediaUrl: metaImageUrl, date: Date().timeIntervalSince1970)
-                        
+                        let post = Post.init(caption: caption, geoLocation: "", ownerId: userId, postId: postId, username: Auth.auth().currentUser!.displayName!, profile: Auth.auth().currentUser!.photoURL!.absoluteString, mediaUrl: metaImageUrl, date: Date().timeIntervalSince1970)
+                      
                         // put in dictionary
                         guard let dict = try? post.asDictionary() else {return}
                         
@@ -132,7 +128,7 @@ class StorageService {
                             
                             PostViewModel.AllPosts.document(postId).setData(dict)
                             
-                            onSuccess(user)
+                            onSuccess()
                         }
                         
                     }

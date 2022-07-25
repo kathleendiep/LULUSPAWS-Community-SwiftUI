@@ -32,7 +32,15 @@ struct Add: View {
         }
         self.clear()
         // firebase
-        
+        PostViewModel.uploadPost(caption: text, imageData: imageData, onSuccess: {
+            self.clear()
+        }) {
+            (errorMessage) in
+             
+            self.error = errorMessage
+            self.showingAlert = true
+            return
+        }
     }
     
     
