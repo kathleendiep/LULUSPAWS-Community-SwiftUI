@@ -13,7 +13,7 @@ struct PostCardImage: View {
     var post: Post
     
     var body: some View {
-        VStack(alignment: leading){
+        VStack(alignment: .leading){
             
             HStack{
                 WebImage(url: URL(string: post.profile))
@@ -26,7 +26,7 @@ struct PostCardImage: View {
                 
                 VStack(alignment: .leading, spacing: 4) {
                     Text(post.username).font(.headline)
-                    Text( (Date(timeIntervalSince1970: post.date)).timeAgo() = " ago").font(.subheadline)
+                    Text((Date(timeIntervalSince1970: post.date)).timeAgo() +  " ago").font(.subheadline)
                         .foregroundColor(.gray)
                         
                     
@@ -41,15 +41,15 @@ struct PostCardImage: View {
             
             WebImage(url: URL(string: post.mediaUrl)!)
                 .resizable()
-                .aspectRatio(contentMode. fill)
+                .aspectRatio(contentMode: .fill)
                 .frame(width: UIScreen.main.bounds.size.width, height: 400, alignment: .center)
                 .clipped()
         }
     }
 }
-
-struct PostCardImage_Previews: PreviewProvider {
-    static var previews: some View {
-        PostCardImage()
-    }
-}
+//
+//struct PostCardImage_Previews: PreviewProvider {
+//    static var previews: some View {
+//        PostCardImage()
+//    }
+//}
