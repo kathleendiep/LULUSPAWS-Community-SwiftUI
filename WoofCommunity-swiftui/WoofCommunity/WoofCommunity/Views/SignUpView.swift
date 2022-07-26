@@ -37,7 +37,7 @@ struct SignUpContainerView: View {
     @State private var error:String = ""
     @State private var showingAlert = false
     @State private var alertTitle: String = "Oh no!"
-    
+    @State private var isLinkActive = false
     // MARK: - Functions
     
     func loadImage(){

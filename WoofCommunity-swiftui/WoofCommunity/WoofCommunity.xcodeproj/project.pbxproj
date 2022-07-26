@@ -50,6 +50,7 @@
 		81BB5D1F288F57A800835BE2 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BB5D1E288F57A800835BE2 /* ProfileViewModel.swift */; };
 		81BB5D21288F589200835BE2 /* PostCardImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BB5D20288F589200835BE2 /* PostCardImage.swift */; };
 		81BB5D23288F5DD400835BE2 /* PostCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BB5D22288F5DD400835BE2 /* PostCard.swift */; };
+		81BB5D25288FAB8F00835BE2 /* EditProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BB5D24288FAB8F00835BE2 /* EditProfile.swift */; };
 		81FB5D852878BB0400230D75 /* WoofCommunityApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FB5D842878BB0400230D75 /* WoofCommunityApp.swift */; };
 		81FB5D892878BB0A00230D75 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81FB5D882878BB0A00230D75 /* Assets.xcassets */; };
 		81FB5D8C2878BB0A00230D75 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81FB5D8B2878BB0A00230D75 /* Preview Assets.xcassets */; };
@@ -87,6 +88,7 @@
 		81BB5D1E288F57A800835BE2 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		81BB5D20288F589200835BE2 /* PostCardImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCardImage.swift; sourceTree = "<group>"; };
 		81BB5D22288F5DD400835BE2 /* PostCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCard.swift; sourceTree = "<group>"; };
+		81BB5D24288FAB8F00835BE2 /* EditProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfile.swift; sourceTree = "<group>"; };
 		81FB5D812878BB0400230D75 /* WoofCommunity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WoofCommunity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81FB5D842878BB0400230D75 /* WoofCommunityApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoofCommunityApp.swift; sourceTree = "<group>"; };
 		81FB5D882878BB0A00230D75 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 				8166FD692885FF17008D7627 /* Profile.swift */,
 				81B57357287E5B2E00F04ABC /* UserDetailView.swift */,
 				8181AECE288206EF001B6D43 /* UserEditView.swift */,
+				81BB5D24288FAB8F00835BE2 /* EditProfile.swift */,
 			);
 			path = Nav;
 			sourceTree = "<group>";
@@ -365,6 +368,7 @@
 				81BB5D23288F5DD400835BE2 /* PostCard.swift in Sources */,
 				81392D3828872F5F00B83CFE /* SessionStore.swift in Sources */,
 				81B982DB288636E900F848EC /* ContentView.swift in Sources */,
+				81BB5D25288FAB8F00835BE2 /* EditProfile.swift in Sources */,
 				81BB5D1F288F57A800835BE2 /* ProfileViewModel.swift in Sources */,
 				8166FD6C2885FF44008D7627 /* Main.swift in Sources */,
 				81392D3428872EBB00B83CFE /* UserProfile.swift in Sources */,

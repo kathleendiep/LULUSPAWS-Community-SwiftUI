@@ -17,7 +17,6 @@ class PostViewModel {
     static var Posts = SignInViewModel.storeRoot.collection("posts")
     
     static func PostsUserId(userId: String) -> DocumentReference {
-        
         return Posts.document(userId)
     }
     
@@ -31,9 +30,10 @@ class PostViewModel {
     
     static func uploadPost(caption: String, imageData: Data, onSuccess: @escaping()-> Void, onError: @escaping (_ errorMessage: String) -> Void) {
         
-        guard let userId = Auth.auth().currentUser?.uid else {return}
+        guard let userId = Auth.auth().currentUser?.uid else { return }
         
-        let postId = PostViewModel.PostsUserId(userId: userId).collection("posts").document().documentID
+        let postId = self.PostsUserId(userId: userId).collection("posts").document().documentID
+        //        let postId = PostViewModel.PostsUserId(userId: userId).collection("posts").document().documentID
         
         let storagePostRef = StorageService.storagePostId(postId: postId)
         let metadata = StorageMetadata()
@@ -45,7 +45,6 @@ class PostViewModel {
     
     static func loadUserPosts(userId: String, onSuccess: @escaping(_ posts: [Post]) -> Void) {
         
-        // todo: userspost
         PostViewModel.PostsUserId(userId: userId).collection("posts").getDocuments{
             (snapshot, error) in
             
@@ -59,13 +58,12 @@ class PostViewModel {
             for doc in snap.documents {
                 let dict = doc.data()
                 guard let decoder = try? Post.init(fromDictionary: dict)
-             else {
-                return
+                else {
+                    return
+                }
+                posts.append(decoder)
             }
-            posts.append(decoder)
+            onSuccess(posts)
         }
-        onSuccess(posts)
     }
-}
-
 }

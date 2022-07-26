@@ -64,6 +64,11 @@ struct SignInView_Previews: PreviewProvider {
 
 // MARK: - Views
 struct SignInContainerView: View {
+    @EnvironmentObject var session: SessionStore
+    
+    func listen(){
+        session.listen()
+    }
     
     @State var email: String = ""
     @State var password: String = ""

@@ -40,7 +40,5 @@ class PostCardViewModel: ObservableObject {
         
         // Liked - ser the userId to posts owner id
         PostViewModel.timelineUserId(userId: post.ownerId).collection("timeline").document(post.postId).updateData(["likeCount": post.likeCount, "\(Auth.auth().currentUser!.uid)": true])
-    }
-    
-    
+    } 
 }
