@@ -59,37 +59,36 @@ struct Profile: View {
                         .aspectRatio(contentMode: .fill)
                         .frame(width: UIScreen.main.bounds.size.width/3, height:UIScreen.main.bounds.size.height/3, alignment: .center)
                         .clipped()
-                    
                 }
                 }
-                // todo: if using picker, use one for bio
-                if selection == 0 {
-                    
-                    LazyVGrid(columns: threeColumns) {
-                        ForEach(self.profileViewModel.posts, id: \.postId ) {
-                            (post) in
-                            
-                            WebImage(url: URL(string: post.mediaUrl)!)
-                                .resizable()
-                                .aspectRatio(contentMode: .fill)
-                                .frame(width: UIScreen.main.bounds.size.width, height: 400, alignment: .center)
-                                .clipped()
-                            
-                        }
-                    }
-                } else
-                if (self.session.session == nil) {Text("")}
+//                // todo: if using picker, use one for bio
+//                if selection == 0 {
+//
+//                    LazyVGrid(columns: threeColumns) {
+//                        ForEach(self.profileViewModel.posts, id: \.postId ) {
+//                            (post) in
+//
+//                            WebImage(url: URL(string: post.mediaUrl)!)
+//                                .resizable()
+//                                .aspectRatio(contentMode: .fill)
+//                                .frame(width: UIScreen.main.bounds.size.width, height: 400, alignment: .center)
+//                                .clipped()
+//
+//                        }
+//                    }
+//                } else
+//                if (self.session.session == nil) {Text("")}
             }
             .navigationTitle("Profile")
             .navigationBarTitleDisplayMode(.inline)
-            .navigationBarItems(leading: Button(action: {}){
-                Image(systemName: "person.fill")
-            }, trailing: Button(action: {
-                self.session.logout()
-            }){
-                Image(systemName: "arrow.right.circle.fill")
-                
-            })
+//            .navigationBarItems(leading: Button(action: {}){
+//                Image(systemName: "person.fill")
+//            }, trailing: Button(action: {
+//                self.session.logout()
+//            }){
+//                Image(systemName: "arrow.right.circle.fill")
+//                
+//            })
             .onAppear{
                 self.profileViewModel.loadUserPosts(userId: Auth.auth().currentUser!.uid)
             }
