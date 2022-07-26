@@ -25,7 +25,10 @@ struct ProfileHeader: View {
                     .padding(.leading)
             }
 //            Text(user?.username ?? "").font(.headline).bold().padding(.leading)
-            Text(user!.username).font(.headline).bold().padding(.leading)
+            
+            if user != nil {
+                Text(user!.username).font(.headline).bold().padding(.leading)
+            }
         }
         VStack{
             HStack{
