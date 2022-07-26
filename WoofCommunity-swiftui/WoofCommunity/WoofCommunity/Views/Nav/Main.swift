@@ -22,6 +22,7 @@ struct Main: View {
 //@ObservedObject var signInVM = SignInViewModel()
 //
 //var body: some View {
+// MARK: - This is for the feed
 //    ScrollView{
 //        Text("Woof Community 🦴🏡")
 //            .font(.subheadline)
