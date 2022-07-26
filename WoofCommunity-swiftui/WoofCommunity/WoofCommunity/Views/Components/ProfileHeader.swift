@@ -30,6 +30,8 @@ struct ProfileHeader: View {
                 Text(user!.username).font(.headline).bold().padding(.leading)
             }
         }
+        
+        if user != nil {
         VStack{
             HStack{
                 Spacer()
@@ -52,6 +54,7 @@ struct ProfileHeader: View {
             }
             
             Text("\(user!.bio)").font(.caption).bold()
+        }
         }
     }
 }
