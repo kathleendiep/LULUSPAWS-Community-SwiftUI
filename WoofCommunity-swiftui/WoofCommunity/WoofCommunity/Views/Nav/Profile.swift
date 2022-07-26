@@ -66,14 +66,16 @@ struct Profile: View {
             Image(systemName: "arrow.right.circle.fill")
             
         })
-    }
-    }
-    
-}
-
-struct Profile_Previews: PreviewProvider {
-    static var previews: some View {
-        Profile()
+        .onAppear{
+            self.profileViewModel.loadUserPosts(userId: Auth.auth().currentUser!.uid)
+            }
+        }
     }
 }
+//
+//struct Profile_Previews: PreviewProvider {
+//    static var previews: some View {
+//        Profile()
+//    }
+//}
 
