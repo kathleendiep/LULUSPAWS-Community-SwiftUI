@@ -3,7 +3,6 @@
 //  WoofCommunity
 //
 //  Created by Kathleen Diep on 7/19/22.
-//
 
 import SwiftUI
 import SDWebImageSwiftUI
@@ -49,8 +48,6 @@ struct ProfileHeader: View {
                 Spacer()
             }
         }
-        
-        
     }
 }
 

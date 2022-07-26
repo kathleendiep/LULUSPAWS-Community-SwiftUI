@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Firebase
 
 // to show posts in the profile
 class ProfileViewModel: ObservableObject {
@@ -20,5 +21,7 @@ class ProfileViewModel: ObservableObject {
             self.posts = posts
         }
     }
+    
+    //todo: #15 - add follows and followers
     
 }

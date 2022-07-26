@@ -84,6 +84,7 @@ class StorageService {
     // MARK: - Posts
     static func savePostPhoto(userId: String, caption: String, postId: String, imageData: Data, metadata: StorageMetadata, storagePostRef: StorageReference, onSuccess: @escaping() -> Void, onError: @escaping(_ errorMessage: String) -> Void ) {
         
+        // put the data
         storagePostRef.putData(imageData, metadata: metadata) {
             (StorageMetadata, error) in
             
@@ -92,52 +93,43 @@ class StorageService {
                 return
             }
             
-            // put the data
-            storagePostRef.putData(imageData, metadata: metadata) {
-                (StorageMetadata, error) in
-                
-                if error != nil {
-                    onError(error!.localizedDescription)
-                    return
-                }
-                
-                storagePostRef.downloadURL{
-                    (url,error) in
-                    if let metaImageUrl = url?.absoluteString {
-                        
-                        // access the collection
-                        let firestorePostRef = PostViewModel.PostsUserId(userId: userId).collection("posts").document(postId)
+            storagePostRef.downloadURL{
+                (url,error) in
+                if let metaImageUrl = url?.absoluteString {
                     
-                        
-                        
-                        let post = Post.init(caption: caption, geoLocation: "",  ownerId: userId, postId: postId, username: Auth.auth().currentUser!.displayName!, profile: Auth.auth().currentUser!.photoURL!.absoluteString, mediaUrl: metaImageUrl, date: Date().timeIntervalSince1970, likes: [:], likeCount: 0)
-                      
-                        // put in dictionary
-                        guard let dict = try? post.asDictionary() else {return}
-                        
-                        // set dictionary data to collection
-                        firestorePostRef.setData(dict) {
-                            (error) in
-                            if error != nil {
-                                onError(error!.localizedDescription)
-                                return
-                            }
-                            
-                            // save dictionary to timeline
-                            PostViewModel.timelineUserId(userId: userId).collection("timeline").document(postId).setData(dict)
-                            
-                            PostViewModel.AllPosts.document(postId).setData(dict)
-                            
-                            onSuccess()
+                    // access the collection
+                    let firestorePostRef = PostViewModel.PostsUserId(userId: userId).collection("posts").document(postId)
+                    
+                    
+                    
+                    let post = Post.init(caption: caption, geoLocation: "",  ownerId: userId, postId: postId, username: Auth.auth().currentUser!.displayName!, profile: Auth.auth().currentUser!.photoURL!.absoluteString, mediaUrl: metaImageUrl, date: Date().timeIntervalSince1970, likes: [:], likeCount: 0)
+                    
+                    // put in dictionary
+                    guard let dict = try? post.asDictionary() else {return}
+                    
+                    // set dictionary data to collection
+                    firestorePostRef.setData(dict) {
+                        (error) in
+                        if error != nil {
+                            onError(error!.localizedDescription)
+                            return
                         }
                         
+                        // save dictionary to timeline
+                        PostViewModel.timelineUserId(userId: userId).collection("timeline").document(postId).setData(dict)
+                        
+                        PostViewModel.AllPosts.document(postId).setData(dict)
+                        
+                        onSuccess()
                     }
+                    
                 }
             }
         }
-        
     }
+    
 }
-    /*
-     to display username: Auth.auth().currentUser.displayName
-     */
+
+/*
+ to display username: Auth.auth().currentUser.displayName
+ */

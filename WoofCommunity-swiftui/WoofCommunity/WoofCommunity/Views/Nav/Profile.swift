@@ -37,10 +37,12 @@ struct Profile: View {
     
     //todo: picker in #11
     //todo: add in #14 - a scrollview
+    // todo: add followers - 15
+    // hightodo: days since on 
     var body: some View {
         ScrollView{
             VStack{
-                ProfileHeader(user: self.session.session)
+                ProfileHeader(user: self.session.session, postsCount: profileViewModel.posts.count)
                 Button(action: {}){
                     Text("Edit Profile")
                         .font(.title)

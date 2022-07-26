@@ -22,8 +22,7 @@ struct ContentView: View {
                 HomeView()
             } else {
                 SignInView()
-                HomeView()
-                // todo: make a homeview when session = nil 
+                // todo: make a homeview with a button to signinview when session = nil 
             }
         }.onAppear(perform: listen)
     }
