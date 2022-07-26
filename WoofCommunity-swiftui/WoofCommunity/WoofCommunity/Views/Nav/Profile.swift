@@ -57,7 +57,7 @@ struct Profile: View {
                             .modifier(ButtonModifiers())
                     }.padding(.horizontal)
                 }
-                
+                if selection == 0 {
                 LazyVGrid(columns: threeColumns) {
                 ForEach(self.profileViewModel.posts, id: \.postId ) {
                     (post) in
@@ -69,6 +69,10 @@ struct Profile: View {
                         .clipped()
                 }
                 }
+                } else if (self.session.session == nil) {Text("")}
+                    
+                    
+                    
 //                // todo: if using picker, use one for bio
 //                if selection == 0 {
 //

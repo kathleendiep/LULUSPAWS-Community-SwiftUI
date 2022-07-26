@@ -47,6 +47,8 @@ struct ProfileHeader: View {
                 }.padding(.top, 60)
                 Spacer()
             }
+            
+            Text("\(user!.bio)").font(.caption).bold()
         }
     }
 }

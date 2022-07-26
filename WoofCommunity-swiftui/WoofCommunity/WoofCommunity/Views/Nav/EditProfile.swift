@@ -39,8 +39,7 @@ struct EditProfile: View {
     }
     
     func errorCheck() -> String? {
-        if username.trimmingCharacters(in: .whitespaces).isEmpty || bio.trimmingCharacters(in: .whitespaces).isEmpty ||
-          imageData.isEmpty {
+        if username.trimmingCharacters(in: .whitespaces).isEmpty || bio.trimmingCharacters(in: .whitespaces).isEmpty  {
             
             return "Please fill out info and provide image"
         }
