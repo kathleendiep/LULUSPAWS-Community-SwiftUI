@@ -24,7 +24,6 @@ struct SignUpView_Previews: PreviewProvider {
 struct SignUpContainerView: View {
     
     // MARK: - Properties
-    
     @State var email: String = ""
     @State var password: String = ""
     @State var username: String = ""
@@ -38,8 +37,8 @@ struct SignUpContainerView: View {
     @State private var showingAlert = false
     @State private var alertTitle: String = "Oh no!"
     @State private var isLinkActive = false
-    // MARK: - Functions
     
+    // MARK: - Functions
     func loadImage(){
         guard let inputImage = pickedImage else { return }
         

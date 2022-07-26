@@ -14,27 +14,27 @@ import FirebaseStorage
 class PostViewModel {
     
     // MARK: - Properties
+    //  Firestore.firestore().collection(allPosts)
     static var Posts = SignInViewModel.storeRoot.collection("posts")
+    
+    static var AllPosts = SignInViewModel.storeRoot.collection("allPosts")
+    
+    static var Timeline = SignInViewModel.storeRoot.collection("timeline")
     
     static func PostsUserId(userId: String) -> DocumentReference {
         return Posts.document(userId)
     }
     
-   //  Firestore.firestore().collection(allPosts)
-    static var AllPosts = SignInViewModel.storeRoot.collection("allPosts")
-    
-    static var Timeline = SignInViewModel.storeRoot.collection("timeline")
-    
     static func timelineUserId(userId: String) -> DocumentReference {
         return Timeline.document(userId)
     }
     
-    static func uploadPost(caption: String, imageData: Data, onSuccess: @escaping()-> Void, onError: @escaping (_ errorMessage: String) -> Void) {
+    static func uploadPost(caption: String, imageData: Data, onSuccess: @escaping(_ post: Post)-> Void, onError: @escaping (_ errorMessage: String) -> Void) {
         
         guard let userId = Auth.auth().currentUser?.uid else { return }
         
-        let postId = self.PostsUserId(userId: userId).collection("posts").document().documentID
-        //        let postId = PostViewModel.PostsUserId(userId: userId).collection("posts").document().documentID
+//        let postId = self.PostsUserId(userId: userId).collection("posts").document().documentID
+        let postId = PostViewModel.PostsUserId(userId: userId).collection("posts").document().documentID
         
         let storagePostRef = StorageService.storagePostId(postId: postId)
         let metadata = StorageMetadata()

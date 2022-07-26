@@ -23,16 +23,16 @@ struct Add: View {
         guard let inputImage = pickedImage else { return }
         postImage = inputImage
     }
-    
+     
     func uploadPost() {
         if let error = errorCheck() {
             self.error = error
             self.showingAlert = true
             return
         }
-        self.clear()
+   
         // firebase
-        PostViewModel.uploadPost(caption: text, imageData: imageData, onSuccess: {
+        PostViewModel.uploadPost(caption: text, imageData: imageData, onSuccess: {(post) in
             self.clear()
         }) {
             (errorMessage) in
@@ -40,9 +40,9 @@ struct Add: View {
             self.error = errorMessage
             self.showingAlert = true
             return
+            
         }
     }
-    
     
     func clear() {
         self.text = ""

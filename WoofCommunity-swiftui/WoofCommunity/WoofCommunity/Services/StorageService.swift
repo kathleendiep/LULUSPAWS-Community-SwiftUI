@@ -15,18 +15,21 @@ class StorageService {
     
     static var storage = Storage.storage()
     
-    //    static var storageRoot = storage.reference(forURL: "gs://woofcommunity-45000.appspot.com/profile")
-    
     static var storageRoot = storage.reference()
     
+    // storage
     static var storageProfile = storageRoot.child("profile")
     
     static var storagePost = storageRoot.child("posts")
     
+    // todo is it supposed to be storagePost
+    // posts/postid
     static func storagePostId(postId:String) -> StorageReference {
         return storagePost.child(postId)
     }
     
+    // storage.reference().child("profile").child("userId")
+    // profile/userid
     static func storageProfileId(userId:String) -> StorageReference {
         return storageProfile.child(userId)
     }
@@ -83,7 +86,7 @@ class StorageService {
                 (url,error) in
                 if let metaImageUrl = url?.absoluteString {
                     
-                    // check if user is logged iin
+                    // check if user is logged in
                     if let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest() {
                         changeRequest.photoURL = url
                         changeRequest.displayName = username
@@ -97,6 +100,7 @@ class StorageService {
                     }
                     
                     let firestoreUserId = SignInViewModel.getUserId(userId)
+                    
                     // match these to variables to the above ones
                     let user = User.init(id: userId, email: email, profileImageUrl: metaImageUrl, username: username, bio: "")
                     
@@ -118,8 +122,8 @@ class StorageService {
     }
     
     // MARK: - Posts
-    // find a way to fix this one
-    static func savePostPhoto(userId: String, caption: String, postId: String, imageData: Data, metadata: StorageMetadata, storagePostRef: StorageReference, onSuccess: @escaping() -> Void, onError: @escaping(_ errorMessage: String) -> Void ) {
+    
+    static func savePostPhoto(userId: String, caption: String, postId: String, imageData: Data, metadata: StorageMetadata, storagePostRef: StorageReference, onSuccess: @escaping(_ post: Post) -> Void, onError: @escaping(_ errorMessage: String) -> Void ) {
         
         // put the data
         storagePostRef.putData(imageData, metadata: metadata) {
@@ -137,8 +141,7 @@ class StorageService {
                     // access the collection
                     let firestorePostRef = PostViewModel.PostsUserId(userId: userId).collection("posts").document(postId)
                     
-                    
-                    let post = Post.init(caption: caption, geoLocation: "",  ownerId: userId, postId: postId, username: Auth.auth().currentUser!.displayName!, profile: Auth.auth().currentUser!.photoURL!.absoluteString, mediaUrl: metaImageUrl, date: Date().timeIntervalSince1970, likes: [:], likeCount: 0)
+                    let post = Post.init(caption: caption, geoLocation: "", ownerId: userId, postId: postId, username: Auth.auth().currentUser!.displayName!, profile: Auth.auth().currentUser!.photoURL!.absoluteString, mediaUrl: metaImageUrl, date: Date().timeIntervalSince1970, likes: [:], likeCount: 0)
                     
                     // help: put in dictionary
                     guard let dict = try? post.asDictionary() else {return}
@@ -156,7 +159,7 @@ class StorageService {
                         
                         PostViewModel.AllPosts.document(postId).setData(dict)
                         
-                        onSuccess()
+                        onSuccess(post)
                     }
                     
                 }
