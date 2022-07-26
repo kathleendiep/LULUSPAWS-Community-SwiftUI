@@ -92,27 +92,29 @@ struct SignUpContainerView: View {
                 
                 // PROFILE PHOTO
                 VStack(spacing: 5){
-                    Text("Profile photo")
-                        .font(.subheadline)
-                    if profileImage != nil {
-                        profileImage!.resizable()
-                            .clipShape(Circle())
-                            .frame(width: 100, height: 100)
-                            . padding(.top, 20)
-                            .onTapGesture{
-                                self.showingActionSheet = true
-                            }
-                        Text("pick a photo!")
-                            .font(.caption)
-                    } else {
-                        Image(systemName: "person.circle.fill")
-                            .resizable()
-                            .clipShape(Circle())
-                            .frame(width: 100, height: 100)
-                            . padding(.top, 20)
-                            .onTapGesture{
-                                self.showingActionSheet = true
-                            }
+                    Group {
+                        Text("Profile photo")
+                            .font(.subheadline)
+                        if profileImage != nil {
+                            profileImage!.resizable()
+                                .clipShape(Circle())
+                                .frame(width: 100, height: 100)
+                                . padding(.top, 20)
+                                .onTapGesture{
+                                    self.showingActionSheet = true
+                                }
+                            Text("pick a photo!")
+                                .font(.caption)
+                        } else {
+                            Image(systemName: "person.circle.fill")
+                                .resizable()
+                                .clipShape(Circle())
+                                .frame(width: 100, height: 100)
+                                . padding(.top, 20)
+                                .onTapGesture{
+                                    self.showingActionSheet = true
+                                }
+                        }
                     }
                 }
                 

@@ -141,9 +141,9 @@
 				8166FD6E2885FF87008D7627 /* Explore.swift */,
 				8166FD652885FE6B008D7627 /* Add.swift */,
 				8166FD692885FF17008D7627 /* Profile.swift */,
+				81BB5D24288FAB8F00835BE2 /* EditProfile.swift */,
 				81B57357287E5B2E00F04ABC /* UserDetailView.swift */,
 				8181AECE288206EF001B6D43 /* UserEditView.swift */,
-				81BB5D24288FAB8F00835BE2 /* EditProfile.swift */,
 			);
 			path = Nav;
 			sourceTree = "<group>";

@@ -28,6 +28,7 @@ struct Profile: View {
     @EnvironmentObject var session: SessionStore
     @State private var selection = 0
     @StateObject var profileViewModel = ProfileViewModel()
+    @State private var isLinkActive = false
     
     let threeColumns = [GridItem(), GridItem(), GridItem()]
     
@@ -44,11 +45,18 @@ struct Profile: View {
             VStack{
                 
                 ProfileHeader(user: self.session.session, postsCount: profileViewModel.posts.count)
-                Button(action: {}){
-                    Text("Edit Profile")
-                        .font(.title)
-                        .modifier(ButtonModifiers())
-                }.padding(.horizontal)
+                
+                VStack(alignment: .leading){
+                    Text(session.session?.bio ?? "").font(.headline).lineLimit(1)
+                }
+            
+                NavigationLink(destination: EditProfile(session:self.session.session), isActive: $isLinkActive){
+                    Button(action: {self.isLinkActive = true}){
+                        Text("Edit Profile")
+                            .font(.title)
+                            .modifier(ButtonModifiers())
+                    }.padding(.horizontal)
+                }
                 
                 LazyVGrid(columns: threeColumns) {
                 ForEach(self.profileViewModel.posts, id: \.postId ) {
@@ -87,7 +95,7 @@ struct Profile: View {
 //                self.session.logout()
 //            }){
 //                Image(systemName: "arrow.right.circle.fill")
-//                
+//
 //            })
             .onAppear{
                 self.profileViewModel.loadUserPosts(userId: Auth.auth().currentUser!.uid)
