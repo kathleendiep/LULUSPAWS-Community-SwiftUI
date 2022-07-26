@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import FirebaseAuth
+import SDWebImageSwiftUI
 
 /*
  USERPROFILE MODEL:
@@ -25,32 +27,48 @@ struct Profile: View {
     // MARK: - Properties
     @EnvironmentObject var session: SessionStore
     @State private var selection = 1
+    @StateObject var profileViewModel = ProfileViewModel()
     
-    //todo: picker in #11 
+    let threeColumns = [GridItem(), GridItem(), GridItem()]
+    
+    
+    //todo: picker in #11
     var body: some View {
-        VStack {
-            ScrollView{
-                VStack{
-                    ProfileHeader(user: self.session.session)
-                    Button(action: {}){
-                        Text("Edit Profile")
-                            .font(.title)
-                            .modifier(ButtonModifiers())
-                    }.padding(.horizontal)
+        ScrollView{
+            VStack{
+                ProfileHeader(user: self.session.session)
+                Button(action: {}){
+                    Text("Edit Profile")
+                        .font(.title)
+                        .modifier(ButtonModifiers())
+                }.padding(.horizontal)
+                
+                LazyVGrid(columns: threeColumns) {
+                    ForEach(self.profileViewModel.posts, id: \.postId) {
+                        (post) in
+                        
+                        WebImage(url: URL(string: post.mediaUrl)!)
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: UIScreen.main.bounds.width/3, height: UIScreen.main.bounds.height/3)
+                        
+                    }
                 }
             }
-            .navigationTitle("Profile")
-            .navigationBarTitleDisplayMode(.inline)
-            .navigationBarItems(leading: Button(action: {}){
-                Image(systemName: "person.fill")
-            }, trailing: Button(action: {
-                self.session.logout()
-            }){
-                Image(systemName: "arrow.right.circle.fill")
-                
-            })
-        }
+        
+        .navigationTitle("Profile")
+        .navigationBarTitleDisplayMode(.inline)
+        .navigationBarItems(leading: Button(action: {}){
+            Image(systemName: "person.fill")
+        }, trailing: Button(action: {
+            self.session.logout()
+        }){
+            Image(systemName: "arrow.right.circle.fill")
+            
+        })
     }
+    }
+    
 }
 
 struct Profile_Previews: PreviewProvider {
@@ -59,4 +77,3 @@ struct Profile_Previews: PreviewProvider {
     }
 }
 
-// edit profile https://www.youtube.com/watch?v=vV1lIG7VMX0&list=PLdBY1aYxSpPVI3wTlK1cKHNOoq4JA3X5-&index=25
