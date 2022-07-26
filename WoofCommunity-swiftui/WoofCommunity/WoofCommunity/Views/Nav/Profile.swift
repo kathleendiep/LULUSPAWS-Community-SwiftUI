@@ -42,6 +42,7 @@ struct Profile: View {
     var body: some View {
         ScrollView{
             VStack{
+                
                 ProfileHeader(user: self.session.session, postsCount: profileViewModel.posts.count)
                 Button(action: {}){
                     Text("Edit Profile")
@@ -49,8 +50,19 @@ struct Profile: View {
                         .modifier(ButtonModifiers())
                 }.padding(.horizontal)
                 
-                Text("This is the PostCardImage in a Lazy V Grid")
-                
+                LazyVGrid(columns: threeColumns) {
+                ForEach(self.profileViewModel.posts, id: \.postId ) {
+                    (post) in
+                    
+                    WebImage(url: URL(string: post.mediaUrl)!)
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: UIScreen.main.bounds.size.width/3, height:UIScreen.main.bounds.size.height/3, alignment: .center)
+                        .clipped()
+                    
+                }
+                }
+                // todo: if using picker, use one for bio
                 if selection == 0 {
                     
                     LazyVGrid(columns: threeColumns) {

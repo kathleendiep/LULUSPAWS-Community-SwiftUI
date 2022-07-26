@@ -37,12 +37,12 @@ struct ProfileHeader: View {
                 
                 Spacer()
                 VStack{
-                    Text("Human Name").font(.footnote)
-                    Text("20").font(.title).bold()
+                    Text("name").font(.footnote)
+                    Text("\(user!.username)").font(.title).bold()
                 }.padding(.top, 60)
                 Spacer()
                 VStack{
-                    Text("Dog Name").font(.footnote)
+                    Text("Woof, I'm").font(.footnote)
                     Text("20").font(.title).bold()
                 }.padding(.top, 60)
                 Spacer()
