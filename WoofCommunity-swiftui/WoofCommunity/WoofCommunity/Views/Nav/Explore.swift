@@ -18,8 +18,16 @@ struct Explore: View {
     var body: some View {
         VStack {
             Text("Explore")
+            Home()
         }
     }
+}
+
+struct Home : View {
+    
+    @State var map = MKMapView()
+    @State var manager = CLLocationManager()
+    
 }
 
 //
