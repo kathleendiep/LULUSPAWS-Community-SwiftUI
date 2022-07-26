@@ -20,6 +20,7 @@ class PostViewModel {
         return Posts.document(userId)
     }
     
+   //  Firestore.firestore().collection(allPosts)
     static var AllPosts = SignInViewModel.storeRoot.collection("allPosts")
     
     static var Timeline = SignInViewModel.storeRoot.collection("timeline")

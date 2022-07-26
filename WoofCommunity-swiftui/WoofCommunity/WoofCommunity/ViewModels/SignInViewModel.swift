@@ -5,7 +5,7 @@
 //  Created by Kathleen Diep on 7/18/22.
 //
 import Foundation
-import FirebaseCore
+import Firebase
 import FirebaseAuth
 import FirebaseStorage
 import FirebaseFirestore

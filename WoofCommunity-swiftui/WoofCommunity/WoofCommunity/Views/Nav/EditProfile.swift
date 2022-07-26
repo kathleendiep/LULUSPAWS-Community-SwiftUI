@@ -49,8 +49,8 @@ struct EditProfile: View {
     }
 }
 
-struct EditProfile_Previews: PreviewProvider {
-    static var previews: some View {
-        EditProfile()
-    }
-}
+//struct EditProfile_Previews: PreviewProvider {
+//    static var previews: some View {
+//        EditProfile()
+//    }
+//}
