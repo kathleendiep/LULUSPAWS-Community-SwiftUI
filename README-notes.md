@@ -13,6 +13,8 @@ People AND pets thrive on connection, and what better way than to have technolog
         - make a profile that shows our personal information so that others can get to know us a little bit.
             - Icon - shows contact info - to message elsewhere (Maybe Instagram, Twitter, or Discord) 
         - search for local events and pet friendly places using Yelp API
+        - use MapKit 
+            - to show users profile in this location 
 
 ## Tech stack
 

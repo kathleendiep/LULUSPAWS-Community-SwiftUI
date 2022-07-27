@@ -65,6 +65,7 @@ struct EditProfile: View {
         
         let storageProfileUserId = StorageService.storageProfileId(userId: userId)
         
+        // converts the image
         let metadata = StorageMetadata()
         metadata.contentType = "image/jpg"
         

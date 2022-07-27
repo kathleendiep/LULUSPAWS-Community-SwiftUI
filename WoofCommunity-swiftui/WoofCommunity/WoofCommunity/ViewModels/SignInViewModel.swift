@@ -136,12 +136,9 @@ class SignInViewModel: NSObject, ObservableObject {
             
             // Add to save Profile - Services
             StorageService.saveProfileImage(userId: userId, username: username, email: email, imageData: imageData, metaData: metadata, storageProfileImageRef: storageProfileUserId, onSuccess: onSuccess, onError: onError )
-            
-            
+  
         }
-        
     }
-   
 }
 
 

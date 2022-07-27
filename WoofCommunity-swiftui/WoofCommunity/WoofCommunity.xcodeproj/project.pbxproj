@@ -50,6 +50,8 @@
 		81BB5D21288F589200835BE2 /* PostCardImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BB5D20288F589200835BE2 /* PostCardImage.swift */; };
 		81BB5D23288F5DD400835BE2 /* PostCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BB5D22288F5DD400835BE2 /* PostCard.swift */; };
 		81BB5D25288FAB8F00835BE2 /* EditProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BB5D24288FAB8F00835BE2 /* EditProfile.swift */; };
+		81DEB9902890AFF600854528 /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DEB98F2890AFF600854528 /* Loader.swift */; };
+		81DEB9922890B42700854528 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DEB9912890B42700854528 /* Location.swift */; };
 		81FB5D852878BB0400230D75 /* WoofCommunityApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FB5D842878BB0400230D75 /* WoofCommunityApp.swift */; };
 		81FB5D892878BB0A00230D75 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81FB5D882878BB0A00230D75 /* Assets.xcassets */; };
 		81FB5D8C2878BB0A00230D75 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81FB5D8B2878BB0A00230D75 /* Preview Assets.xcassets */; };
@@ -87,6 +89,9 @@
 		81BB5D20288F589200835BE2 /* PostCardImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCardImage.swift; sourceTree = "<group>"; };
 		81BB5D22288F5DD400835BE2 /* PostCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCard.swift; sourceTree = "<group>"; };
 		81BB5D24288FAB8F00835BE2 /* EditProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfile.swift; sourceTree = "<group>"; };
+		81DEB98E28909E2A00854528 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		81DEB98F2890AFF600854528 /* Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
+		81DEB9912890B42700854528 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		81FB5D812878BB0400230D75 /* WoofCommunity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WoofCommunity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81FB5D842878BB0400230D75 /* WoofCommunityApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoofCommunityApp.swift; sourceTree = "<group>"; };
 		81FB5D882878BB0A00230D75 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -156,6 +161,7 @@
 				818C2A6C28873F030050F477 /* ProfileHeader.swift */,
 				81BB5D20288F589200835BE2 /* PostCardImage.swift */,
 				81BB5D22288F5DD400835BE2 /* PostCard.swift */,
+				81DEB98F2890AFF600854528 /* Loader.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -174,6 +180,7 @@
 			children = (
 				81AFA1EE287CCC620099D8FB /* User.swift */,
 				818BE5FF28889A2600C4EF1E /* Post.swift */,
+				81DEB9912890B42700854528 /* Location.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -202,6 +209,7 @@
 		81AFA233287E1DA80099D8FB /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				810AD2A928809C920046B8A2 /* Services */,
 				8166FD612885ED89008D7627 /* SignInViewModel.swift */,
 				818BE60128889AF800C4EF1E /* PostViewModel.swift */,
 				81BB5D1C288F4FC400835BE2 /* PostCardViewModel.swift */,
@@ -239,10 +247,10 @@
 		81FB5D832878BB0400230D75 /* WoofCommunity */ = {
 			isa = PBXGroup;
 			children = (
+				81DEB98E28909E2A00854528 /* Info.plist */,
 				81392D3528872EEE00B83CFE /* Steps.swift */,
 				81AFA1F2287CD8420099D8FB /* GoogleService-Info.plist */,
 				81AFA233287E1DA80099D8FB /* ViewModels */,
-				810AD2A928809C920046B8A2 /* Services */,
 				81AFA1EA287CCC3C0099D8FB /* Models */,
 				81AFA1EB287CCC400099D8FB /* Views */,
 				818C2A7328876FE00050F477 /* Old */,
@@ -363,6 +371,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				81BB5D23288F5DD400835BE2 /* PostCard.swift in Sources */,
+				81DEB9922890B42700854528 /* Location.swift in Sources */,
 				81392D3828872F5F00B83CFE /* SessionStore.swift in Sources */,
 				81B982DB288636E900F848EC /* ContentView.swift in Sources */,
 				81BB5D25288FAB8F00835BE2 /* EditProfile.swift in Sources */,
@@ -392,6 +401,7 @@
 				818BE60028889A2600C4EF1E /* Post.swift in Sources */,
 				81B982D72886234C00F848EC /* SignUpView.swift in Sources */,
 				8198FCF02880FCD50033421C /* StorageService.swift in Sources */,
+				81DEB9902890AFF600854528 /* Loader.swift in Sources */,
 				81BB5D21288F589200835BE2 /* PostCardImage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -524,6 +534,11 @@
 				DEVELOPMENT_TEAM = 2864USZ3L7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WoofCommunity/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "";
+				INFOPLIST_KEY_NSLocationUsageDescription = "";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -554,6 +569,11 @@
 				DEVELOPMENT_TEAM = 2864USZ3L7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WoofCommunity/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "";
+				INFOPLIST_KEY_NSLocationUsageDescription = "";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

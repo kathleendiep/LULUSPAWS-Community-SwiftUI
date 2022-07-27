@@ -34,7 +34,7 @@ class StorageService {
         return storageProfile.child(userId)
     }
     
-    static func editProfile(userId: String, username: String, bio: String, imageData: Data, metaData: StorageMetadata, storageProfileImageRef: StorageReference, onError: @escaping(_ errorMessage: String) -> Void){
+    static func editProfile(userId: String, username: String, bio: String, imageData: Data, metaData: StorageMetadata, storageProfileImageRef: StorageReference,onError: @escaping(_ errorMessage: String) -> Void){
         
         storageProfileImageRef.putData(imageData, metadata: metaData) {
             (StorageMetadata, error) in
