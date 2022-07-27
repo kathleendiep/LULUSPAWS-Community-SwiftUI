@@ -70,7 +70,7 @@ class StorageService {
     }
             
     
-    static func saveProfileImage(userId: String, username: String, email: String, imageData: Data, metaData: StorageMetadata, storageProfileImageRef: StorageReference, onSuccess: @escaping(_ user: User) -> Void, onError: @escaping(_ errorMessage: String) -> Void ) {
+    static func saveProfileImage(userId: String, username: String, email: String, petName: String, humanName: String, imageData: Data, metaData: StorageMetadata, storageProfileImageRef: StorageReference, onSuccess: @escaping(_ user: User) -> Void, onError: @escaping(_ errorMessage: String) -> Void ) {
         
         // MetaData - image info
         storageProfileImageRef.putData(imageData, metadata: metaData) {
@@ -102,7 +102,7 @@ class StorageService {
                     let firestoreUserId = SignInViewModel.getUserId(userId)
                     
                     // match these to variables to the above ones
-                    let user = User.init(id: userId, email: email, profileImageUrl: metaImageUrl, username: username, bio: "")
+                    let user = User.init(id: userId, email: email, profileImageUrl: metaImageUrl, username: username, bio: "",  searchName: username.splitString(), petName: petName, humanName: humanName)
                     
                     // if has user
                     guard let dict = try?user.asDictionary() else {return}

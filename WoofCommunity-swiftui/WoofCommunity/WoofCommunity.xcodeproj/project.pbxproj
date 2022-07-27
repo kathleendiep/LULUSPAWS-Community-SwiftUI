@@ -54,8 +54,9 @@
 		81D2E9672891C4E300F9BFF2 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D2E9662891C4E300F9BFF2 /* File.swift */; };
 		81D2E9692891DD4D00F9BFF2 /* Observables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D2E9682891DD4D00F9BFF2 /* Observables.swift */; };
 		81D2E96B2891DEB800F9BFF2 /* DataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D2E96A2891DEB800F9BFF2 /* DataType.swift */; };
-		81D2E96D2891E46800F9BFF2 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D2E96C2891E46700F9BFF2 /* SearchBar.swift */; };
+		81D2E96D2891E46800F9BFF2 /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D2E96C2891E46700F9BFF2 /* Search.swift */; };
 		81D2E96F2891E6A000F9BFF2 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D2E96E2891E6A000F9BFF2 /* SearchBar.swift */; };
+		81D2E9712891EDE900F9BFF2 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D2E9702891EDE900F9BFF2 /* SearchViewModel.swift */; };
 		81DEB9902890AFF600854528 /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DEB98F2890AFF600854528 /* Loader.swift */; };
 		81DEB9922890B42700854528 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DEB9912890B42700854528 /* Location.swift */; };
 		81FB5D852878BB0400230D75 /* WoofCommunityApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FB5D842878BB0400230D75 /* WoofCommunityApp.swift */; };
@@ -99,8 +100,9 @@
 		81D2E9662891C4E300F9BFF2 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		81D2E9682891DD4D00F9BFF2 /* Observables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observables.swift; sourceTree = "<group>"; };
 		81D2E96A2891DEB800F9BFF2 /* DataType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataType.swift; sourceTree = "<group>"; };
-		81D2E96C2891E46700F9BFF2 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		81D2E96C2891E46700F9BFF2 /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
 		81D2E96E2891E6A000F9BFF2 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		81D2E9702891EDE900F9BFF2 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		81DEB98E28909E2A00854528 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		81DEB98F2890AFF600854528 /* Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
 		81DEB9912890B42700854528 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
@@ -156,7 +158,7 @@
 				81AFA1F0287CCC8A0099D8FB /* HomeView.swift */,
 				8166FD6B2885FF44008D7627 /* Main.swift */,
 				8166FD6E2885FF87008D7627 /* Explore.swift */,
-				81D2E96C2891E46700F9BFF2 /* SearchBar.swift */,
+				81D2E96C2891E46700F9BFF2 /* Search.swift */,
 				8166FD652885FE6B008D7627 /* Add.swift */,
 				8166FD692885FF17008D7627 /* Profile.swift */,
 				81BB5D24288FAB8F00835BE2 /* EditProfile.swift */,
@@ -232,6 +234,7 @@
 				81BB5D1E288F57A800835BE2 /* ProfileViewModel.swift */,
 				81D2E9642891B99C00F9BFF2 /* MainViewModel.swift */,
 				81D2E9682891DD4D00F9BFF2 /* Observables.swift */,
+				81D2E9702891EDE900F9BFF2 /* SearchViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -403,7 +406,7 @@
 				818C2A6D28873F030050F477 /* ProfileHeader.swift in Sources */,
 				8166FD6A2885FF17008D7627 /* Profile.swift in Sources */,
 				81B982D22886202F00F848EC /* ButtonModifiers.swift in Sources */,
-				81D2E96D2891E46800F9BFF2 /* SearchBar.swift in Sources */,
+				81D2E96D2891E46800F9BFF2 /* Search.swift in Sources */,
 				818C2A7228876FCA0050F477 /* oldMain.swift in Sources */,
 				81AFA1EF287CCC620099D8FB /* User.swift in Sources */,
 				818C2A92288873D40050F477 /* UsersService.swift in Sources */,
@@ -414,6 +417,7 @@
 				8198FCEC2880F4820033421C /* Extensions.swift in Sources */,
 				810AD2AD28809F510046B8A2 /* SignInView.swift in Sources */,
 				81B57358287E5B2E00F04ABC /* UserDetailView.swift in Sources */,
+				81D2E9712891EDE900F9BFF2 /* SearchViewModel.swift in Sources */,
 				81D2E96F2891E6A000F9BFF2 /* SearchBar.swift in Sources */,
 				81392D3628872EEE00B83CFE /* Steps.swift in Sources */,
 				81D2E9652891B99C00F9BFF2 /* MainViewModel.swift in Sources */,

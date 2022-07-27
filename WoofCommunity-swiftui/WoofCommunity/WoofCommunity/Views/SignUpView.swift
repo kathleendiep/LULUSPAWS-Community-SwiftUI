@@ -27,6 +27,8 @@ struct SignUpContainerView: View {
     @State var email: String = ""
     @State var password: String = ""
     @State var username: String = ""
+    @State var petName: String = ""
+    @State var humanName: String = ""
     @State var profileImage: Image?
     @State var pickedImage: Image?
     @State var showingActionSheet = false
@@ -67,7 +69,7 @@ struct SignUpContainerView: View {
             return
         }
         
-        SignInViewModel.signUp(username: username, email: email, password:password, imageData: imageData, onSuccess: {
+        SignInViewModel.signUp(username: username, email: email, password:password, petName: petName, humanName: humanName, imageData: imageData, onSuccess: {
             (user) in
             self.clear()
         }) {
@@ -123,9 +125,14 @@ struct SignUpContainerView: View {
                     // todo: make it unique
                     FormField(value: $username, icon: "person.crop.circle.fill", placeholder: "username")
                     
-                    FormField(value: $email, icon: "mail", placeholder: "email")
+                    FormField(value: $email, icon: "mail", placeholder: "Email")
                     
-                    FormField(value: $password, icon: "key", placeholder: "password", isSecure: true)
+                    FormField(value: $password, icon: "key", placeholder: "Password", isSecure: true)
+                    
+                    
+                    FormField(value: $petName, icon: "pawprint.circle", placeholder: "Pet's name")
+                    
+                    FormField(value: $humanName, icon: "pawprint.circle", placeholder: "Hooman's name")
                     
 //                    Button(action: {
 //                        // pass in email and password

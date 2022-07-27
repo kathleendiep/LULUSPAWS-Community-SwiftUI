@@ -118,7 +118,7 @@ class SignInViewModel: NSObject, ObservableObject {
     
     
     
-    static func signUp(username: String, email: String, password: String, imageData: Data, onSuccess: @escaping (_ user: User) -> Void, onError: @escaping(_ errorMessage: String) -> Void) {
+    static func signUp(username: String, email: String, password: String, petName: String, humanName: String, imageData: Data, onSuccess: @escaping (_ user: User) -> Void, onError: @escaping(_ errorMessage: String) -> Void) {
         
         auth.createUser(withEmail: email, password: password) {
             ( authData, error ) in
@@ -135,7 +135,7 @@ class SignInViewModel: NSObject, ObservableObject {
             metadata.contentType = "image/jpg"
             
             // Add to save Profile - Services
-            StorageService.saveProfileImage(userId: userId, username: username, email: email, imageData: imageData, metaData: metadata, storageProfileImageRef: storageProfileUserId, onSuccess: onSuccess, onError: onError )
+            StorageService.saveProfileImage(userId: userId, username: username, email: email, petName: petName, humanName: humanName, imageData: imageData, metaData: metadata, storageProfileImageRef: storageProfileUserId, onSuccess: onSuccess, onError: onError )
   
         }
     }

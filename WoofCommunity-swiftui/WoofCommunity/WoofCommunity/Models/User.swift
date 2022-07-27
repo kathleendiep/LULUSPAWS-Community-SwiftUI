@@ -40,16 +40,20 @@ struct User: Identifiable, Encodable, Decodable {
     var profileImageUrl: String
     var username: String
     var bio: String
-//    var searchName: [String]
+    var searchName: [String]
+   
+    var petName: String
+    var humanName: String
+//    var profileDogImageUrl: String
+//    var location: Location
+    
     
     // MARK: - Location
     // automatically find
-//    var location: Location    
+
     
-    // to do: Add more fields
-//    var petName: String
-//    var humanName: String
-//    var profileDogImageUrl: String
+    // todo: funfacts
+    
 //    var location: CLLocationCoordinate2D
     /*
     let exampleLocation = CLLocation(latitude: longitude:)
