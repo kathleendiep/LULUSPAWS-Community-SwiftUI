@@ -53,7 +53,6 @@ struct ExploreMap : View {
                                 .fontWeight(.bold)
                         }
                         
-                        
                     }
                     Spacer()
                 }

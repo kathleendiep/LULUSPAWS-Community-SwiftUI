@@ -157,8 +157,9 @@ class StorageService {
                         // save dictionary to Collections
                         PostViewModel.timelineUserId(userId: userId).collection("timeline").document(postId).setData(dict)
                         
+                        // allPosts/postId
                         PostViewModel.AllPosts.document(postId).setData(dict)
-                        
+
                         onSuccess(post)
                     }
                     

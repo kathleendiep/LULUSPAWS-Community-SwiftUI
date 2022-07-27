@@ -140,17 +140,27 @@ struct SignUpContainerView: View {
 //                            .font(.title)
 //                            .modifier(ButtonModifiers())
 //                    })
-                    NavigationLink {
-                        Profile()
-                    } label: {
-                    Button(action: signUp) {
-                        Text("Create")
-                            .font(.title)
-                            .modifier(ButtonModifiers())
-                    }.alert(isPresented: $showingAlert) {
-                        Alert(title: Text(alertTitle), message: Text(error), dismissButton: .default(Text("OK")))
+                    
+                    NavigationLink(destination: Profile()){
+                        Button(action: signUp) {
+                            Text("Create")
+                                .font(.title)
+                                .modifier(ButtonModifiers())
+                        }.alert(isPresented: $showingAlert) {
+                            Alert(title: Text(alertTitle), message: Text(error), dismissButton: .default(Text("OK")))
+                        }
                     }
-                }
+//                    NavigationLink(destionation: Profile()) {
+//
+//                    } label: {
+//                    Button(action: signUp) {
+//                        Text("Create")
+//                            .font(.title)
+//                            .modifier(ButtonModifiers())
+//                    }.alert(isPresented: $showingAlert) {
+//                        Alert(title: Text(alertTitle), message: Text(error), dismissButton: .default(Text("OK")))
+//                    }
+//                }
                 .padding()
                 
                 Spacer()

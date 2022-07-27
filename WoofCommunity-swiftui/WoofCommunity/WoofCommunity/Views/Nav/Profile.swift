@@ -29,6 +29,8 @@ struct Profile: View {
     @State private var selection = 0
     @StateObject var profileViewModel = ProfileViewModel()
     @State private var isLinkActive = false
+    @State private var currentUser = Auth.auth().currentUser!.uid
+    var user: User?
     
     let threeColumns = [GridItem(), GridItem(), GridItem()]
     
@@ -102,7 +104,11 @@ struct Profile: View {
 //
 //            })
             .onAppear{
-                self.profileViewModel.loadUserPosts(userId: Auth.auth().currentUser!.uid)
+                
+              
+                self.profileViewModel.loadUserPosts(userId: currentUser)
+                
+                
             }
         }
     }
