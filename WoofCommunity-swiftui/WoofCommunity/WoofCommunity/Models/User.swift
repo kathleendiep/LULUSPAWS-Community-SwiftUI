@@ -40,6 +40,8 @@ struct User: Identifiable, Encodable, Decodable {
     var profileImageUrl: String
     var username: String
     var bio: String
+//    var searchName: [String]
+    
     // MARK: - Location
     // automatically find
 //    var location: Location    
