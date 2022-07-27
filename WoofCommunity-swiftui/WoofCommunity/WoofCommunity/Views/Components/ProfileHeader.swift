@@ -43,17 +43,16 @@ struct ProfileHeader: View {
                 Spacer()
                 VStack{
                     Text("name").font(.footnote)
-                    Text("\(user!.username)").font(.title).bold()
+                    Text("\(user!.humanName)").font(.title).bold()
                 }.padding(.top, 60)
                 Spacer()
                 VStack{
                     Text("Woof, I'm").font(.footnote)
-                    Text("20").font(.title).bold()
+                    Text("\(user!.petName)").font(.title).bold()
+                    
                 }.padding(.top, 60)
                 Spacer()
             }
-            
-            Text("\(user!.bio)").font(.caption).bold()
         }
         }
     }

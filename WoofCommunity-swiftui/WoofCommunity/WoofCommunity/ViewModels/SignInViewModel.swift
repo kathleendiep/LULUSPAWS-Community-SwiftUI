@@ -135,7 +135,7 @@ class SignInViewModel: NSObject, ObservableObject {
             metadata.contentType = "image/jpg"
             
             // Add to save Profile - Services
-            StorageService.saveProfileImage(userId: userId, username: username, email: email, petName: petName, humanName: humanName, imageData: imageData, metaData: metadata, storageProfileImageRef: storageProfileUserId, onSuccess: onSuccess, onError: onError )
+            StorageService.saveProfileImage(userId: userId, username: username, email: email, imageData: imageData, metaData: metadata, storageProfileImageRef: storageProfileUserId, onSuccess: onSuccess, onError: onError )
   
         }
     }

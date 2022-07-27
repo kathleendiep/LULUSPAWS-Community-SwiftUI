@@ -21,7 +21,6 @@ import SDWebImageSwiftUI
  //    - location
  */
 
-
 struct Profile: View {
     
     // MARK: - Properties

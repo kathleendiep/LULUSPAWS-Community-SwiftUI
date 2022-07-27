@@ -15,6 +15,8 @@ struct EditProfile: View {
     
     @EnvironmentObject var session: SessionStore
     @State var username: String = ""
+    @State var humanName: String = ""
+    @State var petName: String = ""
     @State var profileImage: Image?
     @State var pickedImage: Image?
     @State var showingActionSheet = false
@@ -66,10 +68,14 @@ struct EditProfile: View {
         let storageProfileUserId = StorageService.storageProfileId(userId: userId)
         
         // converts the image
+        
+        
         let metadata = StorageMetadata()
         metadata.contentType = "image/jpg"
         
-        StorageService.editProfile(userId: userId, username: username, bio: bio, imageData: imageData, metaData: metadata, storageProfileImageRef: storageProfileUserId, onError: {
+        
+        //
+        StorageService.editProfile(userId: userId, username: username, bio: bio, petName: petName, humanName: humanName,  imageData: imageData, metaData: metadata, storageProfileImageRef: storageProfileUserId, onError: {
             
             (errorMessage) in
             
@@ -111,6 +117,9 @@ struct EditProfile: View {
                 }
                 FormField(value: $username, icon: "person.fill", placeholder: "Username")
                 FormField(value: $bio, icon: "book.fill", placeholder: "bio")
+                FormField(value: $humanName, icon: "person.fill", placeholder: "Hooman's Name")
+                FormField(value: $petName, icon: "pawprint.circlel", placeholder: "Pet name")
+                
                 
                 Button(action: edit){
                     

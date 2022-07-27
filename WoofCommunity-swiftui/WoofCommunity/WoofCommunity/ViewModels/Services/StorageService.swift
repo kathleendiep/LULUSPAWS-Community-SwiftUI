@@ -34,7 +34,7 @@ class StorageService {
         return storageProfile.child(userId)
     }
     
-    static func editProfile(userId: String, username: String, bio: String, imageData: Data, metaData: StorageMetadata, storageProfileImageRef: StorageReference,onError: @escaping(_ errorMessage: String) -> Void){
+    static func editProfile(userId: String, username: String, bio: String, petName: String, humanName: String, imageData: Data, metaData: StorageMetadata, storageProfileImageRef: StorageReference,onError: @escaping(_ errorMessage: String) -> Void){
         
         storageProfileImageRef.putData(imageData, metadata: metaData) {
             (StorageMetadata, error) in
@@ -62,15 +62,13 @@ class StorageService {
                     let firestoreUserId = SignInViewModel.getUserId(userId)
                     
                     // update the data
-                    firestoreUserId.updateData(["profileImageUrl": metaImageUrl, "username": username, "bio": bio
+                    firestoreUserId.updateData(["profileImageUrl": metaImageUrl, "username": username, "bio": bio, "petName":petName, "humanName":humanName
                         ])
                 }
         }
         }
     }
-            
-    
-    static func saveProfileImage(userId: String, username: String, email: String, petName: String, humanName: String, imageData: Data, metaData: StorageMetadata, storageProfileImageRef: StorageReference, onSuccess: @escaping(_ user: User) -> Void, onError: @escaping(_ errorMessage: String) -> Void ) {
+    static func saveProfileImage(userId: String, username: String, email: String, imageData: Data, metaData: StorageMetadata, storageProfileImageRef: StorageReference, onSuccess: @escaping(_ user: User) -> Void, onError: @escaping(_ errorMessage: String) -> Void ) {
         
         // MetaData - image info
         storageProfileImageRef.putData(imageData, metadata: metaData) {
@@ -102,7 +100,7 @@ class StorageService {
                     let firestoreUserId = SignInViewModel.getUserId(userId)
                     
                     // match these to variables to the above ones
-                    let user = User.init(id: userId, email: email, profileImageUrl: metaImageUrl, username: username, bio: "",  searchName: username.splitString(), petName: petName, humanName: humanName)
+                    let user = User.init(id: userId, email: email, profileImageUrl: metaImageUrl, username: username, bio: "",  searchName: username.splitString(), petName: "", humanName: "", profileDogImageUrl: "")
                     
                     // if has user
                     guard let dict = try?user.asDictionary() else {return}
@@ -120,6 +118,57 @@ class StorageService {
         }
         
     }
+    
+//    static func saveProfileImage(userId: String, username: String, email: String, petName: String, humanName: String, imageData: Data, metaData: StorageMetadata, storageProfileImageRef: StorageReference, onSuccess: @escaping(_ user: User) -> Void, onError: @escaping(_ errorMessage: String) -> Void ) {
+//
+//        // MetaData - image info
+//        storageProfileImageRef.putData(imageData, metadata: metaData) {
+//            (StorageMetadata, error) in
+//
+//            if error != nil {
+//                onError(error!.localizedDescription)
+//                return
+//            }
+//
+//            // get the image = metaImageUrl
+//            storageProfileImageRef.downloadURL{
+//                (url,error) in
+//                if let metaImageUrl = url?.absoluteString {
+//
+//                    // check if user is logged in
+//                    if let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest() {
+//                        changeRequest.photoURL = url
+//                        changeRequest.displayName = username
+//                        changeRequest.commitChanges{
+//                            (error) in
+//                            if error != nil {
+//                                onError(error!.localizedDescription)
+//                                return
+//                            }
+//                        }
+//                    }
+//
+//                    let firestoreUserId = SignInViewModel.getUserId(userId)
+//
+//                    // match these to variables to the above ones
+//                    let user = User.init(id: userId, email: email, profileImageUrl: metaImageUrl, username: username, bio: "",  searchName: username.splitString(), petName: petName, humanName: humanName, profileDogImageUrl: "")
+//
+//                    // if has user
+//                    guard let dict = try?user.asDictionary() else {return}
+//
+//                    firestoreUserId.setData(dict){
+//                        (error) in
+//                        if error != nil {
+//                            onError(error!.localizedDescription)
+//                        }
+//                    }
+//
+//                    onSuccess(user)
+//                }
+//            }
+//        }
+//
+//    }
     
     // MARK: - Posts
     
@@ -170,6 +219,3 @@ class StorageService {
     
 }
 
-/*
- to display username: Auth.auth().currentUser.displayName
- */

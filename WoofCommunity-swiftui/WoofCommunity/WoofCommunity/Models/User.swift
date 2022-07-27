@@ -44,16 +44,13 @@ struct User: Identifiable, Encodable, Decodable {
    
     var petName: String
     var humanName: String
-//    var profileDogImageUrl: String
+    var profileDogImageUrl: String
 //    var location: Location
     
     
     // MARK: - Location
     // automatically find
-
-    
-    // todo: funfacts
-    
+    // todo: funfact
 //    var location: CLLocationCoordinate2D
     /*
     let exampleLocation = CLLocation(latitude: longitude:)
