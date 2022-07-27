@@ -10,6 +10,8 @@ import FirebaseAuth
 import Firebase
 import FirebaseFirestore
 import FirebaseStorage
+import Combine
+import FirebaseFirestoreSwift
 
 class PostViewModel: ObservableObject {
     
@@ -26,7 +28,7 @@ class PostViewModel: ObservableObject {
     // to fetch data
     //    @Published var user: User?
     //    @Published var users = [User]()
-//    @Published var allPosts = [Post]()
+    @Published var allPosts = [Post]()
     
     static func PostsUserId(userId: String) -> DocumentReference {
         return Posts.document(userId)
@@ -77,6 +79,42 @@ class PostViewModel: ObservableObject {
         }
     }
     
+    
+
+    
+    
+    
+    
+//    static func loadAllUsersPosts(userId: String, onSuccess: @escaping(_ posts: [Post]) -> Void) {
+//
+//        PostViewModel.PostsUserId(userId: userId).collection("posts").getDocuments{
+//            (snapshot, error) in
+//
+//            guard let snap = snapshot else {
+//                print("Error")
+//                return
+//            }
+//            // initiate the posts
+//            var posts = [Post]()
+//
+//            for doc in snap.documents {
+//                let dict = doc.data()
+//                guard let decoder = try? Post.init(fromDictionary: dict)
+//                else {
+//                    return
+//                }
+//                posts.append(decoder)
+//            }
+//            onSuccess(posts)
+//
+//
+//        }
+//    }
+    
+ 
+    
+    
+    
     // CRUD
     /*
      - Create and add to an array
@@ -108,27 +146,54 @@ class PostViewModel: ObservableObject {
      
      */
     
-    static func getAllPosts(userId: String, onSuccess: @escaping(_ allPosts: [Post]) -> Void) {
-        
+     // MARK: - ALL POSTS METHOD 2
+
+    func getData() {
+
+        let db = Firestore.firestore()
+
+        db.collection("allPosts").getDocuments { snapshot, error in
+
+            // Check for errors
+            if error == nil {
+                // No errors
+
+                if let snapshot = snapshot {
+
+                    DispatchQueue.main.async {
+                        for doc in snapshot.documents {
+                            let dict = doc.data()
+                            guard let decoder = try? Post.init(fromDictionary: dict)
+                            else {
+                                return
+                            }
+                            self.allPosts.append(decoder)
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // MARK: - ALL POSTS METHOD 1
+
+    static func getAllPosts(postId: String, onSuccess: @escaping(_ allPosts: [Post]) -> Void) {
+
         // 1) Access the collecton
         // 2) get document
         // Firestore.firestore().collection("allPosts")
-        
-        PostViewModel.PostsUserId(userId: userId).collection("posts").getDocuments{
+        PostViewModel.AllPosts.getDocuments {
             (snapshot, error) in
-        
-//        PostViewModel.AllPosts.getDocuments{ [self] (snapshot, error) in
-//
-            
+
             //  3) Check for error
             guard let snap = snapshot else {
                 print("Error")
                 return
             }
-            
+
             // initiate the posts
             var allPosts = [Post]()
-            
+
             // 4) Read through doucments dictionary
             for doc in snap.documents {
                 let dict = doc.data()
@@ -142,7 +207,7 @@ class PostViewModel: ObservableObject {
             onSuccess(allPosts)
         }
     }
-    
+
 }
 
 

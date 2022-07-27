@@ -6,10 +6,11 @@ import Firebase
 class MainViewModel: ObservableObject {
     
     @Published var allPosts: [Post] = []
+    @Published var allUsersPosts: [Post] = []
     
-    func getAllPosts(userId: String) {
+    func getAllPosts(postId: String) {
         
-        PostViewModel.getAllPosts(userId: userId) {
+        PostViewModel.getAllPosts(postId: postId) {
             
             (posts) in
             
@@ -18,5 +19,20 @@ class MainViewModel: ObservableObject {
             
         }
     }
+    
+//    func loadAllUsersPosts(userId: String) {
+//        
+//        PostViewModel.loadAllUsersPosts(userId: userId) {
+//            
+//            (posts) in
+//            
+//            // put in main feed
+//            self.allUsersPosts = posts
+//            
+//        }
+//    }
  
 }
+
+
+

@@ -6,8 +6,10 @@
 //
 
 import Foundation
+import SwiftUI
 
 struct Post: Encodable, Decodable {
+
     var caption: String
     var geoLocation: String
     var ownerId: String

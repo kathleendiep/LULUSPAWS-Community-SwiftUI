@@ -21,21 +21,17 @@ struct MainFeed : View {
     @ObservedObject var postCardViewModel = PostCardViewModel()
     @ObservedObject var postViewModel = PostViewModel()
     @StateObject var mainViewModel = MainViewModel()
-//    @ObservedObject var signInVM = SignInViewModel()
-//    @StateObject var profileViewModel = ProfileViewModel()
-    
-    
+
     var body: some View{
         ScrollView{
             Text("Woof Community 🦴🏡")
                 .font(.subheadline)
-            
             VStack {
-                
-                // get Users posts
-                ForEach(self.mainViewModel.allPosts, id: \.postId) {
+                Text("Is it showing")
+                // get Users posts , id: \.postId
+                ForEach(postViewModel.allPosts, id: \.postId) {
                     (post) in
-                    
+                    Text("Is it showing")
                     // from components
                     PostCardImage(post: post)
                     PostCard(post: post)
@@ -43,13 +39,14 @@ struct MainFeed : View {
             }
             .navigationTitle("")
             .navigationBarHidden(true)
-//            .onAppear{
-//                self.mainViewModel.getAllPosts(userId: self.mainViewModel.allPosts.userId)
-//            }
         }
     }
-}
+    init() {
+        postViewModel.getData()
+     }
+    
 
+}
 //
 //
 //@EnvironmentObject var session: SessionStore
