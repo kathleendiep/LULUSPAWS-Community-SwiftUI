@@ -68,6 +68,7 @@ class StorageService {
         }
         }
     }
+    
     static func saveProfileImage(userId: String, username: String, email: String, imageData: Data, metaData: StorageMetadata, storageProfileImageRef: StorageReference, onSuccess: @escaping(_ user: User) -> Void, onError: @escaping(_ errorMessage: String) -> Void ) {
         
         // MetaData - image info
@@ -215,6 +216,6 @@ class StorageService {
             }
         }
     }
-    
+
 }
 

@@ -8,6 +8,8 @@
 import Foundation
 import Firebase
 import FirebaseStorage
+import FirebaseAuth
+
 
 // to show posts in the profile
 class ProfileViewModel: ObservableObject {
@@ -20,9 +22,11 @@ class ProfileViewModel: ObservableObject {
             
             // put in the profile posts
             self.posts = posts
+                    
         }
     }
-    
+
+    // MARK: - PROFILE
     // StorageService.editProfile
     static func saveProfile(username: String, bio: String, petName: String, humanName: String, imageData: Data, onSuccess: @escaping(_ post: Post)-> Void, onError: @escaping (_ errorMessage: String) -> Void) {
     
@@ -40,6 +44,72 @@ class ProfileViewModel: ObservableObject {
     }
     
    
+    // MARK: - DELETE
+    
+//    func deletePost(id: String){
+//        
+//        // id of document
+//        SignInViewModel.storeRoot.collection("posts").document(id).delete { (err) in
+//            
+//            if err != nil {
+//                
+//                print(err!.localizedDescription)
+//                
+//                self.posts.removeAll { (post) in
+//                    return post.id == id
+//                }
+//                
+//            }
+//            
+//            
+//        }
+//
+//    }
+    
+    
+//
+//    static func deletePost(userId: String, onSuccess: @escaping(_ post: Post) -> Void) {
+//
+//
+//            PostViewModel.Posts.document(userId).delete
+//
+//            self.posts.removeAll {
+//                post in
+//                return user.id == userId
+//            }
+//
+//
+//
+//
+//
+//
+//
+//        if let documentId = self.posts.postId {
+//
+//            var postId = PostViewModel.PostsUserId(userId: userId).collection("posts").document().documentID
+//
+//
+//        }
+//        // delete based on postId
+//
+//
+//        // match this postId to document
+//        PostViewModel.Posts.document(postId).delete { error in
+//            if error == nil {
+//                DispatchQueue.main.async {
+//
+//                   // Remove the post
+//                   posts.removeAll { post in
+//                       return self.posts. == postId
+//                   }
+//
+//               }
+//            }
+//        }
+//
+//
+//
+//    }
     //todo: #15 - add follows and followers
     
 }

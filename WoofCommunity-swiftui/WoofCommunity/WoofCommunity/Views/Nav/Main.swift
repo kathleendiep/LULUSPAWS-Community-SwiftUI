@@ -41,9 +41,9 @@ struct MainFeed : View {
             .navigationBarHidden(true)
         }
     }
-    init() {
-        postViewModel.getData()
-     }
+//    init() {
+//        postViewModel.getData()
+//     }
     
 
 }

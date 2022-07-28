@@ -8,17 +8,17 @@ class MainViewModel: ObservableObject {
     @Published var allPosts: [Post] = []
     @Published var allUsersPosts: [Post] = []
     
-    func getAllPosts(postId: String) {
-        
-        PostViewModel.getAllPosts(postId: postId) {
-            
-            (posts) in
-            
-            // put in main feed
-            self.allPosts = posts
-            
-        }
-    }
+//    func getAllPosts(postId: String) {
+//        
+//        PostViewModel.getAllPosts(postId: postId) {
+//            
+//            (posts) in
+//            
+//            // put in main feed
+//            self.allPosts = posts
+//            
+//        }
+//    }
     
 //    func loadAllUsersPosts(userId: String) {
 //        

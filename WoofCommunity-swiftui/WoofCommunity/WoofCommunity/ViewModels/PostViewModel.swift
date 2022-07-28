@@ -38,6 +38,14 @@ class PostViewModel: ObservableObject {
         return Timeline.document(userId)
     }
     
+    // MARK: - CRUD
+    /*
+     - Create and add to an array
+     @Published var posts = [Post]()
+     - then fetch the data
+     
+     */
+    
     static func uploadPost(caption: String, imageData: Data, onSuccess: @escaping(_ post: Post)-> Void, onError: @escaping (_ errorMessage: String) -> Void) {
         
         guard let userId = Auth.auth().currentUser?.uid else { return }
@@ -80,48 +88,6 @@ class PostViewModel: ObservableObject {
     }
     
     
-
-    
-    
-    
-    
-//    static func loadAllUsersPosts(userId: String, onSuccess: @escaping(_ posts: [Post]) -> Void) {
-//
-//        PostViewModel.PostsUserId(userId: userId).collection("posts").getDocuments{
-//            (snapshot, error) in
-//
-//            guard let snap = snapshot else {
-//                print("Error")
-//                return
-//            }
-//            // initiate the posts
-//            var posts = [Post]()
-//
-//            for doc in snap.documents {
-//                let dict = doc.data()
-//                guard let decoder = try? Post.init(fromDictionary: dict)
-//                else {
-//                    return
-//                }
-//                posts.append(decoder)
-//            }
-//            onSuccess(posts)
-//
-//
-//        }
-//    }
-    
- 
-    
-    
-    
-    // CRUD
-    /*
-     - Create and add to an array
-     @Published var posts = [Post]()
-     - then fetch the data
-     
-     */
     // MARK: - LOAD/FETCH
     /*
      - 1) access this
@@ -142,12 +108,7 @@ class PostViewModel: ObservableObject {
      ForEach(self.profileViewModel.posts, id: \.postId ) {
          (post) in
      }
-     
-     
      */
-    
-     // MARK: - ALL POSTS METHOD 2
-
     func getData() {
 
         let db = Firestore.firestore()
@@ -174,69 +135,76 @@ class PostViewModel: ObservableObject {
             }
         }
     }
+    
+     
+     
+}
+ 
+/*
+ // MARK: - ALL POSTS METHOD 2
 
-    // MARK: - ALL POSTS METHOD 1
 
-    static func getAllPosts(postId: String, onSuccess: @escaping(_ allPosts: [Post]) -> Void) {
 
-        // 1) Access the collecton
-        // 2) get document
-        // Firestore.firestore().collection("allPosts")
-        PostViewModel.AllPosts.getDocuments {
-            (snapshot, error) in
+// MARK: - ALL POSTS METHOD 1 - NOPE
 
-            //  3) Check for error
-            guard let snap = snapshot else {
-                print("Error")
+static func getAllPosts(postId: String, onSuccess: @escaping(_ allPosts: [Post]) -> Void) {
+
+    // 1) Access the collecton
+    // 2) get document
+    // Firestore.firestore().collection("allPosts")
+    PostViewModel.AllPosts.getDocuments {
+        (snapshot, error) in
+
+        //  3) Check for error
+        guard let snap = snapshot else {
+            print("Error")
+            return
+        }
+
+        // initiate the posts
+        var allPosts = [Post]()
+
+        // 4) Read through doucments dictionary
+        for doc in snap.documents {
+            let dict = doc.data()
+            guard let decoder = try? Post.init(fromDictionary: dict)
+            else {
                 return
             }
-
-            // initiate the posts
-            var allPosts = [Post]()
-
-            // 4) Read through doucments dictionary
-            for doc in snap.documents {
-                let dict = doc.data()
-                guard let decoder = try? Post.init(fromDictionary: dict)
-                else {
-                    return
-                }
-                // 5) appendTo array
-                allPosts.append(decoder)
-            }
-            onSuccess(allPosts)
+            // 5) appendTo array
+            allPosts.append(decoder)
         }
+        onSuccess(allPosts)
     }
-
-    
-    // DELETE
-    
-    //    func deleteData() {
-    //
-    //        // Specify the document to delete
-    //        if let documentId = user.id {
-    //            db.collection("users").document(documentId).delete { error in
-    //
-    //                // Check for errors
-    //                if error == nil {
-    //
-    //                    // Update UI from main thread
-    //                    DispatchQueue.main.async {
-    //
-    //                        // Remove the user
-    //                        self.users.removeAll { user in
-    //                            return user.id == documentId
-    //                        }
-    //                    }
-    //                }
-    //            }
-    //        }
-    //    }
-    //
-    //    func handleDeleteTapped() {
-    //      self.deleteData()
-    //    }
-    //}
 }
+ 
 
 
+
+// MARK: #3
+//    static func loadAllUsersPosts(userId: String, onSuccess: @escaping(_ posts: [Post]) -> Void) {
+//
+//        PostViewModel.PostsUserId(userId: userId).collection("posts").getDocuments{
+//            (snapshot, error) in
+//
+//            guard let snap = snapshot else {
+//                print("Error")
+//                return
+//            }
+//            // initiate the posts
+//            var posts = [Post]()
+//
+//            for doc in snap.documents {
+//                let dict = doc.data()
+//                guard let decoder = try? Post.init(fromDictionary: dict)
+//                else {
+//                    return
+//                }
+//                posts.append(decoder)
+//            }
+//            onSuccess(posts)
+//
+//
+//        }
+//    }
+*/
