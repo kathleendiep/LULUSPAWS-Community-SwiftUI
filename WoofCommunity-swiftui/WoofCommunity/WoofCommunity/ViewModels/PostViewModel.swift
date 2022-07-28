@@ -208,6 +208,35 @@ class PostViewModel: ObservableObject {
         }
     }
 
+    
+    // DELETE
+    
+    //    func deleteData() {
+    //
+    //        // Specify the document to delete
+    //        if let documentId = user.id {
+    //            db.collection("users").document(documentId).delete { error in
+    //
+    //                // Check for errors
+    //                if error == nil {
+    //
+    //                    // Update UI from main thread
+    //                    DispatchQueue.main.async {
+    //
+    //                        // Remove the user
+    //                        self.users.removeAll { user in
+    //                            return user.id == documentId
+    //                        }
+    //                    }
+    //                }
+    //            }
+    //        }
+    //    }
+    //
+    //    func handleDeleteTapped() {
+    //      self.deleteData()
+    //    }
+    //}
 }
 
 

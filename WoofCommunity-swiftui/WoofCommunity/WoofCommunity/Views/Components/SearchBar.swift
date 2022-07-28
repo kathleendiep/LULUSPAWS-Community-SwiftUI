@@ -9,13 +9,13 @@ import SwiftUI
 
 struct SearchBar: View {
     
-    @State var searchUsers = ""
+    @Binding var value: String
     @State var isSearching = false
     
     var body: some View {
         HStack {
             
-            TextField("Search for Users", text: $searchUsers)
+            TextField("Search for Users", text: $value)
                 .padding(.leading, 24)
         }.padding()
             .background(Color(.systemGray5))
@@ -29,7 +29,7 @@ struct SearchBar: View {
                     Image(systemName: "magnifyingglass")
                     Spacer()
                     
-                    Button(action: {searchUsers = "" }){
+                    Button(action:  {value = "" }){
                         Image(systemName: "xmark.circle.fill")
                     }
                 }.padding(.horizontal, 32)

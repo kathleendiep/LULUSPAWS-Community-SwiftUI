@@ -8,10 +8,10 @@ import SwiftUI
 import SDWebImageSwiftUI
 
 struct ProfileHeader: View {
+    
     var user: User?
     var postsCount: Int
-    // to do: add in userProfile fields
-    
+
     var body: some View {
         VStack {
             if user != nil {
@@ -24,8 +24,7 @@ struct ProfileHeader: View {
                 Color.init(red: 0.9, green: 0.9, blue: 0.9).frame(width: 100, height: 100, alignment: .trailing)
                     .padding(.leading)
             }
-//            Text(user?.username ?? "").font(.headline).bold().padding(.leading)
-            
+       
             if user != nil {
                 Text(user!.username).font(.headline).bold().padding(.leading)
             }

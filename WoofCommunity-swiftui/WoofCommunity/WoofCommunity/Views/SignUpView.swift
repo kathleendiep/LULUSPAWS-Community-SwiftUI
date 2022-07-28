@@ -130,9 +130,9 @@ struct SignUpContainerView: View {
                     FormField(value: $password, icon: "key", placeholder: "Password", isSecure: true)
                     
                     
-                    FormField(value: $petName, icon: "pawprint.circle", placeholder: "Pet's name")
-                    
-                    FormField(value: $humanName, icon: "pawprint.circle", placeholder: "Hooman's name")
+//                    FormField(value: $petName, icon: "pawprint.circle", placeholder: "Pet's name")
+//                    
+//                    FormField(value: $humanName, icon: "pawprint.circle", placeholder: "Hooman's name")
                     
 //                    Button(action: {
 //                        // pass in email and password

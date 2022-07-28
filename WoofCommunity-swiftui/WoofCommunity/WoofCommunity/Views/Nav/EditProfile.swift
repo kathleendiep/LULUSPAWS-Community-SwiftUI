@@ -51,40 +51,58 @@ struct EditProfile: View {
     func clear(){
         self.bio = ""
         self.username = ""
+        self.petName = ""
+        self.humanName = ""
 //        self.imageData = Data()
 //        self.profileImage = Image(systemName: "person.circle.fill")
     }
     
-    func edit() {
+    func edit(){
         
-        if let error = errorCheck() {
-            self.error = error
-            self.showingAlert = true
-            return
-        }
-        
-        guard let userId = Auth.auth().currentUser?.uid else {return}
-        
-        let storageProfileUserId = StorageService.storageProfileId(userId: userId)
-        
-        // converts the image
-        
-        
-        let metadata = StorageMetadata()
-        metadata.contentType = "image/jpg"
-        
-        
-        //
-        StorageService.editProfile(userId: userId, username: username, bio: bio, petName: petName, humanName: humanName,  imageData: imageData, metaData: metadata, storageProfileImageRef: storageProfileUserId, onError: {
-            
+        ProfileViewModel.saveProfile(username: username, bio: bio, petName: petName, humanName: humanName, imageData:  imageData, onSuccess: {(post) in
+            self.clear()
+        })
+        {
             (errorMessage) in
-            
+             
             self.error = errorMessage
             self.showingAlert = true
             return
-        })
-        self.clear()
+            
+        }
     }
+    
+//    func edit() {
+//
+//        if let error = errorCheck() {
+//            self.error = error
+//            self.showingAlert = true
+//            return
+//        }
+//
+//        guard let userId = Auth.auth().currentUser?.uid else {return}
+//
+//        let storageProfileUserId = StorageService.storageProfileId(userId: userId)
+//
+//        // converts the image
+//        let metadata = StorageMetadata()
+//        metadata.contentType = "image/jpg"
+//
+//        // Update function
+//        StorageService.editProfile(userId: userId, username: username, bio: bio, petName: petName, humanName: humanName,  imageData: imageData, metaData: metadata, storageProfileImageRef: storageProfileUserId, onError: {
+//
+//            (errorMessage) in
+//
+//            self.error = errorMessage
+//            self.showingAlert = true
+//            return
+//        })
+//
+//
+//
+//        self.clear()
+//
+//    }
     
     var body: some View {
         ScrollView{
@@ -104,6 +122,12 @@ struct EditProfile: View {
                             Text("pick a photo!")
                                 .font(.caption)
                         } else {
+                            Image(systemName: "person.circle.fill")
+                                .resizable()
+                                .clipShape(Circle())
+                                .frame(width: 100, height: 100)
+                                . padding(.top, 20)
+                              
                             WebImage(url: URL(string: session.session!.profileImageUrl))
                                 .resizable()
                                 .clipShape(Circle())
@@ -112,18 +136,21 @@ struct EditProfile: View {
                                 .onTapGesture{
                                     self.showingActionSheet = true
                                 }
+                            Text("pick a photo!")
+
+                              
                         }
                     }
                 }
                 FormField(value: $username, icon: "person.fill", placeholder: "Username")
                 FormField(value: $bio, icon: "book.fill", placeholder: "bio")
                 FormField(value: $humanName, icon: "person.fill", placeholder: "Hooman's Name")
-                FormField(value: $petName, icon: "pawprint.circlel", placeholder: "Pet name")
+                FormField(value: $petName, icon: "pawprint.circle", placeholder: "Pet name")
                 
                 
                 Button(action: edit){
                     
-                    Text("Edit").font(.title).modifier(ButtonModifiers())
+                    Text("Update Profile").font(.title).modifier(ButtonModifiers())
                     
                 }.padding()
                     .alert(isPresented: $showingAlert) {

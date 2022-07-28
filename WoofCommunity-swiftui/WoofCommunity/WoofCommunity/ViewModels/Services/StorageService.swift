@@ -170,8 +170,7 @@ class StorageService {
 //
 //    }
     
-    // MARK: - Posts
-    
+    // MARK: - Posts    
     static func savePostPhoto(userId: String, caption: String, postId: String, imageData: Data, metadata: StorageMetadata, storagePostRef: StorageReference, onSuccess: @escaping(_ post: Post) -> Void, onError: @escaping(_ errorMessage: String) -> Void ) {
         
         // put the data

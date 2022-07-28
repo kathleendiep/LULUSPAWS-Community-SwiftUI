@@ -10,7 +10,12 @@ import SwiftUI
 struct Search: View {
 
     var body: some View {
-       SearchBar()
+        ScrollView{
+            VStack{
+                Text("Search")
+            }
+        }
+//       SearchBar(value)
     }
 }
 

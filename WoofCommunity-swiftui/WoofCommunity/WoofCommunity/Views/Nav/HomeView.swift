@@ -15,24 +15,27 @@ struct HomeView: View {
         NavigationView{
            
             CustomTabView()
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    if(session.session != nil) {
-                        Button(action: {
-                            session.logout()
-                        }){
-                            Image(systemName: "arrow.right.circle.fill")
-                        }
-                    } else {
-                        NavigationLink {
-                            SignUpView()
-                        } label: {
-                            Image(systemName: "person.crop.circle.fill")
-                        }
-                        
-                    }
-                }
-            }
+                .navigationTitle("")
+                .navigationBarTitleDisplayMode(.inline)
+//                .navigationBarHidden(true)
+//            .toolbar {
+//                ToolbarItem(placement: .navigationBarTrailing) {
+//                    if(session.session != nil) {
+//                        Button(action: {
+//                            session.logout()
+//                        }){
+//                            Image(systemName: "arrow.right.circle.fill")
+//                        }
+//                    } else {
+//                        NavigationLink {
+//                            SignUpView()
+//                        } label: {
+//                            Image(systemName: "person.crop.circle.fill")
+//                        }
+//
+//                    }
+//                }
+//            }
         }.accentColor(.red)
     }
 }
@@ -52,7 +55,8 @@ struct CustomTabView: View {
                     .tag("house.fill")
                 Explore()
                     .tag("map.fill")
-                SearchBar()
+//                SearchBar(value: value)
+                Explore()
                     .tag("magnifyingglass")
                 Add()
                     .tag("plus.rectangle.fill.on.rectangle.fill")
