@@ -53,7 +53,7 @@ struct CustomTabView: View {
             TabView(selection: $selectedTab) {
                 Main()
                     .tag("house.fill")
-                Explore()
+                UserProfile()
                     .tag("map.fill")
 //                SearchBar(value: value)
                 Explore()

@@ -12,10 +12,9 @@ struct Search: View {
     var body: some View {
         ScrollView{
             VStack{
-                Text("Search")
+                UserProfile()
             }
         }
-//       SearchBar(value)
     }
 }
 
