@@ -62,27 +62,40 @@ struct Profile: View {
                 ForEach(self.profileViewModel.posts, id: \.postId ) {
                     (post) in
                     
+                    
+                    
+                    // Link to a different page based on user session
+                   
+                       
+                    // gets the post and user
+                    NavigationLink(destination: UserPostCardView(post: post, user: self.session.session!)) {
+                        // enter the view
                     WebImage(url: URL(string: post.mediaUrl)!)
                         .resizable()
                         .aspectRatio(contentMode: .fill)
                         .frame(width: UIScreen.main.bounds.size.width/3, height:UIScreen.main.bounds.size.height/3, alignment: .center)
                         .clipped()
+                    }
                 }
                 }
                     
-//                    
-//                    VStack {
-//                        
-//                        // get Users posts
-//                        ForEach(self.profileViewModel.posts, id: \.postId ) {
-//                            (post) in
-//                            
-//                            // from components
-//                            PostCardImage(post: post)
-//                            PostCard(post: post)
-//                            
-//                            
-//                        }
+
+                    VStack {
+                        Text("tHIS IS THE VIEW")
+                        // get Users posts
+                        ForEach(self.profileViewModel.posts, id: \.postId ) {
+                            (post) in
+
+                      
+//                            UserPostCardView
+                            // from components
+                            PostCardImage(post: post)
+                            PostCard(post: post)
+
+
+                        }
+                    }
+                    
                 } else if (self.session.session == nil) {Text("")}
             }
             .navigationTitle("Profile")

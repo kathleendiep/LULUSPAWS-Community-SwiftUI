@@ -9,12 +9,17 @@ import SwiftUI
 
 struct UserPostCardView: View {
     
+    @EnvironmentObject var session: SessionStore
+    @ObservedObject var profileViewModel = ProfileViewModel()
+    @State var presentActionSheet = false
     var post: Post
     var user: User
     
-    @ObservedObject var profileViewModel = ProfileViewModel()
-    @State var presentActionSheet = false
     
+//    init(session: User?){
+//        _bio = State(initialValue:session?.bio ?? "")
+//        _username = State(initialValue: session?.username ?? "" )
+//    }
     
     func handleDeleteTapped() {
         profileViewModel.deletePost(userId: user.id!)
@@ -26,7 +31,7 @@ struct UserPostCardView: View {
             PostCardImage(post: post)
             PostCard(post: post)
             
-             Button("Delete Post") { self.presentActionSheet.toggle() }
+            Button("Delete Post") { self.handleDeleteTapped() }
                  .foregroundColor(.red)
              }
         }
