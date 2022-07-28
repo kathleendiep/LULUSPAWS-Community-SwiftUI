@@ -160,6 +160,7 @@
 				81AFA1F0287CCC8A0099D8FB /* HomeView.swift */,
 				8166FD6B2885FF44008D7627 /* Main.swift */,
 				8166FD6E2885FF87008D7627 /* Explore.swift */,
+				81D2E9722891FC7D00F9BFF2 /* UserProfile.swift */,
 				81D2E96C2891E46700F9BFF2 /* Search.swift */,
 				8166FD652885FE6B008D7627 /* Add.swift */,
 				8166FD692885FF17008D7627 /* Profile.swift */,
@@ -212,7 +213,6 @@
 				81B982DA288636E900F848EC /* ContentView.swift */,
 				810AD2AC28809F510046B8A2 /* SignInView.swift */,
 				81B982D62886234C00F848EC /* SignUpView.swift */,
-				81D2E9722891FC7D00F9BFF2 /* UserProfile.swift */,
 				8166FD6D2885FF59008D7627 /* Nav */,
 				8166FD7128861CEE008D7627 /* Components */,
 			);
