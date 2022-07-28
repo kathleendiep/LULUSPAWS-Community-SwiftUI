@@ -91,25 +91,27 @@ class ProfileViewModel: ObservableObject {
    
     // MARK: - DELETE
     
-//    func deletePost(id: String){
-//        
-//        // id of document
-//        SignInViewModel.storeRoot.collection("posts").document(id).delete { (err) in
-//            
-//            if err != nil {
-//                
-//                print(err!.localizedDescription)
-//                
-//                self.posts.removeAll { (post) in
-//                    return post.id == id
-//                }
-//                
-//            }
-//            
-//            
-//        }
-//
-//    }
+    func deletePost(userId: String){
+        
+//     let db = Firestore.firestore()
+
+//    Firestore.firestore().collection("posts").document(userid)
+        PostViewModel.PostsUserId(userId: userId).delete {
+            (err) in
+            
+            if err != nil {
+                
+                print(err!.localizedDescription)
+                
+                self.posts.removeAll { (post) in
+                    return post.id == userId
+                }
+                
+            }
+            
+        }
+
+    }
     
     
 //

@@ -7,6 +7,7 @@
 import SwiftUI
 import FirebaseAuth
 import SDWebImageSwiftUI
+import Firebase
 
 struct Main: View {
     var body: some View {
@@ -35,18 +36,30 @@ struct MainFeed : View {
             
         }
     }
-    
-    func loadAllPosts() {
+
+    func getAllPosts() {
+        let db = Firestore.firestore()
         
-        // fetchUser
-        MainViewModel.getAllPosts() {
-            
-            (posts) in
-            
-            self.posts = posts
-            
+        db.collection("allPosts").getDocuments() { (querySnapshot, error) in
+            if let error = error {
+                print("Error getting documents: \(error)")
+            } else {
+                for document in querySnapshot!.documents {
+                    print(" these are the posts \(document.documentID): \(document.data())")
+                    
+//                    self.posts.append(document.data())
+                    
+                    let dict = document.data()
+
+                    guard let decoder = try? Post.init(fromDictionary: dict) else {return}
+
+                    self.posts.append(decoder)
+                   
+                }
+            }
         }
     }
+    
     
     var body: some View{
         ScrollView{
@@ -88,15 +101,16 @@ struct MainFeed : View {
             .navigationBarHidden(true)
             .onAppear{
                 
-                self.loadAllPosts()
+//                self.loadAllPosts()
                 self.loadAllUsers()
-              
+                
             }
         }
     }
-    //    init() {
-    //        postViewModel.getData()
-    //     }
+    init() {
+        getAllPosts()
+        
+    }
     
     
 }
@@ -120,6 +134,8 @@ struct MainFeed : View {
 //                (post) in
 //
 //                // from components
+
+
 //                PostCardImage(post: post)
 //                PostCard(post: post)
 //

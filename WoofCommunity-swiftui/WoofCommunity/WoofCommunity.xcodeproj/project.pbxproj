@@ -17,6 +17,9 @@
 		8166FD6C2885FF44008D7627 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8166FD6B2885FF44008D7627 /* Main.swift */; };
 		8166FD6F2885FF87008D7627 /* Explore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8166FD6E2885FF87008D7627 /* Explore.swift */; };
 		8181AECF288206EF001B6D43 /* UserEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8181AECE288206EF001B6D43 /* UserEditView.swift */; };
+		818B87B3289337D600C55EBB /* FollowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818B87B2289337D600C55EBB /* FollowButton.swift */; };
+		818B87B52893461E00C55EBB /* UsersProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818B87B42893461E00C55EBB /* UsersProfileView.swift */; };
+		818B87B728934DFB00C55EBB /* PostCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818B87B628934DFB00C55EBB /* PostCardView.swift */; };
 		818BE60028889A2600C4EF1E /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818BE5FF28889A2600C4EF1E /* Post.swift */; };
 		818BE60228889AF800C4EF1E /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818BE60128889AF800C4EF1E /* PostViewModel.swift */; };
 		818C2A6D28873F030050F477 /* ProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818C2A6C28873F030050F477 /* ProfileHeader.swift */; };
@@ -77,6 +80,9 @@
 		8166FD6B2885FF44008D7627 /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
 		8166FD6E2885FF87008D7627 /* Explore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Explore.swift; sourceTree = "<group>"; };
 		8181AECE288206EF001B6D43 /* UserEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEditView.swift; sourceTree = "<group>"; };
+		818B87B2289337D600C55EBB /* FollowButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowButton.swift; sourceTree = "<group>"; };
+		818B87B42893461E00C55EBB /* UsersProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersProfileView.swift; sourceTree = "<group>"; };
+		818B87B628934DFB00C55EBB /* PostCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCardView.swift; sourceTree = "<group>"; };
 		818BE5FF28889A2600C4EF1E /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		818BE60128889AF800C4EF1E /* PostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
 		818C2A6C28873F030050F477 /* ProfileHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeader.swift; sourceTree = "<group>"; };
@@ -159,6 +165,7 @@
 		8166FD6D2885FF59008D7627 /* Nav */ = {
 			isa = PBXGroup;
 			children = (
+				818B87B42893461E00C55EBB /* UsersProfileView.swift */,
 				81AFA1F0287CCC8A0099D8FB /* HomeView.swift */,
 				8166FD6B2885FF44008D7627 /* Main.swift */,
 				8166FD6E2885FF87008D7627 /* Explore.swift */,
@@ -185,6 +192,8 @@
 				81D2E9662891C4E300F9BFF2 /* File.swift */,
 				81D2E96A2891DEB800F9BFF2 /* DataType.swift */,
 				81D2E96E2891E6A000F9BFF2 /* SearchBar.swift */,
+				818B87B2289337D600C55EBB /* FollowButton.swift */,
+				818B87B628934DFB00C55EBB /* PostCardView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -416,6 +425,7 @@
 				818C2A7228876FCA0050F477 /* oldMain.swift in Sources */,
 				81AFA1EF287CCC620099D8FB /* User.swift in Sources */,
 				818C2A92288873D40050F477 /* UsersService.swift in Sources */,
+				818B87B52893461E00C55EBB /* UsersProfileView.swift in Sources */,
 				81D2E9732891FC7D00F9BFF2 /* UserProfile.swift in Sources */,
 				8181AECF288206EF001B6D43 /* UserEditView.swift in Sources */,
 				818BE60228889AF800C4EF1E /* PostViewModel.swift in Sources */,
@@ -423,9 +433,11 @@
 				813D238128932E7500C4BDC8 /* FollowViewModel.swift in Sources */,
 				81B982D928862FE500F848EC /* FormField.swift in Sources */,
 				8198FCEC2880F4820033421C /* Extensions.swift in Sources */,
+				818B87B728934DFB00C55EBB /* PostCardView.swift in Sources */,
 				810AD2AD28809F510046B8A2 /* SignInView.swift in Sources */,
 				81B57358287E5B2E00F04ABC /* UserDetailView.swift in Sources */,
 				81D2E9712891EDE900F9BFF2 /* SearchViewModel.swift in Sources */,
+				818B87B3289337D600C55EBB /* FollowButton.swift in Sources */,
 				81D2E96F2891E6A000F9BFF2 /* SearchBar.swift in Sources */,
 				81392D3628872EEE00B83CFE /* Steps.swift in Sources */,
 				81D2E9652891B99C00F9BFF2 /* MainViewModel.swift in Sources */,

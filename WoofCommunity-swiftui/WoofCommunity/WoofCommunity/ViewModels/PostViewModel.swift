@@ -59,8 +59,6 @@ class PostViewModel: ObservableObject {
         
         StorageService.savePostPhoto(userId: userId, caption: caption, postId: postId, imageData: imageData, metadata: metadata, storagePostRef: storagePostRef, onSuccess: onSuccess, onError: onError)
         
-        // add in the add data from PostService
-        
     }
     
     static func loadUserPosts(userId: String, onSuccess: @escaping(_ posts: [Post]) -> Void) {
@@ -87,7 +85,7 @@ class PostViewModel: ObservableObject {
         }
     }
     
-    
+}
     // MARK: - LOAD/FETCH
     /*
      - 1) access this
@@ -110,37 +108,37 @@ class PostViewModel: ObservableObject {
      }
      */
     
-    static func getAllPosts(onSuccess: @escaping (_ post: [Post]) -> Void ) {
-        
-        SignInViewModel.storeRoot.collection("allPosts").getDocuments {
-            (querySnapshot, err) in
-            
-            guard let snap = querySnapshot else {
-                print("error")
-                return
-            }
-            
-            var posts = [Post]()
-            
-            for document in snap.documents {
-                let dict = document.data()
-                
-                guard let decoded = try? Post.init(fromDictionary: dict) else {return}
-                
-                // will only show other users id
-                if decoded.id != Auth.auth().currentUser?.uid {
-                    posts.append(decoded)
-                }
-                
-                onSuccess(posts)
-                
-            }
-            
-            
-        }
-    }
- 
-}
+//    static func getAllPosts(onSuccess: @escaping (_ post: [Post]) -> Void ) {
+//        
+//        SignInViewModel.storeRoot.collection("allPosts").getDocuments {
+//            (querySnapshot, err) in
+//            
+//            guard let snap = querySnapshot else {
+//                print("error")
+//                return
+//            }
+//            
+//            var posts = [Post]()
+//            
+//            for document in snap.documents {
+//                let dict = document.data()
+//                
+//                guard let decoded = try? Post.init(fromDictionary: dict) else {return}
+//                
+//                // will only show other users id
+//                if decoded.id != Auth.auth().currentUser?.uid {
+//                    posts.append(decoded)
+//                }
+//                
+//                onSuccess(posts)
+//                
+//            }
+//            
+//            
+//        }
+//    }
+// 
+//}
  
 /*
  // MARK: - ALL POSTS METHOD 2

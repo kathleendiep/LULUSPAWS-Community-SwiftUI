@@ -69,6 +69,20 @@ struct Profile: View {
                         .clipped()
                 }
                 }
+                    
+//                    
+//                    VStack {
+//                        
+//                        // get Users posts
+//                        ForEach(self.profileViewModel.posts, id: \.postId ) {
+//                            (post) in
+//                            
+//                            // from components
+//                            PostCardImage(post: post)
+//                            PostCard(post: post)
+//                            
+//                            
+//                        }
                 } else if (self.session.session == nil) {Text("")}
             }
             .navigationTitle("Profile")
