@@ -10,57 +10,21 @@ import FirebaseAuth
 // MARK: SignInView
 struct SignInView: View {
     
-    // @EnvironmentObject var signInVM: SignInViewModel
-    @ObservedObject var signInVM = SignInViewModel()
-    
-    var isPreview: Bool = false
-    
-    init(isPreview: Bool=false) {
-        if !isPreview {
-            signInVM = SignInViewModel()
-        }
-    }
-    
     var body: some View {
         NavigationView {
             VStack {
                 SignInContainerView()
             }
-            
-            
-            //            if SignInViewModel.isSignedIn {
-            //                VStack {
-            //                    Text("You are signed in")
-            //                    Button(action: {
-            //                        SignInViewModel.signOut()
-            //                    }, label: {
-            //
-            //                        Text("Sign Out")
-            //                            .frame(width: 200, height: 50)
-            //                            .foregroundColor(Color.blue)
-            //                            .background(Color.red)
-            //                            .padding()
-            //                    })
-            //
-            //                }
-            //            } else {
-            //                    SignInContainerView()
-            //            }
-            //        }
-            //        .onAppear {
-            //            signInVM.signedIn = signInVM.isSignedIn
-            //        }
         }
-        
     }
 }
 
-
-struct SignInView_Previews: PreviewProvider {
-    static var previews: some View {
-        SignInView(isPreview: true)
-    }
-}
+//
+//struct SignInView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SignInView(isPreview: true)
+//    }
+//}
 
 // MARK: - Views
 struct SignInContainerView: View {
@@ -98,7 +62,11 @@ struct SignInContainerView: View {
                 NavigationLink {
                     HomeView()
                 } label: {
-                    Button(action: signIn) {
+                    Button(action: { signIn()
+                        
+                        listen()
+                        
+                    }){
                         Text("Sign In")
                             .font(.title)
                             .modifier(ButtonModifiers())

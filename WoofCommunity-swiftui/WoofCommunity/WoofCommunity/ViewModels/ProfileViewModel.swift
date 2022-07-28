@@ -12,10 +12,52 @@ import FirebaseAuth
 
 
 // to show posts in the profile
+// collection.document
 class ProfileViewModel: ObservableObject {
     
     @Published var posts: [Post] = []
+    @Published var following = 0
+    @Published var followers = 0
     
+    @Published var followCheck = false
+    
+    static var following = SignInViewModel.storeRoot.collection("following")
+    static var followers = SignInViewModel.storeRoot.collection("followers")
+    
+    static func followingCollection(userid: String) -> CollectionReference {
+        
+        return following.document(userid).collection("following")
+        
+    }
+    
+    static func followersCollection(userid: String) -> CollectionReference {
+        return followers.document(userid).collection("followers")
+    }
+    
+    // following.following
+    static func followingId(userId: String) -> DocumentReference {
+        
+        return following.document(Auth.auth().currentUser!.uid).collection("following").document(userId)
+        
+    }
+    
+    // followers.followers
+    static func followersId(userId: String) -> DocumentReference {
+        return followers.document(userId).collection("followers").document(Auth.auth().currentUser!.uid)
+    }
+    
+    func followState(userid: String) {
+        ProfileViewModel.followingId(userId: userid).getDocument{
+            
+            (document, error) in
+            if let doc = document, doc.exists {
+                // if users id is here
+                self.followCheck = true
+            } else {
+                self.followCheck = false
+            }
+        }
+    }
     
     func loadUserPosts(userId: String) {
         
@@ -113,6 +155,6 @@ class ProfileViewModel: ObservableObject {
 //
 //
 //    }
-    //todo: #15 - add follows and followers
+
     
 }

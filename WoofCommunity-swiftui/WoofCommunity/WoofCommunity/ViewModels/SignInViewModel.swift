@@ -13,6 +13,7 @@ import Combine
 import FirebaseFirestoreSwift
 
 class SignInViewModel: NSObject, ObservableObject {
+
     
     // MARK: - Properties
     @Published var signedIn = false

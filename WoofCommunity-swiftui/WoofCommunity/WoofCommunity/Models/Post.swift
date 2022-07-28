@@ -8,8 +8,9 @@
 import Foundation
 import SwiftUI
 
-struct Post: Encodable, Decodable {
-
+struct Post: Identifiable, Encodable, Decodable {
+    
+    var id: String? // document type ID from db
     var caption: String
     var geoLocation: String
     var ownerId: String
@@ -20,4 +21,5 @@ struct Post: Encodable, Decodable {
     var date: Double
     var likes: [String: Bool]
     var likeCount: Int
+    
 }

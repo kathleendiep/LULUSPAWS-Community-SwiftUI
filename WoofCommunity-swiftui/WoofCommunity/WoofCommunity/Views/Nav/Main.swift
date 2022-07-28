@@ -10,7 +10,6 @@ import SDWebImageSwiftUI
 
 struct Main: View {
     var body: some View {
-        Text("Main")
         MainFeed()
     }
 }
@@ -24,13 +23,27 @@ struct MainFeed : View {
     @StateObject var mainViewModel = MainViewModel()
     // append the user fetch here
     @State var users: [User] = []
+    @State var posts: [Post] = []
     
     func loadAllUsers() {
         // fetchUser
         MainViewModel.fetchUser() {
+            
             (users) in
             
             self.users = users
+            
+        }
+    }
+    
+    func loadAllPosts() {
+        
+        // fetchUser
+        MainViewModel.getAllPosts() {
+            
+            (posts) in
+            
+            self.posts = posts
             
         }
     }
@@ -56,23 +69,36 @@ struct MainFeed : View {
                         Text("\(user.humanName) ||\(user.petName) ")
                             .font(.caption2)
                     }
-                    // from components
-//                    PostCardImage(post: post)
-//                    PostCard(post: post)
                 }
+                
+                Text("This is the posts")
+                ForEach(self.posts, id: \.id) {
+                    (post) in
+                    HStack{
+                        Text("This is the posts")
+                        Text("\(post.caption)")
+                            .font(.caption)
+                        PostCardImage(post: post)
+                        PostCard(post: post)
+                    }
+                }
+                
             }
             .navigationTitle("")
             .navigationBarHidden(true)
             .onAppear{
+                
+                self.loadAllPosts()
                 self.loadAllUsers()
+              
             }
         }
     }
-//    init() {
-//        postViewModel.getData()
-//     }
+    //    init() {
+    //        postViewModel.getData()
+    //     }
     
-
+    
 }
 //
 //

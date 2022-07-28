@@ -5,8 +5,33 @@ import Firebase
 // to show posts in the profile
 class MainViewModel: ObservableObject {
     
-    @Published var allPosts: [Post] = []
-    @Published var allUsersPosts: [Post] = []
+    
+    static func getAllPosts(onSuccess: @escaping (_ posts: [Post]) -> Void ) {
+        
+//        SignInViewModel.storeRoot.collection("allPosts")
+                                             
+                                             
+        PostViewModel.AllPosts.getDocuments {
+            (querySnapshot, err) in
+            
+            guard let snap = querySnapshot else {
+                print("error")
+                return
+            }
+            
+            var posts = [Post]()
+            
+            for document in snap.documents {
+                let dict = document.data()
+                
+                guard let decoder = try? Post.init(fromDictionary: dict) else {return}
+                
+                posts.append(decoder)
+
+            }
+            onSuccess(posts)
+        }
+    }
     
     
     // fetch all the users, then add it to array in the view
@@ -40,31 +65,6 @@ class MainViewModel: ObservableObject {
             }
         }
     }
-    
-    
-//    func getAllPosts(postId: String) {
-//
-//        PostViewModel.getAllPosts(postId: postId) {
-//
-//            (posts) in
-//
-//            // put in main feed
-//            self.allPosts = posts
-//
-//        }
-//    }
-    
-//    func loadAllUsersPosts(userId: String) {
-//        
-//        PostViewModel.loadAllUsersPosts(userId: userId) {
-//            
-//            (posts) in
-//            
-//            // put in main feed
-//            self.allUsersPosts = posts
-//            
-//        }
-//    }
  
 }
 

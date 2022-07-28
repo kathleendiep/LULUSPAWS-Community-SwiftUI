@@ -8,18 +8,11 @@
 import SwiftUI
 
 struct SignUpView: View {
-    
     var body: some View {
         SignUpContainerView()
     }
-    
 }
 
-struct SignUpView_Previews: PreviewProvider {
-    static var previews: some View {
-        SignUpView()
-    }
-}
 
 struct SignUpContainerView: View {
     
@@ -105,8 +98,6 @@ struct SignUpContainerView: View {
                                 .onTapGesture{
                                     self.showingActionSheet = true
                                 }
-                            Text("pick a photo!")
-                                .font(.caption)
                         } else {
                             Image(systemName: "person.circle.fill")
                                 .resizable()
@@ -116,6 +107,8 @@ struct SignUpContainerView: View {
                                 .onTapGesture{
                                     self.showingActionSheet = true
                                 }
+                            Text("pick a photo!")
+                                .font(.caption)
                         }
                     }
                 }
@@ -130,66 +123,45 @@ struct SignUpContainerView: View {
                     FormField(value: $password, icon: "key", placeholder: "Password", isSecure: true)
                     
                     
-//                    FormField(value: $petName, icon: "pawprint.circle", placeholder: "Pet's name")
-//                    
-//                    FormField(value: $humanName, icon: "pawprint.circle", placeholder: "Hooman's name")
+                    //                    FormField(value: $petName, icon: "pawprint.circle", placeholder: "Pet's name")
+                    //
+                    //                    FormField(value: $humanName, icon: "pawprint.circle", placeholder: "Hooman's name")
                     
-//                    Button(action: {
-//                        // pass in email and password
-//                        guard !email.isEmpty, !password.isEmpty else {
-//                            return
-//                        }
-//
-//                        signInVM.signUp(email: email, password: password, username: username, )
-//
-//                    }, label: {
-//                        Text("Create")
-//                            .font(.title)
-//                            .modifier(ButtonModifiers())
-//                    })
+                    //                    Button(action: {
                     
-                    NavigationLink(destination: Profile()){
-                        Button(action: signUp) {
+                    NavigationLink(destination: SignInView(), isActive: $isLinkActive){
+                        Button(action: { signUp()
+                            self.isLinkActive = true
+                            
+                        }) {
                             Text("Create")
                                 .font(.title)
                                 .modifier(ButtonModifiers())
-                        }.alert(isPresented: $showingAlert) {
-                            Alert(title: Text(alertTitle), message: Text(error), dismissButton: .default(Text("OK")))
                         }
-                    }
-//                    NavigationLink(destionation: Profile()) {
-//
-//                    } label: {
-//                    Button(action: signUp) {
-//                        Text("Create")
-//                            .font(.title)
-//                            .modifier(ButtonModifiers())
-//                    }.alert(isPresented: $showingAlert) {
-//                        Alert(title: Text(alertTitle), message: Text(error), dismissButton: .default(Text("OK")))
-//                    }
-//                }
+                    }.alert(isPresented: $showingAlert) {
+                        Alert(title: Text(alertTitle), message: Text(error), dismissButton: .default(Text("OK")))
+                    }.padding()
+                    
+                    Spacer()
+                }
                 .padding()
                 
-                Spacer()
+            }.sheet(isPresented: $showingImagePicker, onDismiss: loadImage){
+                // from Utilities
+                ImagePicker(pickedImage: self.$pickedImage, showImagePicker: self.$showingImagePicker, imageData: self.$imageData)
+            }.actionSheet(isPresented: $showingActionSheet) {
+                ActionSheet(title: Text(""), buttons: [
+                    .default(Text("Choose a photo")) {
+                        self.sourceType = .photoLibrary
+                        self.showingImagePicker = true
+                    },
+                    .default(Text("Take a photo")){
+                        self.sourceType = .camera
+                        self.showingImagePicker = true
+                    },
+                    .cancel()
+                ])
             }
-            .padding()
-            
-        }.sheet(isPresented: $showingImagePicker, onDismiss: loadImage){
-            // from Utilities
-            ImagePicker(pickedImage: self.$pickedImage, showImagePicker: self.$showingImagePicker, imageData: self.$imageData)
-        }.actionSheet(isPresented: $showingActionSheet) {
-            ActionSheet(title: Text(""), buttons: [
-                .default(Text("Choose a photo")) {
-                    self.sourceType = .photoLibrary
-                    self.showingImagePicker = true
-                },
-                .default(Text("Take a photo")){
-                    self.sourceType = .camera
-                    self.showingImagePicker = true
-                },
-                .cancel()
-            ])
         }
     }
-}
 }

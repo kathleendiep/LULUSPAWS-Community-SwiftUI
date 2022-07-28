@@ -109,40 +109,67 @@ class PostViewModel: ObservableObject {
          (post) in
      }
      */
-    func getData() {
-
-        let db = Firestore.firestore()
-
-        db.collection("allPosts").getDocuments { snapshot, error in
-
-            // Check for errors
-            if error == nil {
-                // No errors
-
-                if let snapshot = snapshot {
-
-                    DispatchQueue.main.async {
-                        for doc in snapshot.documents {
-                            let dict = doc.data()
-                            guard let decoder = try? Post.init(fromDictionary: dict)
-                            else {
-                                return
-                            }
-                            self.allPosts.append(decoder)
-                        }
-                    }
-                }
+    
+    static func getAllPosts(onSuccess: @escaping (_ post: [Post]) -> Void ) {
+        
+        SignInViewModel.storeRoot.collection("allPosts").getDocuments {
+            (querySnapshot, err) in
+            
+            guard let snap = querySnapshot else {
+                print("error")
+                return
             }
+            
+            var posts = [Post]()
+            
+            for document in snap.documents {
+                let dict = document.data()
+                
+                guard let decoded = try? Post.init(fromDictionary: dict) else {return}
+                
+                // will only show other users id
+                if decoded.id != Auth.auth().currentUser?.uid {
+                    posts.append(decoded)
+                }
+                
+                onSuccess(posts)
+                
+            }
+            
+            
         }
     }
-    
-     
-     
+ 
 }
  
 /*
  // MARK: - ALL POSTS METHOD 2
+ func getData() {
 
+     let db = Firestore.firestore()
+
+     db.collection("allPosts").getDocuments { snapshot, error in
+
+         // Check for errors
+         if error == nil {
+             // No errors
+
+             if let snapshot = snapshot {
+
+                 DispatchQueue.main.async {
+                     for doc in snapshot.documents {
+                         let dict = doc.data()
+                         guard let decoder = try? Post.init(fromDictionary: dict)
+                         else {
+                             return
+                         }
+                         self.allPosts.append(decoder)
+                     }
+                 }
+             }
+         }
+     }
+ }
 
 
 // MARK: - ALL POSTS METHOD 1 - NOPE
