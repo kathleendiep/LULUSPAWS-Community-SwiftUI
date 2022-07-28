@@ -16,7 +16,10 @@ class ProfileViewModel: ObservableObject {
     
     @Published var posts: [Post] = []
     
+    
     func loadUserPosts(userId: String) {
+        
+        // in the PostViewModel initialized the user
         PostViewModel.loadUserPosts(userId: userId) {
             (posts) in
             

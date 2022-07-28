@@ -43,21 +43,27 @@ struct UserProfile: View {
                     ForEach(users, id: \.id){
                         user in
                         HStack{
-                            Text("\(user.username)")
-                                .font(.caption)
-                            Text("\(user.humanName) ||\(user.petName) ")
-                                .font(.caption2)
                             WebImage(url: URL(string: user.profileImageUrl)!)
                                 .resizable()
                                 .scaledToFit()
                                 .clipShape(Circle())
                                 .frame(width:100,height:100, alignment: .leading)
+                            
+                            VStack {
+                            Text("\(user.username)")
+                                .font(.caption)
+                            Text("\(user.humanName) ||\(user.petName) ")
+                                .font(.caption2)
+                            }
+                           
                         }
                     }
                     
                 }
                 
+              
             }
+           
         }.navigationTitle("User Search")
     }
 }

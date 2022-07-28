@@ -100,9 +100,9 @@ class PostViewModel: ObservableObject {
      
      - 4) Read through documents dictionary
      
-     - 5) appendTo initiated array
+     - 5) appendTo initiated array (then add to actual published array later)
      
-     - 6) make a ViewModel for the Main or profile page and call function to add to Published array
+     - 6) make a ViewModel for the Main or profile page and call function to add DATA to Published array
      
      - 7) access this in the view
      ForEach(self.profileViewModel.posts, id: \.postId ) {

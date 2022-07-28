@@ -9,7 +9,8 @@ import Foundation
 import FirebaseAuth
 
 class SearchViewModel {
-    
+
+    // fetch all the users
     static func searchUser(input: String, onSuccess: @escaping (_ user: [User]) -> Void) {
         
         // access users with our removeWhiteSpace extension

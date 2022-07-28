@@ -6,6 +6,7 @@
 
 import SwiftUI
 import FirebaseAuth
+import SDWebImageSwiftUI
 
 struct Main: View {
     var body: some View {
@@ -21,24 +22,50 @@ struct MainFeed : View {
     @ObservedObject var postCardViewModel = PostCardViewModel()
     @ObservedObject var postViewModel = PostViewModel()
     @StateObject var mainViewModel = MainViewModel()
-
+    // append the user fetch here
+    @State var users: [User] = []
+    
+    func loadAllUsers() {
+        // fetchUser
+        MainViewModel.fetchUser() {
+            (users) in
+            
+            self.users = users
+            
+        }
+    }
+    
     var body: some View{
         ScrollView{
             Text("Woof Community 🦴🏡")
-                .font(.subheadline)
+                .font(.headline)
             VStack {
-                Text("Is it showing")
-                // get Users posts , id: \.postId
-                ForEach(postViewModel.allPosts, id: \.postId) {
-                    (post) in
-                    Text("Is it showing")
+                Text("Checkout some users! 🦴🏡")
+                    .font(.headline)
+                ForEach(self.users, id: \.id) {
+                    (user) in
+                    HStack{
+                        WebImage(url: URL(string: user.profileImageUrl)!)
+                            .resizable()
+                            .scaledToFit()
+                            .clipShape(Circle())
+                            .frame(width:100,height:100, alignment: .leading)
+                        
+                        Text("\(user.username)")
+                            .font(.caption)
+                        Text("\(user.humanName) ||\(user.petName) ")
+                            .font(.caption2)
+                    }
                     // from components
-                    PostCardImage(post: post)
-                    PostCard(post: post)
+//                    PostCardImage(post: post)
+//                    PostCard(post: post)
                 }
             }
             .navigationTitle("")
             .navigationBarHidden(true)
+            .onAppear{
+                self.loadAllUsers()
+            }
         }
     }
 //    init() {

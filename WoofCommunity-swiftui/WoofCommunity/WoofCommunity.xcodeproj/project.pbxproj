@@ -236,8 +236,8 @@
 				81BB5D1C288F4FC400835BE2 /* PostCardViewModel.swift */,
 				81BB5D1E288F57A800835BE2 /* ProfileViewModel.swift */,
 				81D2E9642891B99C00F9BFF2 /* MainViewModel.swift */,
-				81D2E9682891DD4D00F9BFF2 /* Observables.swift */,
 				81D2E9702891EDE900F9BFF2 /* SearchViewModel.swift */,
+				81D2E9682891DD4D00F9BFF2 /* Observables.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
