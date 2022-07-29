@@ -91,8 +91,7 @@ struct MainFeed : View {
                     }
 
                     VStack {
-                        Text("Checkout some users!")
-                            .font(.headline)
+            
                         ForEach(self.users, id: \.id) {
                             (user) in
                             
@@ -100,21 +99,47 @@ struct MainFeed : View {
                                 UsersProfileView(user: user)
                             } label: {
                             HStack{
+
+                                VStack(spacing: 50){
+                                             HStack {
+                                                 VStack(alignment: .center) {
+                                                     WebImage(url: URL(string: user.profileImageUrl)!)
+                                                         .resizable()
+                                                         .scaledToFit()
+                                                         .clipShape(Circle())
+                                                         .frame(width:100,height:100, alignment: .leading)
+                                                 }
+                                                 Spacer()
+                                                 VStack(alignment: .center) {
+                                                     Text("Nov 3")
+                                                         .font(.system(size: 18, weight: .bold, design: .rounded))
+                                                     Text("birthday".uppercased())
+                                                         .font(.system(size: 12, weight: .regular, design: .rounded))
+                                                 }
+                                                 Spacer()
+                                                 VStack(alignment: .center) {
+                                                     Text("26")
+                                                         .font(.system(size: 18, weight: .bold, design: .rounded))
+                                                     Text("years old".uppercased())
+                                                         .font(.system(size: 12, weight: .regular, design: .rounded))
+                                                 }
+                                             }
+                                             .padding()
+                                             .frame(width: 360)
+                                             .foregroundStyle(LinearGradient(colors: [.blue, .indigo], startPoint: .top, endPoint: .bottom))
+                                             .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 12, style: .continuous))
+                                }
                                 WebImage(url: URL(string: user.profileImageUrl)!)
                                     .resizable()
                                     .scaledToFit()
                                     .clipShape(Circle())
                                     .frame(width:100,height:100, alignment: .leading)
-                                
-                                Text("\(user.username)")
-                                    .font(.caption)
-                                Text("My name is \(user.humanName)")
-                                    .font(.subheadline)
-                                Text("\(user.petName) ")
-                                    .font(.caption2)
+                        
                             }
                             }
                             Divider().background(Color.gray)
+                            
+                            
                         }
                     }
                     
