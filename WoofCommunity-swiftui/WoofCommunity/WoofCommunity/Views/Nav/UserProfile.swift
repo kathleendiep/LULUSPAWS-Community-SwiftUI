@@ -41,12 +41,15 @@ struct UserProfile: View {
                 if !isLoading {
                     
                     ForEach(users, id: \.id){
+                        
                         user in
+                        
+                        
+                        
                         HStack{
-                            
                             VStack(alignment: .leading) {
                                 NavigationLink {
-                                    Profile()
+                                    UsersProfileView(user: user)
                                 } label: {
                                     WebImage(url: URL(string: user.profileImageUrl)!)
                                         .resizable()

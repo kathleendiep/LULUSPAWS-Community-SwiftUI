@@ -35,17 +35,16 @@ struct Profile: View {
     func listen(){
         session.listen()
     }
-    
-    //todo: picker in #11
-    //todo: add in #14 - a scrollview
-    // todo: add followers - 15
-    // hightodo: days since on
+
     var body: some View {
         ScrollView{
             VStack{
                 
                 ProfileHeader(user: self.session.session, postsCount: profileViewModel.posts.count)
                 
+                
+//                ProfileHeader(user: user, postsCount: $profileViewModel.posts.count, following: $profileViewModel.following, followers: $profileViewModel.followers)
+//                
                 VStack(alignment: .leading){
                     Text(session.session?.bio ?? "").font(.headline).lineLimit(1)
                 }
@@ -61,12 +60,8 @@ struct Profile: View {
                 LazyVGrid(columns: threeColumns) {
                 ForEach(self.profileViewModel.posts, id: \.postId ) {
                     (post) in
-                    
-                    
-                    
+
                     // Link to a different page based on user session
-                   
-                       
                     // gets the post and user
                     NavigationLink(destination: UserPostCardView(post: post, user: self.session.session!)) {
                         // enter the view
@@ -78,24 +73,7 @@ struct Profile: View {
                     }
                 }
                 }
-                    
-
-                    VStack {
-                        Text("tHIS IS THE VIEW")
-                        // get Users posts
-                        ForEach(self.profileViewModel.posts, id: \.postId ) {
-                            (post) in
-
-                      
-//                            UserPostCardView
-                            // from components
-                            PostCardImage(post: post)
-                            PostCard(post: post)
-
-
-                        }
-                    }
-                    
+                
                 } else if (self.session.session == nil) {Text("")}
             }
             .navigationTitle("Profile")
@@ -113,9 +91,7 @@ struct Profile: View {
                 Image(systemName: "arrow.right.circle.fill")
             })
             .onAppear{
-                // how to make it appear only if has a user
                 self.profileViewModel.loadUserPosts(userId: Auth.auth().currentUser!.uid)
-
             }
         }
     }
