@@ -36,7 +36,9 @@ struct HomeView: View {
 //                    }
 //                }
 //            }
-        }.accentColor(.red)
+        }
+        
+//        .accentColor(.red)
     }
 }
 
@@ -53,7 +55,7 @@ struct CustomTabView: View {
             TabView(selection: $selectedTab) {
                 Main()
                     .tag("house.fill")
-                Explore()
+                PreviewDesign()
                     .tag("map.fill")
 //                SearchBar(value: value)
                 UserProfile()

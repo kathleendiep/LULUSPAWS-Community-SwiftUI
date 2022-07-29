@@ -47,8 +47,6 @@ struct MainFeed : View {
                 for document in querySnapshot!.documents {
                     print(" these are the posts \(document.documentID): \(document.data())")
                     
-                    //                    self.posts.append(document.data())
-                    
                     let dict = document.data()
                     
                     guard let decoder = try? Post.init(fromDictionary: dict) else {return}
@@ -85,11 +83,22 @@ struct MainFeed : View {
                         PopupView()
                         
                     }
+                    
+                    VStack(alignment: .leading) {
+                        Text("Checkout some users")
+                            .font(.system(size: 28, weight: .bold, design: .serif))
+                            .padding(.top, 5)
+                    }
+
                     VStack {
                         Text("Checkout some users!")
                             .font(.headline)
                         ForEach(self.users, id: \.id) {
                             (user) in
+                            
+                            NavigationLink {
+                                UsersProfileView(user: user)
+                            } label: {
                             HStack{
                                 WebImage(url: URL(string: user.profileImageUrl)!)
                                     .resizable()
@@ -99,9 +108,13 @@ struct MainFeed : View {
                                 
                                 Text("\(user.username)")
                                     .font(.caption)
-                                Text("\(user.humanName) ||\(user.petName) ")
+                                Text("My name is \(user.humanName)")
+                                    .font(.subheadline)
+                                Text("\(user.petName) ")
                                     .font(.caption2)
                             }
+                            }
+                            Divider().background(Color.gray)
                         }
                     }
                     
@@ -142,6 +155,7 @@ struct PopupView: View {
                 
                 Text("Woof Community 🦴🏡")
                     .font(.system(size: 24, weight: .bold, design: .rounded))
+                    
                 
                 Text("check out our pupventures with some furry cute friends")
                     .font(.footnote)
