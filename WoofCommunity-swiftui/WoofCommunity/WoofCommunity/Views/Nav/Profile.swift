@@ -9,18 +9,6 @@ import SwiftUI
 import FirebaseAuth
 import SDWebImageSwiftUI
 
-/*
- USERPROFILE MODEL:
- 
- //    - username
- //    - name
- //    - pet name
- //    - humanProfilePic
- //    - dogProfilepic
- //    - email (but hidden)
- //    - location
- */
-
 struct Profile: View {
     
     // MARK: - Properties

@@ -67,6 +67,7 @@ struct MainFeed : View {
                 
                 LinearGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)).opacity(0.6), Color(#colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1)).opacity(0.3)]), startPoint: .topLeading, endPoint: .bottomTrailing)
                 VStack{
+                    
                     ZStack {
                         
                         Circle()
@@ -89,68 +90,61 @@ struct MainFeed : View {
                             .font(.system(size: 28, weight: .bold, design: .serif))
                             .padding(.top, 5)
                     }
-
+                    
                     VStack {
-            
+                        
                         ForEach(self.users, id: \.id) {
                             (user) in
                             
                             NavigationLink {
                                 UsersProfileView(user: user)
                             } label: {
-                            HStack{
-
-                                VStack(spacing: 50){
-                                             HStack {
-                                                 VStack(alignment: .center) {
-                                                     WebImage(url: URL(string: user.profileImageUrl)!)
-                                                         .resizable()
-                                                         .scaledToFit()
-                                                         .clipShape(Circle())
-                                                         .frame(width:100,height:100, alignment: .leading)
-                                                 }
-                                                 Spacer()
-                                                 VStack(alignment: .center) {
-                                                     Text("Nov 3")
-                                                         .font(.system(size: 18, weight: .bold, design: .rounded))
-                                                     Text("birthday".uppercased())
-                                                         .font(.system(size: 12, weight: .regular, design: .rounded))
-                                                 }
-                                                 Spacer()
-                                                 VStack(alignment: .center) {
-                                                     Text("26")
-                                                         .font(.system(size: 18, weight: .bold, design: .rounded))
-                                                     Text("years old".uppercased())
-                                                         .font(.system(size: 12, weight: .regular, design: .rounded))
-                                                 }
-                                             }
-                                             .padding()
-                                             .frame(width: 360)
-                                             .foregroundStyle(LinearGradient(colors: [.blue, .indigo], startPoint: .top, endPoint: .bottom))
-                                             .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 12, style: .continuous))
+                                HStack{
+                                    
+                                    VStack(spacing: 50){
+                                        HStack {
+                                            VStack(alignment: .center) {
+                                                WebImage(url: URL(string: user.profileImageUrl)!)
+                                                    .resizable()
+                                                    .scaledToFit()
+                                                    .clipShape(Circle())
+                                                    .frame(width:100,height:100, alignment: .leading)
+                                            }
+                                            VStack(alignment: .leading) {
+                                                Text("\(user.humanName)")
+                                                    .font(.system(size: 18, weight: .bold, design: .rounded))
+                                                Text("@\(user.username)".uppercased())
+                                                    .font(.system(size: 12, weight: .regular, design: .rounded))
+                                            }
+                                            Spacer()
+                                            VStack(alignment: .leading) {
+                                                Text("\(user.petName)")
+                                                    .font(.system(size: 18, weight: .bold, design: .rounded))
+                                                Text("is my pet".uppercased())
+                                                    .font(.system(size: 12, weight: .regular, design: .rounded))
+                                            }
+                                            Spacer()
+                                        }
+                                        .padding()
+                                        .frame(width: 360)
+                                        .foregroundStyle(LinearGradient(colors: [.blue, .indigo], startPoint: .top, endPoint: .bottom))
+                                        .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 12, style: .continuous))
+                                    }
+                               
+                                    
+                                    
                                 }
-                                WebImage(url: URL(string: user.profileImageUrl)!)
-                                    .resizable()
-                                    .scaledToFit()
-                                    .clipShape(Circle())
-                                    .frame(width:100,height:100, alignment: .leading)
-                        
                             }
-                            }
-                            Divider().background(Color.gray)
-                            
                             
                         }
                     }
-                    
-                    
-                    
+                    Spacer()
                 }
                 
                 .edgesIgnoringSafeArea(.all)
-
+                
             }
-           
+            
         }
         .navigationTitle("")
         .navigationBarHidden(true)
@@ -158,11 +152,7 @@ struct MainFeed : View {
             self.loadAllUsers()
         }
     }
-//
-//    init() {
-//        getAllPosts()
-//
-//    }
+    
 }
 
 struct PopupView: View {
@@ -174,13 +164,13 @@ struct PopupView: View {
                 .shadow(color: Color.black.opacity(0.1), radius: 10, x: 0, y: 10)
                 .blur(radius: 1)
                 .padding()
-               
+            
             
             VStack(alignment: .leading, spacing: 16) {
                 
                 Text("Woof Community 🦴🏡")
                     .font(.system(size: 24, weight: .bold, design: .rounded))
-                    
+                
                 
                 Text("check out our pupventures with some furry cute friends")
                     .font(.footnote)

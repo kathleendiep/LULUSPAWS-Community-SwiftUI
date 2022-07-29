@@ -44,7 +44,7 @@ struct HomeView: View {
 
 // MARK: - TABS
 // home | explore | profile | signout
-var tabs = ["house.fill", "map.fill","magnifyingglass","plus.rectangle.fill.on.rectangle.fill", "person.crop.circle.fill"]
+var tabs = ["house.fill", "map.fill","magnifyingglass","plus.rectangle.fill.on.rectangle.fill", "person.crop.circle.fill", "map"]
 
 struct CustomTabView: View {
     @State var selectedTab = "house.fill"
@@ -57,13 +57,14 @@ struct CustomTabView: View {
                     .tag("house.fill")
                 PreviewDesign()
                     .tag("map.fill")
-//                SearchBar(value: value)
                 UserProfile()
                     .tag("magnifyingglass")
                 Add()
                     .tag("plus.rectangle.fill.on.rectangle.fill")
                 Profile()
                     .tag("person.crop.circle.fill")
+                Furniture()
+                    .tag("map")
             }
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
             .ignoresSafeArea(.all, edges: .bottom)

@@ -61,10 +61,28 @@ struct Add: View {
     var body: some View {
         
         ZStack {
-            LinearGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 0.6759886742, green: 0.9469802976, blue: 1, alpha: 1)), Color(#colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1))]), startPoint: .top, endPoint: .bottom)
+            LinearGradient(colors: [Color.cyan.opacity(0.7), Color.purple.opacity(0.3)], startPoint: .topLeading, endPoint: .bottomTrailing)
+
+            Circle()
+                .frame(width: 300)
+                .foregroundColor(Color.blue.opacity(0.3))
+                .blur(radius: 10)
+                .offset(x: -100, y: -150)
+
+            RoundedRectangle(cornerRadius: 30, style: .continuous)
+                .frame(width: 500, height: 500)
+                .foregroundStyle(LinearGradient(colors: [Color.purple.opacity(0.6), Color.mint.opacity(0.5)], startPoint: .top, endPoint: .leading))
+                .offset(x: 300)
+                .blur(radius: 30)
+                .rotationEffect(.degrees(30))
+
+            Circle()
+                .frame(width: 450)
+                .foregroundStyle(Color.pink.opacity(0.6))
+                .blur(radius: 20)
+                .offset(x: 200, y: -200)
             
-            LinearGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)).opacity(0.6), Color(#colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1)).opacity(0.3)]), startPoint: .topLeading, endPoint: .bottomTrailing)
-        VStack {
+            VStack(alignment: .leading) {
             VStack(spacing: 5) {
                 Text("Upload A Post").font(.largeTitle)
                 if postImage != nil {
