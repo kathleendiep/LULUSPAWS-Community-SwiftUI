@@ -51,8 +51,12 @@ class PostViewModel: ObservableObject {
         guard let userId = Auth.auth().currentUser?.uid else { return }
         
         //        let postId = self.PostsUserId(userId: userId).collection("posts").document().documentID
+        
+        // This is just the post id
         let postId = PostViewModel.PostsUserId(userId: userId).collection("posts").document().documentID
         
+        
+        // this appends to postId
         let storagePostRef = StorageService.storagePostId(postId: postId)
         let metadata = StorageMetadata()
         metadata.contentType = "image/jpg"

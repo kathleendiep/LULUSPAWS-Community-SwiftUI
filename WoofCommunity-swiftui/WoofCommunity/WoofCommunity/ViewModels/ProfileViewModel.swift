@@ -10,7 +10,6 @@ import Firebase
 import FirebaseStorage
 import FirebaseAuth
 
-
 // to show posts in the profile
 // collection.document
 class ProfileViewModel: ObservableObject {
@@ -91,72 +90,33 @@ class ProfileViewModel: ObservableObject {
    
     // MARK: - DELETE
     
-    func deletePost(userId: String){
-        
+//    func deletePost(userId: String){
+        /*
+         - figure out what to do with the rest
+         */
 //     let db = Firestore.firestore()
 
 //    Firestore.firestore().collection("posts").document(userid)
-        PostViewModel.PostsUserId(userId: userId).delete {
-            (err) in
-            
-            if err != nil {
-                
-                print(err!.localizedDescription)
-                
-                self.posts.removeAll { (post) in
-                    return post.id == userId
-                }
-                
-            }
-            
-        }
-
-    }
-    
-    
+//        PostViewModel.PostsUserId(userId: userId).delete
+//        let postId = PostViewModel.PostsUserId(userId: userId).collection("posts").document().documentID
+        
+//        PostViewModel.PostsUserId(userId: userId).delete {
+//            (err) in
 //
-//    static func deletePost(userId: String, onSuccess: @escaping(_ post: Post) -> Void) {
+//            if err != nil {
 //
+//                print(err!.localizedDescription)
 //
-//            PostViewModel.Posts.document(userId).delete
+//                self.posts.removeAll { (post) in
+//                    return post.id == userId
+//                }
 //
-//            self.posts.removeAll {
-//                post in
-//                return user.id == userId
 //            }
 //
-//
-//
-//
-//
-//
-//
-//        if let documentId = self.posts.postId {
-//
-//            var postId = PostViewModel.PostsUserId(userId: userId).collection("posts").document().documentID
-//
-//
 //        }
-//        // delete based on postId
-//
-//
-//        // match this postId to document
-//        PostViewModel.Posts.document(postId).delete { error in
-//            if error == nil {
-//                DispatchQueue.main.async {
-//
-//                   // Remove the post
-//                   posts.removeAll { post in
-//                       return self.posts. == postId
-//                   }
-//
-//               }
-//            }
-//        }
-//
-//
 //
 //    }
-
+//
+    
     
 }

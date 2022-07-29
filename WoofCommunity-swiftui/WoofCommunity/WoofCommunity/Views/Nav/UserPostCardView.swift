@@ -21,9 +21,9 @@ struct UserPostCardView: View {
 //        _username = State(initialValue: session?.username ?? "" )
 //    }
     
-    func handleDeleteTapped() {
-        profileViewModel.deletePost(userId: user.id!)
-    }
+//    func handleDeleteTapped() {
+//        profileViewModel.deletePost(userId: user.id!)
+//    }
     
     var body: some View {
         VStack {
@@ -31,9 +31,10 @@ struct UserPostCardView: View {
             PostCardImage(post: post)
             PostCard(post: post)
             
-            Button("Delete Post") { self.handleDeleteTapped() }
-                 .foregroundColor(.red)
-             }
+//            Button("Delete Post") { self.handleDeleteTapped() }
+//                 .foregroundColor(.red)
+//             }
         }
     }
+}
 }
