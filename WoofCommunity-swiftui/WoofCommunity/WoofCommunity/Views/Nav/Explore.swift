@@ -36,7 +36,6 @@ struct ExploreMap : View {
     @State var data : Data = .init(count: 0)
     @State var search = false
     
-    
     var body: some View{
         
         ZStack(alignment: .bottom){

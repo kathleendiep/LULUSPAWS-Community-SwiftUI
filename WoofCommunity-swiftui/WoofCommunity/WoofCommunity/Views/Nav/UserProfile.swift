@@ -53,6 +53,7 @@ struct UserProfile: View {
               
                 VStack(){
                     
+                    
                     // everytime value changes, make sure to search users
                     SearchBar(value: $value).padding()
                         .onChange(of: value, perform: {
@@ -103,4 +104,3 @@ struct UserProfile: View {
         }.navigationTitle("User Search")
     }
 }
-

@@ -52,8 +52,41 @@ struct ProfileHeader: View {
                 }.padding(.top, 60)
                 Spacer()
             }
+            
+            // icons
+            // if user has this field
+            HStack{
+                
+                VStack{
+                    Link(destination: URL(string: "member.linkedIn")!) {
+                    Image("LinkedIn")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 50.0, height: 50.0)
+                    }
+                }.padding(.top, 60)
+                
+                VStack{
+                    Link(destination: URL(string: "www.instagram.com")!) {
+                    Image("Instagram")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 50.0, height: 50.0)
+                    }
+                }.padding(.top, 60)
+            }
+            
         }
+            
         }
     }
 }
+
+//
+//struct ProfileHeader_Previews: PreviewProvider {
+//    static var previews: some View {
+//        
+//        ProfileHeader()
+//    }
+//}
 

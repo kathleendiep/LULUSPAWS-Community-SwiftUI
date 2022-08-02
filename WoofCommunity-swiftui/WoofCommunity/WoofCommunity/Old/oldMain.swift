@@ -58,7 +58,11 @@ struct Header: View {
 }
 
 //MARK: Search
-struct SearchBarEngine: View {
+struct SearchBarEngine:
+   View {
+    
+    
+
     var body: some View {
         HStack {
             Text("Search for 3D products")
