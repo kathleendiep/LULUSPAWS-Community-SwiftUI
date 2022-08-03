@@ -22,8 +22,9 @@ struct ContentView: View {
             if(session.session != nil) {
                 HomeView()
             } else {
+//                WelcomePage()
+                
                 SignInView()
-                // todo: make a homeview with a button to signinview when session = nil 
             }
         }.onAppear(perform: listen)
     }

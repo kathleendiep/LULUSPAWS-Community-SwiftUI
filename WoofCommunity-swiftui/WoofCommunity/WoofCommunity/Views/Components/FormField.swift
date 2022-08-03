@@ -17,7 +17,8 @@ struct FormField: View {
     
     var body: some View {
         Group {
-            HStack {
+            HStack(alignment: .center, spacing: 5 ) {
+                Spacer()
                 Image(systemName: icon).padding()
                 Group {
                     if isSecure {
@@ -31,9 +32,12 @@ struct FormField: View {
                     .multilineTextAlignment(.leading)
                     .disableAutocorrection(true)
                     .autocapitalization(.none)
-                    
-            }.overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.gray, lineWidth:4)).padding()
+                    Spacer()
+            }.overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.gray, lineWidth:4))
+            .frame(width:300)
+            .padding(.vertical, 10)
+            
+                
         }
-        
     }
 }

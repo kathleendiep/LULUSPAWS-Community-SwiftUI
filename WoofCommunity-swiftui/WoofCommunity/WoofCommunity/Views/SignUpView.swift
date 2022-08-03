@@ -9,10 +9,15 @@ import SwiftUI
 
 struct SignUpView: View {
     var body: some View {
-        SignUpContainerView()
+            SignUpContainerView()
     }
 }
 
+struct SignUpView_Previews: PreviewProvider {
+    static var previews: some View {
+        SignUpView()
+    }
+}
 
 struct SignUpContainerView: View {
     
@@ -75,18 +80,39 @@ struct SignUpContainerView: View {
     }
     
     var body: some View {
-        
-        ScrollView {
-            VStack(spacing:20) {
+        ZStack {
+            
+            Color.white
+            
+            RoundedRectangle(cornerRadius: 30, style: .continuous)
+                .foregroundStyle( LinearGradient(colors: [Color.cyan.opacity(0.7), Color.purple.opacity(0.3)], startPoint: .topLeading, endPoint: .bottomTrailing)
+                )
+                .frame(width:1000, height: 400)
+                .rotationEffect(.degrees(135))
+                .offset(y: -350)
+            
+            Circle()
+                .frame(width: 300)
+                .foregroundColor(Color.blue.opacity(0.3))
+                .blur(radius: 10)
+                .offset(x: -100, y: -150)
+            
+            Circle()
+                .frame(width: 450)
+                .foregroundStyle(Color.pink.opacity(0.6))
+                .blur(radius: 20)
+                .offset(x: 200, y: -200)
+     
+            VStack(alignment: .center)  {
                 
                 // WELCOME
-                VStack(alignment: .center) {
+            
                     Text("Welcome").font(.system(size: 32, weight: .heavy))
                     Text("Sign up to start!").font(.system(size: 16, weight: .bold))
-                }
+                
                 
                 // PROFILE PHOTO
-                VStack(spacing: 5){
+                VStack(alignment: .center){
                     Group {
                         Text("Profile photo")
                             .font(.subheadline)
@@ -111,40 +137,41 @@ struct SignUpContainerView: View {
                                 .font(.caption)
                         }
                     }
-                }
+          
+              // FIELDS
+                        FormField(value: $username, icon: "person.crop.circle.fill", placeholder: "username")
+                        
+                        
+                        FormField(value: $email, icon: "mail", placeholder: "Email")
+                        
+                                        
+                        FormField(value: $password, icon: "key", placeholder: "Password", isSecure: true)
+                        
+                        
+                        //                    FormField(value: $petName, icon: "pawprint.circle", placeholder: "Pet's name")
+                        //
+                        //                    FormField(value: $humanName, icon: "pawprint.circle", placeholder: "Hooman's name")
+                        
+                        //                    Button(action: {
+                        
+                        NavigationLink(destination: SignInView(), isActive: $isLinkActive){
+                            Button(action: { signUp()
+                                self.isLinkActive = true
+                                
+                            }) {
+                                Text("Create")
+                                    .font(.title)
+                                    .modifier(ButtonModifiers())
+                            }
+                        }.alert(isPresented: $showingAlert) {
+                            Alert(title: Text(alertTitle), message: Text(error), dismissButton: .default(Text("OK")))
+                        }.padding()
+                        
+
+                    }
+                    .padding()
                 
-                // FIELDS
-                VStack{
-                    // todo: make it unique
-                    FormField(value: $username, icon: "person.crop.circle.fill", placeholder: "username")
-                    
-                    FormField(value: $email, icon: "mail", placeholder: "Email")
-                    
-                    FormField(value: $password, icon: "key", placeholder: "Password", isSecure: true)
-                    
-                    
-                    //                    FormField(value: $petName, icon: "pawprint.circle", placeholder: "Pet's name")
-                    //
-                    //                    FormField(value: $humanName, icon: "pawprint.circle", placeholder: "Hooman's name")
-                    
-                    //                    Button(action: {
-                    
-                    NavigationLink(destination: SignInView(), isActive: $isLinkActive){
-                        Button(action: { signUp()
-                            self.isLinkActive = true
-                            
-                        }) {
-                            Text("Create")
-                                .font(.title)
-                                .modifier(ButtonModifiers())
-                        }
-                    }.alert(isPresented: $showingAlert) {
-                        Alert(title: Text(alertTitle), message: Text(error), dismissButton: .default(Text("OK")))
-                    }.padding()
-                    
-                    Spacer()
-                }
-                .padding()
+            
                 
             }.sheet(isPresented: $showingImagePicker, onDismiss: loadImage){
                 // from Utilities
@@ -162,6 +189,11 @@ struct SignUpContainerView: View {
                     .cancel()
                 ])
             }
+            .padding(.leading, 20)
+ 
         }
+  
     }
 }
+
+

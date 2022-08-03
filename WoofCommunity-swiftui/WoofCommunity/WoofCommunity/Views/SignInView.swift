@@ -5,9 +5,7 @@
 import SwiftUI
 import FirebaseAuth
 
-// MARK: SignInView
 struct SignInView: View {
-    
     var body: some View {
         NavigationView {
             VStack {
@@ -36,7 +34,6 @@ struct SignInContainerView: View {
         
         ZStack {
             //background
-            
             Color.white
             
             RoundedRectangle(cornerRadius: 30, style: .continuous)
@@ -63,7 +60,7 @@ struct SignInContainerView: View {
                     .resizable()
                     .scaledToFit()
                     .frame(width: 100, height: 150)
-                VStack {
+                VStack(alignment: .center, spacing: 10) {
                     TextField("Email Address", text: $email)
                         .disableAutocorrection(true)
                         .autocapitalization(.none)
@@ -74,6 +71,7 @@ struct SignInContainerView: View {
                         .autocapitalization(.none)
                         .background(Color(.secondarySystemBackground))
                         .padding()
+                    
                     // LINKS
                     NavigationLink {
                         HomeView()
