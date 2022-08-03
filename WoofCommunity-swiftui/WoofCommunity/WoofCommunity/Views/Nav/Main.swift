@@ -61,7 +61,8 @@ struct MainFeed : View {
     var body: some View{
         
         ScrollView{
-            
+            // todo: add blob view
+            // https://designcode.io/swiftui-ios15-onappear-withanimation
             ZStack {
                 LinearGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 0.6759886742, green: 0.9469802976, blue: 1, alpha: 1)), Color(#colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1))]), startPoint: .top, endPoint: .bottom)
                 
@@ -92,15 +93,12 @@ struct MainFeed : View {
                     }
                     
                     VStack {
-                        
                         ForEach(self.users, id: \.id) {
                             (user) in
-                            
                             NavigationLink {
                                 UsersProfileView(user: user)
                             } label: {
                                 HStack{
-                                    
                                     VStack(spacing: 50){
                                         HStack {
                                             VStack(alignment: .center) {
@@ -130,19 +128,13 @@ struct MainFeed : View {
                                         .foregroundStyle(LinearGradient(colors: [.blue, .indigo], startPoint: .top, endPoint: .bottom))
                                         .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 12, style: .continuous))
                                     }
-                               
-                                    
-                                    
                                 }
                             }
-                            
                         }
                     }
                     Spacer()
                 }
-                
                 .edgesIgnoringSafeArea(.all)
-                
             }
             
         }

@@ -59,7 +59,7 @@ struct SignInContainerView: View {
                 Image("WoofCommunityLogo")
                     .resizable()
                     .scaledToFit()
-                    .frame(width: 100, height: 150)
+                    .frame(width: 300, height: 150)
                 VStack(alignment: .center, spacing: 10) {
                     TextField("Email Address", text: $email)
                         .disableAutocorrection(true)
@@ -100,9 +100,10 @@ struct SignInContainerView: View {
                 
                 Spacer()
             }
-            .frame(width: 400)
+            .frame(width: 300)
         }
-        .navigationTitle("sign in")
+        .navigationTitle("Sign In")
+        .foregroundColor(Color.white)
         
     }
 

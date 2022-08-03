@@ -50,11 +50,7 @@ struct Profile: View {
                     .offset(x: 200, y: -200)
                 ScrollView{
                     VStack{
-                        
                         ProfileHeader(user: self.session.session, postsCount: profileViewModel.posts.count)
-                        
-                        //                ProfileHeader(user: user, postsCount: $profileViewModel.posts.count, following: $profileViewModel.following, followers: $profileViewModel.followers)
-                        //
                         VStack(alignment: .leading){
                             Text(session.session?.bio ?? "").font(.headline).lineLimit(1)
                         }

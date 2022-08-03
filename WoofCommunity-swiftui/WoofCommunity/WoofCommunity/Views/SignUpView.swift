@@ -139,7 +139,7 @@ struct SignUpContainerView: View {
                     }
           
               // FIELDS
-                        FormField(value: $username, icon: "person.crop.circle.fill", placeholder: "username")
+                        FormField(value: $username, icon: "person.crop.circle.fill", placeholder: "Username")
                         
                         
                         FormField(value: $email, icon: "mail", placeholder: "Email")
@@ -157,7 +157,6 @@ struct SignUpContainerView: View {
                         NavigationLink(destination: SignInView(), isActive: $isLinkActive){
                             Button(action: { signUp()
                                 self.isLinkActive = true
-                                
                             }) {
                                 Text("Sign Up")
                                     .font(.title)
@@ -167,13 +166,9 @@ struct SignUpContainerView: View {
                         }.alert(isPresented: $showingAlert) {
                             Alert(title: Text(alertTitle), message: Text(error), dismissButton: .default(Text("OK")))
                         }.padding()
-                        
-
                     }
                     .padding()
-                
-            
-                
+   
             }.sheet(isPresented: $showingImagePicker, onDismiss: loadImage){
                 // from Utilities
                 ImagePicker(pickedImage: self.$pickedImage, showImagePicker: self.$showingImagePicker, imageData: self.$imageData)

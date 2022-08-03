@@ -33,11 +33,10 @@ struct FormField: View {
                     .disableAutocorrection(true)
                     .autocapitalization(.none)
                     Spacer()
-            }.overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.gray, lineWidth:4))
+            }.overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.blue.opacity(0.3), lineWidth:4))
             .frame(width:300)
             .padding(.vertical, 10)
-            
-                
+       
         }
     }
 }
