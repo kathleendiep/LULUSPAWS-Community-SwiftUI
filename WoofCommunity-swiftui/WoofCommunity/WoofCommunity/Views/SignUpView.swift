@@ -115,7 +115,7 @@ struct SignUpContainerView: View {
                 VStack(alignment: .center){
                     Group {
                         Text("Profile photo")
-                            .font(.subheadline)
+                            .font(.system(size: 14, weight: .bold))
                         if profileImage != nil {
                             profileImage!.resizable()
                                 .clipShape(Circle())
@@ -159,9 +159,10 @@ struct SignUpContainerView: View {
                                 self.isLinkActive = true
                                 
                             }) {
-                                Text("Create")
+                                Text("Sign Up")
                                     .font(.title)
                                     .modifier(ButtonModifiers())
+                                    .frame(width: 300)
                             }
                         }.alert(isPresented: $showingAlert) {
                             Alert(title: Text(alertTitle), message: Text(error), dismissButton: .default(Text("OK")))

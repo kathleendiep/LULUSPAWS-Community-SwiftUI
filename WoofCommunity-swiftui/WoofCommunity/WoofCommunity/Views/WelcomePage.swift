@@ -51,22 +51,19 @@ struct WelcomeThemeLayout: View {
                 .blur(radius: 20)
                 .offset(x: 200, y: -200)
             
-            VStack(spacing:20) {
+            ZStack {
                 
                 // WELCOME
                 VStack(alignment: .center) {
                     Text("WoofCommunity").font(.system(size: 32, weight: .heavy))
+                
                     Text("Check out and connect with other furiends").font(.system(size: 16, weight: .bold))
                     Image("WoofPageHomePage")
                         .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width:300, height: 300)
                 }
-                NavigationLink {
-                    SignInView()
-                } label: {
-                    Text("Sign In")
-                        .font(.title)
-                        .modifier(ButtonModifiers())
-                }
+              
                 // SIGN IN/UP BUTTON
                 VStack(alignment: .center) {
                     
@@ -76,8 +73,9 @@ struct WelcomeThemeLayout: View {
                         Text("Sign In")
                             .font(.title)
                             .modifier(ButtonModifiers())
-                    }
-                    
+                    }.frame(width: 300)
+                            
+
                     NavigationLink {
                         SignUpView()
                     } label: {
