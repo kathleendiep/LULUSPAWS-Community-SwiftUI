@@ -56,7 +56,7 @@ struct SignInContainerView: View {
                  .offset(x: 200, y: -200)
             
             VStack{
-                Image(systemName: "square")
+                Image("WoofCommunityLogo")
                     .resizable()
                     .scaledToFit()
                     .frame(width: 100, height: 150)
@@ -100,6 +100,7 @@ struct SignInContainerView: View {
                 
                 Spacer()
             }
+            .frame(width: 400)
         }
         .navigationTitle("sign in")
         

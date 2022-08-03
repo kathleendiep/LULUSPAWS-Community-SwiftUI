@@ -55,14 +55,18 @@ struct WelcomeThemeLayout: View {
                 
                 // WELCOME
                 VStack(alignment: .center) {
-                    Text("WoofCommunity").font(.system(size: 32, weight: .heavy))
-                
+                    Text("WoofCommunity")
+                        .font(.system(.largeTitle)).bold()
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                            .padding(.leading, 30)
+                            .padding(.top, 30)
                     Text("Check out and connect with other furiends").font(.system(size: 16, weight: .bold))
                     Image("WoofPageHomePage")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width:300, height: 300)
-                }
+                }.frame(width: 500)
+                    .animation(.spring(response: 0.5, dampingFraction: 0.7, blendDuration: 0))
               
                 // SIGN IN/UP BUTTON
                 VStack(alignment: .center) {
