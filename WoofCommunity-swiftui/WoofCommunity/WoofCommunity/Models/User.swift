@@ -45,8 +45,9 @@ struct User: Identifiable, Encodable, Decodable {
     var petName: String
     var humanName: String
     var profileDogImageUrl: String
-//    var location: Location
-    
+    var location: [String]
+    var twitter: String
+    var instagram: String
     
     // MARK: - Location
     // automatically find

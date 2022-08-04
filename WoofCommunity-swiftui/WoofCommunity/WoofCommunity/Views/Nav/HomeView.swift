@@ -17,28 +17,7 @@ struct HomeView: View {
             CustomTabView()
                 .navigationTitle("")
                 .navigationBarTitleDisplayMode(.inline)
-//                .navigationBarHidden(true)
-//            .toolbar {
-//                ToolbarItem(placement: .navigationBarTrailing) {
-//                    if(session.session != nil) {
-//                        Button(action: {
-//                            session.logout()
-//                        }){
-//                            Image(systemName: "arrow.right.circle.fill")
-//                        }
-//                    } else {
-//                        NavigationLink {
-//                            SignUpView()
-//                        } label: {
-//                            Image(systemName: "person.crop.circle.fill")
-//                        }
-//
-//                    }
-//                }
-//            }
         }
-        
-//        .accentColor(.red)
     }
 }
 
