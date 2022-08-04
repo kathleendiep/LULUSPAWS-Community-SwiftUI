@@ -160,7 +160,7 @@ struct PopupView: View {
             
             VStack(alignment: .leading, spacing: 16) {
                 
-                Text("Woof Community 🦴🏡")
+                Text("LULUS PAWS🦴🏡")
                     .font(.system(size: 24, weight: .bold, design: .rounded))
                 
                 
