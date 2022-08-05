@@ -23,7 +23,6 @@ struct ContentView: View {
                 HomeView()
             } else {
 //                WelcomePage()
-                
                 SignInView()
             }
         }.onAppear(perform: listen)

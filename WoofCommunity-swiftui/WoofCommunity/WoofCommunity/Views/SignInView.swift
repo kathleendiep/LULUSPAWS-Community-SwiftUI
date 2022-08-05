@@ -15,7 +15,6 @@ struct SignInView: View {
     }
 }
 
-// MARK: - Views
 struct SignInContainerView: View {
     @EnvironmentObject var session: SessionStore
     

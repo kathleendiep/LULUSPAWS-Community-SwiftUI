@@ -36,15 +36,15 @@ struct SearchBar: View {
                         }.padding(.horizontal, 32)
                             .foregroundColor(.gray)
                     }
-            }.frame(width: 350, height: 54)
-                .background(Color.white)
-                .cornerRadius(14)
+            }
         }.padding()
     }
 }
 
 
-
-
+//
+//    .frame(width: 350, height: 54)
+//        .background(Color.white)
+//        .cornerRadius(14)
 
 

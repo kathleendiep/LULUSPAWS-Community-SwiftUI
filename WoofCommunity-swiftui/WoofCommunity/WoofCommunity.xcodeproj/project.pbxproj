@@ -41,6 +41,7 @@
 		8198FCEC2880F4820033421C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8198FCEB2880F4820033421C /* Extensions.swift */; };
 		8198FCF02880FCD50033421C /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8198FCEF2880FCD50033421C /* StorageService.swift */; };
 		819AADF82899EF6500E1CA1D /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819AADF72899EF6500E1CA1D /* SwiftUIView.swift */; };
+		81A89CCC289DCDDC00391066 /* LocationProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A89CCB289DCDDC00391066 /* LocationProfile.swift */; };
 		81AFA1EF287CCC620099D8FB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81AFA1EE287CCC620099D8FB /* User.swift */; };
 		81AFA1F1287CCC8A0099D8FB /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81AFA1F0287CCC8A0099D8FB /* HomeView.swift */; };
 		81AFA1F3287CD8420099D8FB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 81AFA1F2287CD8420099D8FB /* GoogleService-Info.plist */; };
@@ -94,6 +95,7 @@
 		8198FCEB2880F4820033421C /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		8198FCEF2880FCD50033421C /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
 		819AADF72899EF6500E1CA1D /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
+		81A89CCB289DCDDC00391066 /* LocationProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationProfile.swift; sourceTree = "<group>"; };
 		81AFA1EE287CCC620099D8FB /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		81AFA1F0287CCC8A0099D8FB /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		81AFA1F2287CD8420099D8FB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -117,7 +119,7 @@
 		81D2E96E2891E6A000F9BFF2 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		81D2E9702891EDE900F9BFF2 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		81D2E9722891FC7D00F9BFF2 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
-		81DEB98E28909E2A00854528 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		81DEB98E28909E2A00854528 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		81DEB98F2890AFF600854528 /* Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
 		81DEB9912890B42700854528 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		81FB5D812878BB0400230D75 /* WoofCommunity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WoofCommunity.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -171,9 +173,8 @@
 			children = (
 				81AFA1F0287CCC8A0099D8FB /* HomeView.swift */,
 				8166FD6B2885FF44008D7627 /* Main.swift */,
-				8166FD6E2885FF87008D7627 /* Explore.swift */,
-				81D2E96C2891E46700F9BFF2 /* Search.swift */,
-				81D2E9722891FC7D00F9BFF2 /* UserProfile.swift */,
+				81B68D32289C7F3900972C0A /* Search */,
+				81A89CCA289DCDAF00391066 /* Explore */,
 				8166FD652885FE6B008D7627 /* Add.swift */,
 				8166FD692885FF17008D7627 /* Profile.swift */,
 				81BB5D24288FAB8F00835BE2 /* EditProfile.swift */,
@@ -212,6 +213,15 @@
 			path = Old;
 			sourceTree = "<group>";
 		};
+		81A89CCA289DCDAF00391066 /* Explore */ = {
+			isa = PBXGroup;
+			children = (
+				8166FD6E2885FF87008D7627 /* Explore.swift */,
+				81A89CCB289DCDDC00391066 /* LocationProfile.swift */,
+			);
+			path = Explore;
+			sourceTree = "<group>";
+		};
 		81AFA1EA287CCC3C0099D8FB /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -239,6 +249,7 @@
 		81AFA1EC287CCC430099D8FB /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				81AFA1F2287CD8420099D8FB /* GoogleService-Info.plist */,
 				81FB5D882878BB0A00230D75 /* Assets.xcassets */,
 			);
 			path = Resources;
@@ -254,10 +265,19 @@
 				81BB5D1E288F57A800835BE2 /* ProfileViewModel.swift */,
 				81D2E9642891B99C00F9BFF2 /* MainViewModel.swift */,
 				81D2E9702891EDE900F9BFF2 /* SearchViewModel.swift */,
-				81D2E9682891DD4D00F9BFF2 /* Observables.swift */,
 				813D238028932E7500C4BDC8 /* FollowViewModel.swift */,
+				81D2E9682891DD4D00F9BFF2 /* Observables.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		81B68D32289C7F3900972C0A /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				81D2E96C2891E46700F9BFF2 /* Search.swift */,
+				81D2E9722891FC7D00F9BFF2 /* UserProfile.swift */,
+			);
+			path = Search;
 			sourceTree = "<group>";
 		};
 		81B982D3288620E300F848EC /* Utilities */ = {
@@ -291,9 +311,8 @@
 			children = (
 				81DEB98E28909E2A00854528 /* Info.plist */,
 				81392D3528872EEE00B83CFE /* Steps.swift */,
-				81AFA1F2287CD8420099D8FB /* GoogleService-Info.plist */,
-				81AFA233287E1DA80099D8FB /* ViewModels */,
 				81AFA1EA287CCC3C0099D8FB /* Models */,
+				81AFA233287E1DA80099D8FB /* ViewModels */,
 				81AFA1EB287CCC400099D8FB /* Views */,
 				818C2A7328876FE00050F477 /* Old */,
 				81B982D3288620E300F848EC /* Utilities */,
@@ -454,6 +473,7 @@
 				8166FD622885ED89008D7627 /* SignInViewModel.swift in Sources */,
 				81AFA1F1287CCC8A0099D8FB /* HomeView.swift in Sources */,
 				818BE60028889A2600C4EF1E /* Post.swift in Sources */,
+				81A89CCC289DCDDC00391066 /* LocationProfile.swift in Sources */,
 				81B982D72886234C00F848EC /* SignUpView.swift in Sources */,
 				81D2E9692891DD4D00F9BFF2 /* Observables.swift in Sources */,
 				8198FCF02880FCD50033421C /* StorageService.swift in Sources */,

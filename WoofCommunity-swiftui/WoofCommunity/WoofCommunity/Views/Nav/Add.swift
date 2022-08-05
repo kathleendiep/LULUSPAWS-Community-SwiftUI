@@ -132,6 +132,7 @@ struct Add: View {
                             .cancel()
                         ])
                     }
+                    .frame(width: 400)
             }
         }.navigationTitle("Upload A Post")
     }

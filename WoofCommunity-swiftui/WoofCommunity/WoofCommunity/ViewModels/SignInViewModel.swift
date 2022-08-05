@@ -52,6 +52,7 @@ class SignInViewModel: NSObject, ObservableObject {
                 (document, error) in
                 
                 if let dict = document?.data() {
+                    
                     guard let decodedUser = try? User.init(fromDictionary: dict) else { return }
                     
                     onSuccess(decodedUser)
@@ -59,65 +60,7 @@ class SignInViewModel: NSObject, ObservableObject {
             }
         }
     }
-    
-    
-//    func addUser(userId: String) {
-//
-//        let db = Firestore.firestore()
-//
-//        db.collection("users").addDocument{ (snapchat, error) in
-//
-//            DispatchQueue.main.async {
-//
-//                guard let snap = snapshot else {
-//                    print("Error")
-//                    return
-//                }
-//
-//                // decode the user data from documents
-//                for doc in snap.documents {
-//                    let dict = doc.data()
-//                    guard let decoder = try? User.init(fromDictionary: dict)
-//                    else {
-//                        return
-//                    }
-//
-//                    self.getData()
-//                }
-//            }
-//        }
-//    }
-    
-    
-//    func getData() {
-//        
-//        let db = Firestore.firestore()
-//        
-//        db.collection("users").getDocuments { snapshot, error in
-//            
-//            DispatchQueue.main.async {
-//                
-//                guard let snap = snapshot else {
-//                    print("Error")
-//                    return
-//                }
-//                
-//                // decode the user data from documents
-//                for doc in snap.documents {
-//                    let dict = doc.data()
-//                    guard let decoder = try? User.init(fromDictionary: dict)
-//                    else {
-//                        return
-//                    }
-//                    
-//                    // adds to users array
-//                    self.users.append(decoder)
-//                }
-//            }
-//        }
-//    }
-    
-    
+
     
     static func signUp(username: String, email: String, password: String, petName: String, humanName: String, imageData: Data, onSuccess: @escaping (_ user: User) -> Void, onError: @escaping(_ errorMessage: String) -> Void) {
         

@@ -22,7 +22,6 @@ class UsersService: ObservableObject{
     static var Users = SignInViewModel.storeRoot.collection("users")
     
     // fetch id of collection
-    
     static func UsersProfileId(userId: String) -> DocumentReference {
         return Users.document(userId)
     }

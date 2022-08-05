@@ -17,6 +17,9 @@ struct EditProfile: View {
     @State var username: String = ""
     @State var humanName: String = ""
     @State var petName: String = ""
+    @State var location: String = ""
+    @State var instagram: String = ""
+    @State var twitter: String = ""
     @State var profileImage: Image?
     @State var pickedImage: Image?
     @State var showingActionSheet = false
@@ -89,7 +92,7 @@ struct EditProfile: View {
     var body: some View {
         ScrollView{
             VStack(spacing:20){
-                Text("Edit Profile").font(.largeTitle)
+//                Text("Edit Profile").font(.largeTitle)
                 
                 VStack{
                     Group{
@@ -129,6 +132,12 @@ struct EditProfile: View {
                 FormField(value: $bio, icon: "book.fill", placeholder: "bio")
                 FormField(value: $humanName, icon: "person.fill", placeholder: "Hooman's Name")
                 FormField(value: $petName, icon: "pawprint.circle", placeholder: "Pet name")
+                //  FormField(value: $location, icon: "", placeholder: "Location")
+                Text("Any Socials to connect?")
+                Text("Please enter just username")
+                Text("ex: luluspaws__ ")
+                //  FormField(value: $twitter, icon: "", placeholder: "Twitter")
+                //  FormField(value: $instagram, icon: "", placeholder: "Instagram")
                 
                 
                 Button(action: edit){
@@ -139,7 +148,8 @@ struct EditProfile: View {
                     .alert(isPresented: $showingAlert) {
                     Alert(title: Text(alertTitle), message: Text(error), dismissButton: .default(Text("OK")))
                 }
-                    Text("Changes will be effected next time you log in")
+                    Text("Changes will be effected next time you log in, Please fill in all info") 
+                   
             }
         }.navigationTitle(session.session!.username)
             .sheet(isPresented: $showingImagePicker, onDismiss: loadImage){

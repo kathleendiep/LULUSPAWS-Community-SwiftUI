@@ -32,26 +32,6 @@ struct ProfileHeader: View {
         
         if user != nil {
             VStack{
-                HStack{
-                    Spacer()
-                    VStack{
-                        Text("Posts").font(.footnote)
-                        Text("\(postsCount)").font(.title).bold()
-                    }.padding(.top, 60)
-                    
-                    Spacer()
-                    VStack{
-                        Text("name").font(.footnote)
-                        Text("\(user!.humanName)").font(.title).bold()
-                    }.padding(.top, 60)
-                    Spacer()
-                    VStack{
-                        Text("Woof, I'm").font(.footnote)
-                        Text("\(user!.petName)").font(.title).bold()
-                        
-                    }.padding(.top, 60)
-                    Spacer()
-                }
                 
                 HStack{
                     VStack(alignment: .leading) {
@@ -76,12 +56,19 @@ struct ProfileHeader: View {
                     }
                     Spacer()
                 }
+                .padding()
+                .frame(width: 360)
+                .foregroundStyle(LinearGradient(colors: [.blue, .indigo], startPoint: .top, endPoint: .bottom))
+                .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 12, style: .continuous))
+            }
+            .animation(.easeIn)
+            
                 // icons
-                // if user has this field
                 HStack{
                     VStack{
-                        Link(destination: URL(string: "member.linkedIn")!) {
-                            Image("LinkedIn")
+                        // todo: user!.twitter user!.instagram
+                        Link(destination: URL(string: "www.twitter.com/\(user!.username)")!) {
+                            Image("Twitter")
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
                                 .frame(width: 50.0, height: 50.0)
@@ -89,7 +76,7 @@ struct ProfileHeader: View {
                     }.padding(.top, 60)
                     
                     VStack{
-                        Link(destination: URL(string: "www.instagram.com")!) {
+                        Link(destination: URL(string: "www.instagram.com/\(user!.username)")!) {
                             Image("Instagram")
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
@@ -101,7 +88,7 @@ struct ProfileHeader: View {
             }
         }
     }
-}
+
 
 //
 //struct ProfileHeader_Previews: PreviewProvider {
@@ -110,4 +97,24 @@ struct ProfileHeader: View {
 //        ProfileHeader()
 //    }
 //}
-
+//
+//HStack{
+//    Spacer()
+//    VStack{
+//        Text("Posts").font(.footnote)
+//        Text("\(postsCount)").font(.title).bold()
+//    }.padding(.top, 60)
+//
+//    Spacer()
+//    VStack{
+//        Text("name").font(.footnote)
+//        Text("\(user!.humanName)").font(.title).bold()
+//    }.padding(.top, 60)
+//    Spacer()
+//    VStack{
+//        Text("Woof, I'm").font(.footnote)
+//        Text("\(user!.petName)").font(.title).bold()
+//
+//    }.padding(.top, 60)
+//    Spacer()
+//}

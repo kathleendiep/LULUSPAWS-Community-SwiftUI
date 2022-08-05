@@ -15,6 +15,12 @@ People AND pets thrive on connection, and what better way than to have technolog
         - search for local events and pet friendly places using Yelp API
         - use MapKit 
             - to show users profile in this location 
+## MVP
+- Add national day 
+https://github.com/NateDimick/funholidaysapi/blob/master/fun_holidays_4_2021.txt
+
+- Ruler 
+
 
 ## Tech stack
 
