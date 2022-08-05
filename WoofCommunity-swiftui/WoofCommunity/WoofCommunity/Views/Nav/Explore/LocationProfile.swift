@@ -99,8 +99,6 @@ struct LocationProfile: View {
                   
                 }
             }
-         
-           
         }.navigationTitle("User Search")
     }
 }
