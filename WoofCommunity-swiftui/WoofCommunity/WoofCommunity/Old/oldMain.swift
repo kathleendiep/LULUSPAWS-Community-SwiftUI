@@ -34,29 +34,6 @@ struct PreviewDesign_Previews: PreviewProvider {
     }
 }
 
-//MARK: Header
-struct Header: View {
-    var body: some View {
-        HStack {
-            VStack(alignment: .leading) {
-                Text("Good Morning,")
-                    .font(.system(size: 19, weight: .medium, design: .serif))
-                    .foregroundColor(Color(#colorLiteral(red: 0.9762545228, green: 0.6769368052, blue: 0.6951140761, alpha: 1)))
-                Text("Shaileen")
-                    .font(.system(size: 28, weight: .bold, design: .serif))
-                    .foregroundColor(Color(#colorLiteral(red: 0.9762545228, green: 0.6769368052, blue: 0.6951140761, alpha: 1)))
-                    .padding(.top, 5)
-            }
-            .padding(.leading, 30)
-            Spacer()
-            Image("Aj")
-                .resizable()
-                .frame(width: 50, height: 50)
-                .padding(.trailing, 30)
-        }
-    }
-}
-
 //MARK: Search
 struct SearchBarEngine:
    View {

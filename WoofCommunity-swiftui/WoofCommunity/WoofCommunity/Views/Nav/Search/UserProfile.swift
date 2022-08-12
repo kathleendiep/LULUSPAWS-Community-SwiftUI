@@ -98,6 +98,7 @@ struct UserProfile: View {
                     
                   
                 }
+                .frame(width: 400, alignment: .center)
             }
          
            

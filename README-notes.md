@@ -66,3 +66,26 @@ https://github.com/NateDimick/funholidaysapi/blob/master/fun_holidays_4_2021.txt
 ## WIREFRAME
 ##### note: sketched wireframe of ideas for MVP & stretch goals
 ![WoofCommunityWireframe](https://user-images.githubusercontent.com/53194460/178334753-381eb888-8657-497c-9e64-1b215c63fe0d.png)
+
+
+## ABOUT ME
+
+Hello everyone, my name is Kathleen.
+
+Previously, I was a Project Accountant and started my own business for dog products. My passion for Software Engineering started when I wanted to build an e-commerce website for my business. I really enjoyed welding projects into existence through code and making full stack websites.
+
+For my app, I wanted to make an app for pet lovers. Pets have statistically brought joy to many. And especially during the Pandemic, many have added a furry friend to their lives, including myself.
+
+People AND pets thrive on connection, and what better way than to have technology help connect local pet lovers to share this common joy.
+
+Challenges
+
+I wanted to take the challenge of teaching and learning through database for ios Apps. I decided on FireBase, because
+
+WHY FIREBASE
+
+function
+
+Complexity
+
+Thank you for viewing my project, and would like

@@ -87,10 +87,16 @@ struct MainFeed : View {
                     }
                     
                     VStack(alignment: .leading) {
-                        Text("Checkout some users")
-                            .font(.system(size: 28, weight: .bold, design: .serif))
-                            .padding(.top, 5)
-                    }
+                        
+                        
+        
+                                               Header(user: self.session.session)
+                                               Text("Checkout some users")
+                                                   .font(.system(size: 28, weight: .bold, design: .serif))
+                                                   .padding(.top, 5)
+                                           }
+                    
+                    
                     
                     VStack {
                         ForEach(self.users, id: \.id) {
@@ -173,5 +179,32 @@ struct PopupView: View {
             .foregroundColor(Color.black.opacity(0.8))
         }
         
+    }
+}
+
+
+//MARK: Header
+struct Header: View {
+    
+    var user: User?
+    
+    var body: some View {
+        HStack {
+            VStack(alignment: .leading) {
+                Text("Woof Woof,")
+                    .font(.system(size: 22, weight: .bold, design: .serif))
+                    .foregroundColor(Color.black)
+             
+                if user != nil {
+                    Text("Welcome back,")
+                        .font(.system(size: 15, weight: .thin, design: .serif))
+                        .foregroundColor(Color.white)
+                    Text("\(user!.username)")
+                        .font(.system(size: 20, weight: .medium, design: .serif))
+                        .foregroundColor(Color.white)
+                        
+                }
+            }
+        }
     }
 }
