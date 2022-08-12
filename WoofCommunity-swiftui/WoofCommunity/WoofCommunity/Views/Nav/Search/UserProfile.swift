@@ -53,7 +53,6 @@ struct UserProfile: View {
               
                 VStack(){
                     
-                    
                     // everytime value changes, make sure to search users
                     SearchBar(value: $value).padding()
                         .onChange(of: value, perform: {
@@ -66,11 +65,9 @@ struct UserProfile: View {
                     if !isLoading {
                         
                         ForEach(users, id: \.id){
-                            
+                        
                             user in
-                            
-                            
-                            
+
                             HStack{
                                 VStack(alignment: .leading) {
                                     NavigationLink {

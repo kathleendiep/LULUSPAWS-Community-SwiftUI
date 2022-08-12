@@ -40,6 +40,7 @@ struct ProfileHeader: View {
                         Text("POSTS".uppercased())
                             .font(.system(size: 12, weight: .regular, design: .rounded))
                     }
+                    Spacer()
                     
                     VStack(alignment: .leading) {
                         Text("\(user!.humanName)")

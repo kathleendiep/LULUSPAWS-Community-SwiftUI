@@ -42,7 +42,9 @@ class StorageService {
     
     // ADD - location: String, instagram: String, twitter: String,
 
-    static func editProfile(userId: String, username: String, bio: String, petName: String, humanName: String, imageData: Data, metaData: StorageMetadata, storageProfileImageRef: StorageReference,onError: @escaping(_ errorMessage: String) -> Void){
+    
+    
+    static func editProfile(userId: String, username: String, bio: String, petName: String, humanName: String,location: String, instagram: String, twitter: String, imageData: Data, metaData: StorageMetadata, storageProfileImageRef: StorageReference,onError: @escaping(_ errorMessage: String) -> Void){
         
         storageProfileImageRef.putData(imageData, metadata: metaData) {
             (StorageMetadata, error) in
@@ -70,9 +72,10 @@ class StorageService {
                     let firestoreUserId = SignInViewModel.getUserId(userId)
                     
                     // update the data
-                    firestoreUserId.updateData(["profileImageUrl": metaImageUrl, "username": username, "bio": bio, "petName":petName, "humanName":humanName
+                    firestoreUserId.updateData(["profileImageUrl": metaImageUrl, "username": username, "bio": bio, "petName":petName, "humanName":humanName,
+               "location": location, "instagram":instagram, "twitter":twitter
                         ])
-                     // "location": location, "instagram":instagram, "twitter":twitter
+                
                 }
         }
         }
@@ -110,7 +113,7 @@ class StorageService {
                     let firestoreUserId = SignInViewModel.getUserId(userId)
                     
                     // match these to variables to the above ones
-                    let user = User.init(id: userId, email: email, profileImageUrl: metaImageUrl, username: username, bio: "",  searchName: username.splitString(), petName: "", humanName: "", profileDogImageUrl: "")
+                    let user = User.init(id: userId, email: email, profileImageUrl: metaImageUrl, username: username, bio: "",  searchName: username.splitString(), petName: "", humanName: "", profileDogImageUrl: "",       location: "", twitter:"", instagram:"")
                     
                     // if has user
                     guard let dict = try?user.asDictionary() else {return}

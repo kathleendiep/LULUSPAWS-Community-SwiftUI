@@ -49,11 +49,42 @@ class MainViewModel: ObservableObject {
     //
     
     // fetch all the users, then add it to array in the view
-    static func fetchUser(onSuccess: @escaping (_ user: [User]) -> Void) {
-        
-        // access users with our removeWhiteSpace extension
+//    static func fetchUser(onSuccess: @escaping (_ user: [User]) -> Void) {
+//        // firebase.firestore().getDocuments
+//        SignInViewModel.storeRoot.collection("users").getDocuments {
+//
+//            (querySnapshot, err) in
+//
+//            guard let snap = querySnapshot else {
+//                print("error")
+//                return
+//            }
+//
+//            // initialize it here
+//            var users = [User]()
+//
+//            for document in snap.documents {
+//                let dict = document.data()
+//
+//                guard let decoded = try? User.init(fromDictionary: dict) else {return}
+//
+//                // will only show other users id
+//                if decoded.id != Auth.auth().currentUser?.uid {
+//                    users.append(decoded)
+//                }
+//
+//                onSuccess(users)
+//
+//
+//            }
+//        }
+//    }
+    
+    
+    static func fetchAllUsers(onSuccess: @escaping (_ user: [User]) -> Void) {
         // firebase.firestore().getDocuments
-        SignInViewModel.storeRoot.collection("users").getDocuments {
+        
+        Firestore.firestore().collection("users").getDocuments  {
             
             (querySnapshot, err) in
             
@@ -81,7 +112,6 @@ class MainViewModel: ObservableObject {
             }
         }
     }
-    
 }
 
 

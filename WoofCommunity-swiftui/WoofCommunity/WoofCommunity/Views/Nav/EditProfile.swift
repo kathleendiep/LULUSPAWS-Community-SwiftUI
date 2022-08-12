@@ -55,8 +55,8 @@ struct EditProfile: View {
     func clear(){
         self.bio = ""
         self.username = ""
-//        self.imageData = Data()
-//        self.profileImage = Image(systemName: "person.circle.fill")
+        //        self.imageData = Data()
+        //        self.profileImage = Image(systemName: "person.circle.fill")
     }
     
     func edit() {
@@ -76,7 +76,7 @@ struct EditProfile: View {
         metadata.contentType = "image/jpg"
         
         // Update function
-        StorageService.editProfile(userId: userId, username: username, bio: bio, petName: petName, humanName: humanName,  imageData: imageData, metaData: metadata, storageProfileImageRef: storageProfileUserId, onError: {
+        StorageService.editProfile(userId: userId, username: username, bio: bio, petName: petName, humanName: humanName, location: location, instagram: instagram, twitter: twitter, imageData: imageData,  metaData: metadata, storageProfileImageRef: storageProfileUserId, onError: {
             
             (errorMessage) in
             
@@ -84,7 +84,7 @@ struct EditProfile: View {
             self.showingAlert = true
             return
         })
-
+        
         self.clear()
         
     }
@@ -92,53 +92,48 @@ struct EditProfile: View {
     var body: some View {
         ScrollView{
             VStack(spacing:20){
-//                Text("Edit Profile").font(.largeTitle)
                 
-                VStack{
-                    Group{
-                        if profileImage != nil {
-                            profileImage!.resizable()
-                                .clipShape(Circle())
-                                .frame(width: 200, height: 200)
-                                . padding(.top, 20)
-                                .onTapGesture{
-                                    self.showingActionSheet = true
-                                }
-                            Text("pick a photo!")
-                                .font(.caption)
-                        } else {
-                            Image(systemName: "person.circle.fill")
-                                .resizable()
-                                .clipShape(Circle())
-                                .frame(width: 100, height: 100)
-                                . padding(.top, 20)
-                              
-                            WebImage(url: URL(string: session.session!.profileImageUrl))
-                                .resizable()
-                                .clipShape(Circle())
-                                .frame(width: 200, height: 200)
-                                . padding(.top, 20)
-                                .onTapGesture{
-                                    self.showingActionSheet = true
-                                }
-                            Text("pick a photo!")
-
-                              
-                        }
+                Group{
+                    if profileImage != nil {
+                        profileImage!.resizable()
+                            .clipShape(Circle())
+                            .frame(width: 200, height: 200)
+                            . padding(.top, 20)
+                            .onTapGesture{
+                                self.showingActionSheet = true
+                            }
+                        Text("pick a photo!")
+                            .font(.caption)
+                    } else {
+                        Image(systemName: "person.circle.fill")
+                            .resizable()
+                            .clipShape(Circle())
+                            .frame(width: 100, height: 100)
+                            . padding(.top, 20)
+                        
+                        WebImage(url: URL(string: session.session!.profileImageUrl))
+                            .resizable()
+                            .clipShape(Circle())
+                            .frame(width: 200, height: 200)
+                            . padding(.top, 20)
+                            .onTapGesture{
+                                self.showingActionSheet = true
+                            }
+                        Text("pick a photo!")
                     }
                 }
                 
-                FormField(value: $username, icon: "person.fill", placeholder: "Username")
-                FormField(value: $bio, icon: "book.fill", placeholder: "bio")
-                FormField(value: $humanName, icon: "person.fill", placeholder: "Hooman's Name")
-                FormField(value: $petName, icon: "pawprint.circle", placeholder: "Pet name")
-                //  FormField(value: $location, icon: "", placeholder: "Location")
-                Text("Any Socials to connect?")
-                Text("Please enter just username")
-                Text("ex: luluspaws__ ")
-                //  FormField(value: $twitter, icon: "", placeholder: "Twitter")
-                //  FormField(value: $instagram, icon: "", placeholder: "Instagram")
-                
+                Group{
+                    FormField(value: $username, icon: "person.fill", placeholder: "Username")
+                    FormField(value: $bio, icon: "book.fill", placeholder: "bio")
+                    FormField(value: $humanName, icon: "person.fill", placeholder: "Hooman's Name")
+                    FormField(value: $petName, icon: "pawprint.circle", placeholder: "Pet name")
+                    FormField(value: $location, icon: "", placeholder: "Location")
+                    Text("Any Socials to connect?")
+                    Text("Please enter just username ex: luluspaws__ ")
+                    FormField(value: $twitter, icon: "", placeholder: "Twitter")
+                    FormField(value: $instagram, icon: "", placeholder: "Instagram")
+                }
                 
                 Button(action: edit){
                     
@@ -146,10 +141,10 @@ struct EditProfile: View {
                     
                 }.padding()
                     .alert(isPresented: $showingAlert) {
-                    Alert(title: Text(alertTitle), message: Text(error), dismissButton: .default(Text("OK")))
-                }
-                    Text("Changes will be effected next time you log in, Please fill in all info") 
-                   
+                        Alert(title: Text(alertTitle), message: Text(error), dismissButton: .default(Text("OK")))
+                    }
+                Text("Changes will be effected next time you log in, Please fill in all info")
+                
             }
         }.navigationTitle(session.session!.username)
             .sheet(isPresented: $showingImagePicker, onDismiss: loadImage){

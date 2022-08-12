@@ -16,6 +16,7 @@ struct SignInView: View {
 }
 
 struct SignInContainerView: View {
+    
     @EnvironmentObject var session: SessionStore
     
     func listen(){
@@ -64,11 +65,13 @@ struct SignInContainerView: View {
                         .disableAutocorrection(true)
                         .autocapitalization(.none)
                         .background(Color(.secondarySystemBackground))
+                        .foregroundColor(.gray)
                         .padding()
                     SecureField("Password", text: $password)
                         .disableAutocorrection(true)
                         .autocapitalization(.none)
                         .background(Color(.secondarySystemBackground))
+                        .foregroundColor(.gray)
                         .padding()
                     
                     // LINKS
@@ -138,6 +141,5 @@ struct SignInContainerView: View {
             return
         }
     }
-    
 }
 

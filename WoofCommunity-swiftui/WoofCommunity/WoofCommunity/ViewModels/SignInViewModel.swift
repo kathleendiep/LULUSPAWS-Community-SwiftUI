@@ -14,7 +14,6 @@ import FirebaseFirestoreSwift
 
 class SignInViewModel: NSObject, ObservableObject {
 
-    
     // MARK: - Properties
     @Published var signedIn = false
     @Published var users = [User]()

@@ -72,7 +72,7 @@ class ProfileViewModel: ObservableObject {
 
     // MARK: - PROFILE
     // StorageService.editProfile
-    static func saveProfile(username: String, bio: String, petName: String, humanName: String, imageData: Data, onSuccess: @escaping(_ post: Post)-> Void, onError: @escaping (_ errorMessage: String) -> Void) {
+    static func saveProfile(username: String, bio: String, petName: String, humanName: String, location: String, instagram: String, twitter: String, imageData: Data, onSuccess: @escaping(_ post: Post)-> Void, onError: @escaping (_ errorMessage: String) -> Void) {
     
         
         guard let userId = Auth.auth().currentUser?.uid else {return}
@@ -83,7 +83,7 @@ class ProfileViewModel: ObservableObject {
         let metadata = StorageMetadata()
         metadata.contentType = "image/jpg"
         
-        StorageService.editProfile(userId: userId, username: username, bio: bio, petName: petName, humanName: humanName,  imageData: imageData, metaData: metadata, storageProfileImageRef: storageProfileUserId, onError: onError)
+        StorageService.editProfile(userId: userId, username: username, bio: bio, petName: petName, humanName: humanName,       location: location, instagram: instagram, twitter: twitter,  imageData: imageData, metaData: metadata, storageProfileImageRef: storageProfileUserId, onError: onError)
         
     }
     

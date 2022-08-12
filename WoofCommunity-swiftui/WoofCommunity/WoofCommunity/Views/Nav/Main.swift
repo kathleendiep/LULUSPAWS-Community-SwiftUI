@@ -87,9 +87,7 @@ struct MainFeed : View {
                     }
                     
                     VStack(alignment: .leading) {
-                        
-                        
-        
+
                                                Header(user: self.session.session)
                                                Text("Checkout some users")
                                                    .font(.system(size: 28, weight: .bold, design: .serif))
