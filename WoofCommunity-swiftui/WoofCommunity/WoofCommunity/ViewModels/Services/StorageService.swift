@@ -10,13 +10,12 @@ import Firebase
 import FirebaseAuth
 import FirebaseStorage
 
-
 /*
  
- - StorageService
- - Users Service 
+ - StorageService - adds to storage
+ - UsersService -
  */
-// adds to storage
+
 class StorageService {
     
     static var storage = Storage.storage()
@@ -28,23 +27,19 @@ class StorageService {
     
     static var storagePost = storageRoot.child("posts")
     
-    // todo is it supposed to be storagePost
     // posts/postid
     static func storagePostId(postId:String) -> StorageReference {
         return storagePost.child(postId)
     }
     
+    // MARK: - PROFILES
     // storage.reference().child("profile").child("userId")
     // profile/userid
     static func storageProfileId(userId:String) -> StorageReference {
         return storageProfile.child(userId)
     }
     
-    // ADD - location: String, instagram: String, twitter: String,
-
-    
-    
-    static func editProfile(userId: String, username: String, bio: String, petName: String, humanName: String,location: String, instagram: String, twitter: String, imageData: Data, metaData: StorageMetadata, storageProfileImageRef: StorageReference,onError: @escaping(_ errorMessage: String) -> Void){
+    static func editProfile(userId: String, username: String, bio: String, petName: String, humanName: String, location: String, instagram: String, twitter: String, imageData: Data, metaData: StorageMetadata, storageProfileImageRef: StorageReference,onError: @escaping(_ errorMessage: String) -> Void){
         
         storageProfileImageRef.putData(imageData, metadata: metaData) {
             (StorageMetadata, error) in
@@ -72,12 +67,10 @@ class StorageService {
                     let firestoreUserId = SignInViewModel.getUserId(userId)
                     
                     // update the data
-                    firestoreUserId.updateData(["profileImageUrl": metaImageUrl, "username": username, "bio": bio, "petName":petName, "humanName":humanName,
-               "location": location, "instagram":instagram, "twitter":twitter
-                        ])
-                
+                    firestoreUserId.updateData(["profileImageUrl": metaImageUrl, "username": username, "bio": bio, "petName":petName, "humanName":humanName, "location": location, "instagram":instagram, "twitter":twitter])
+                    
                 }
-        }
+            }
         }
     }
     
@@ -113,7 +106,7 @@ class StorageService {
                     let firestoreUserId = SignInViewModel.getUserId(userId)
                     
                     // match these to variables to the above ones
-                    let user = User.init(id: userId, email: email, profileImageUrl: metaImageUrl, username: username, bio: "",  searchName: username.splitString(), petName: "", humanName: "", profileDogImageUrl: "",       location: "", twitter:"", instagram:"")
+                    let user = User.init(id: userId, email: email, profileImageUrl: metaImageUrl, username: username, bio: "",  searchName: username.splitString(), petName: "", humanName: "", profileDogImageUrl: "", location: "", twitter:"", instagram:"")
                     
                     // if has user
                     guard let dict = try?user.asDictionary() else {return}
@@ -132,7 +125,7 @@ class StorageService {
         
     }
     
-    // MARK: - Posts    
+    // MARK: - Posts
     static func savePostPhoto(userId: String, caption: String, postId: String, imageData: Data, metadata: StorageMetadata, storagePostRef: StorageReference, onSuccess: @escaping(_ post: Post) -> Void, onError: @escaping(_ errorMessage: String) -> Void ) {
         
         // put the data
@@ -169,10 +162,9 @@ class StorageService {
                         
                         // allPosts/postId
                         PostViewModel.AllPosts.document(postId).setData(dict)
-
+                        
                         onSuccess(post)
                     }
-                    
                 }
             }
         }

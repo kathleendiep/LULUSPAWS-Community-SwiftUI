@@ -43,7 +43,6 @@ class SignInViewModel: NSObject, ObservableObject {
             
             guard let userId = authData?.user.uid else {return}
             
-            
             // adds in data to db
             let firestoreUserId = getUserId(userId)
             

@@ -27,8 +27,9 @@ struct MainFeed : View {
     @State var posts: [Post] = []
     
     func loadAllUsers() {
+        
         // fetchUser
-        MainViewModel.fetchAllUsers() {
+        MainViewModel.fetchUsers() {
             
             (users) in
             
@@ -37,32 +38,10 @@ struct MainFeed : View {
         }
     }
     
-    func getAllPosts() {
-        let db = Firestore.firestore()
-        
-        db.collection("allPosts").getDocuments() { (querySnapshot, error) in
-            if let error = error {
-                print("Error getting documents: \(error)")
-            } else {
-                for document in querySnapshot!.documents {
-                    print(" these are the posts \(document.documentID): \(document.data())")
-                    
-                    let dict = document.data()
-                    
-                    guard let decoder = try? Post.init(fromDictionary: dict) else {return}
-                    
-                    self.posts.append(decoder)
-                    
-                }
-            }
-        }
-    }
     
     var body: some View{
         
         ScrollView{
-            // todo: add blob view
-            // https://designcode.io/swiftui-ios15-onappear-withanimation
             ZStack {
                 LinearGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 0.6759886742, green: 0.9469802976, blue: 1, alpha: 1)), Color(#colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1))]), startPoint: .top, endPoint: .bottom)
                 
@@ -87,18 +66,20 @@ struct MainFeed : View {
                     }
                     
                     VStack(alignment: .leading) {
-
-                                               Header(user: self.session.session)
-                                               Text("Checkout some users")
-                                                   .font(.system(size: 28, weight: .bold, design: .serif))
-                                                   .padding(.top, 5)
-                                           }
-                    
-                    
+                        
+                        Header(user: self.session.session)
+                        Text("Checkout some users")
+                            .font(.system(size: 28, weight: .bold, design: .serif))
+                            .padding(.top, 5)
+                    }
+                    UserProfile()
                     
                     VStack {
-                        ForEach(self.users, id: \.id) {
+                        
+                        ForEach(users, id: \.id) {
+                            
                             (user) in
+                            
                             NavigationLink {
                                 UsersProfileView(user: user)
                             } label: {
@@ -167,7 +148,6 @@ struct PopupView: View {
                 Text("LULUS PAWS🦴🏡")
                     .font(.system(size: 24, weight: .bold, design: .rounded))
                 
-                
                 Text("check out our pupventures with some furry cute friends")
                     .font(.footnote)
                 
@@ -192,7 +172,7 @@ struct Header: View {
                 Text("Woof Woof,")
                     .font(.system(size: 22, weight: .bold, design: .serif))
                     .foregroundColor(Color.black)
-             
+                
                 if user != nil {
                     Text("Welcome back,")
                         .font(.system(size: 15, weight: .thin, design: .serif))
@@ -200,7 +180,7 @@ struct Header: View {
                     Text("\(user!.username)")
                         .font(.system(size: 20, weight: .medium, design: .serif))
                         .foregroundColor(Color.white)
-                        
+                    
                 }
             }
         }

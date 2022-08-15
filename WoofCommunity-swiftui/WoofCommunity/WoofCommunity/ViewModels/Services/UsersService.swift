@@ -12,7 +12,7 @@ import FirebaseFirestore
 import FirebaseStorage
 import FirebaseFirestoreSwift
 
-class UsersService: ObservableObject{
+class UsersService: ObservableObject {
 
     @Published var users: [User] = []
     @Published var isLoading = false
@@ -27,64 +27,73 @@ class UsersService: ObservableObject{
     }
     
     // Fetch all users
-    func fetchUsers(userId: String, onSuccess: @escaping(_ users: [User]) -> Void ) {
+    static func fetchUsers(onSuccess: @escaping(_ user: [User]) -> Void ) {
         
         // fetch id of users
-        UsersService.UsersProfileId(userId: userId).collection("users").getDocuments{ [self]
+//        UsersService.UsersProfileId(userId: userId).collection("users").getDocuments{ [self]
+        // goes to Firestore db
+        SignInViewModel.storeRoot.collection("users").getDocuments{
+            
             (snapshot, error) in
+            
             guard let snap = snapshot else {
                 print("Error")
                 return
             }
             
-//            var users = [User]()
+            var users = [User]()
             
             for doc in snap.documents {
                 let dict = doc.data()
+                
                 guard let decoder = try? User.init(fromDictionary: dict)
                 else {
                     return
                 }
                 
-                // adds to users array
-                self.users.append(decoder)
-                
-            }
-            onSuccess(self.users)
-        }
-    }
-    
-    // load all users
-    func getAllUsers() {
-        
-        let db = Firestore.firestore()
-        
-        db.collection("users").getDocuments { (snapshot, error) in
-            
-            
-            guard let snap = snapshot else {
-                print("Error")
-                return
-            }
-            
-            // Update the SOT property in main UI
-            DispatchQueue.main.async {
-                
-//                var users = [User]()
-                for doc in snap.documents {
-                    let dict = doc.data()
-                    guard let decoder = try? User.init(fromDictionary: dict)
-                    else {
-                        return
-                    }
-                    
-                    // adds to users array
-                    self.users.append(decoder)
-                    
+                // will only show other users id
+                if decoder.id != Auth.auth().currentUser?.uid {
+                    users.append(decoder)
                 }
+                onSuccess(users)
             }
+      
         }
     }
 }
 
 
+
+// load all users
+//func getAllUsers() {
+//
+//    let db = Firestore.firestore()
+//
+//    db.collection("users").getDocuments { (snapshot, error) in
+//
+//
+//        guard let snap = snapshot else {
+//            print("Error")
+//            return
+//        }
+//
+//        // Update the SOT property in main UI
+//        DispatchQueue.main.async {
+//
+////                var users = [User]()
+//            for doc in snap.documents {
+//                let dict = doc.data()
+//                guard let decoder = try? User.init(fromDictionary: dict)
+//                else {
+//                    return
+//                }
+//
+//                // adds to users array
+//                self.users.append(decoder)
+//
+//            }
+//        }
+//    }
+//}
+//
+//
