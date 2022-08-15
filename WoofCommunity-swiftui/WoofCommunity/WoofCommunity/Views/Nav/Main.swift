@@ -28,7 +28,7 @@ struct MainFeed : View {
     
     func loadAllUsers() {
         // fetchUser
-        MainViewModel.fetchUser() {
+        MainViewModel.fetchAllUsers() {
             
             (users) in
             

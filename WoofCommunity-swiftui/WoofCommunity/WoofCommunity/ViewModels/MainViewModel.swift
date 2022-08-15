@@ -82,9 +82,9 @@ class MainViewModel: ObservableObject {
     
     
     static func fetchAllUsers(onSuccess: @escaping (_ user: [User]) -> Void) {
-        // firebase.firestore().getDocuments
-        
-        Firestore.firestore().collection("users").getDocuments  {
+        // firebase.firestore(`````).getDocuments
+      
+        Firestore.firestore().collection("users").getDocuments() {
             
             (querySnapshot, err) in
             

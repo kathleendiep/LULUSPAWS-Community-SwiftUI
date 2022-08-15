@@ -18,7 +18,7 @@ class PostViewModel: ObservableObject {
     // MARK: - Properties
     //  Firestore.firestore().collection(allPosts)
     static var Posts = SignInViewModel.storeRoot.collection("posts")
-    
+
     static var AllPosts = SignInViewModel.storeRoot.collection("allPosts")
     
     static var Timeline = SignInViewModel.storeRoot.collection("timeline")
