@@ -28,7 +28,7 @@ struct UserProfile: View {
     var body: some View {
         ScrollView{
 
-                VStack{
+            VStack(alignment: .center){
                     
                     SearchBar(value: $value).padding()
                         .onChange(of: value, perform: {
@@ -47,6 +47,7 @@ struct UserProfile: View {
                     Spacer()
                 }
                 .frame(width: 400, alignment: .center)
+                .padding(.bottom, 100)
 
         }.navigationTitle("User Search")
     }

@@ -106,9 +106,11 @@ struct SignUpContainerView: View {
             VStack(alignment: .center)  {
                 
                 // WELCOME
-            
-                    Text("Welcome").font(.system(size: 32, weight: .heavy))
+                    Text("Welcome")
+                        .font(.system(size: 32, weight: .heavy))
+                        .foregroundColor(.white)
                     Text("Sign up to start!").font(.system(size: 16, weight: .bold))
+                        .foregroundColor(.white)
                 
                 
                 // PROFILE PHOTO

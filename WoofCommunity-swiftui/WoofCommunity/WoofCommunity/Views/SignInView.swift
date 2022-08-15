@@ -56,7 +56,7 @@ struct SignInContainerView: View {
                  .offset(x: 200, y: -200)
             
             VStack{
-                Image("WoofCommunityLogo")
+                Image("LuluspawsCommunityLogo")
                     .resizable()
                     .scaledToFit()
                     .frame(width: 300, height: 150)

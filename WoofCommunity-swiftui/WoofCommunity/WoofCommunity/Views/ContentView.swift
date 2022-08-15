@@ -22,8 +22,8 @@ struct ContentView: View {
             if(session.session != nil) {
                 HomeView()
             } else {
-//                WelcomePage()
-                SignInView()
+                WelcomePage()
+//                SignInView()
             }
         }.onAppear(perform: listen)
     }

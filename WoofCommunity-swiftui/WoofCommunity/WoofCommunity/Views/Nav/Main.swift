@@ -71,10 +71,9 @@ struct MainFeed : View {
                             .font(.system(size: 28, weight: .bold, design: .serif))
                             .padding(.top, 5)
                     }
-                    UserProfile()
                     
-          
-                    Spacer()
+                    UserProfile()
+                
                 }
                 .edgesIgnoringSafeArea(.all)
             }
@@ -93,7 +92,7 @@ struct PopupView: View {
     var body: some View {
         ZStack {
             Color.white.opacity(0.5)
-                .frame(width: 300, height: 200)
+                .frame(width: 300, height: 500)
                 .clipShape(RoundedRectangle(cornerRadius: 30, style: .continuous))
                 .shadow(color: Color.black.opacity(0.1), radius: 10, x: 0, y: 10)
                 .blur(radius: 1)
@@ -102,15 +101,19 @@ struct PopupView: View {
             
             VStack(alignment: .leading, spacing: 16) {
                 
-                Text("LULUS PAWS🦴🏡")
+                Text("LULUS PAWS 🦴🏡")
                     .font(.system(size: 24, weight: .bold, design: .rounded))
-                
+
                 Text("check out our pupventures with some furry cute friends")
                     .font(.footnote)
                 
+                Image("WoofPageHomePage")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width:200, height: 200)
             }
             .padding()
-            .frame(width: 300, height: 200)
+            .frame(width: 300, height: 400)
             .foregroundColor(Color.black.opacity(0.8))
         }
         
@@ -126,7 +129,7 @@ struct Header: View {
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
-                Text("Woof Woof,")
+                Text("🦴 Woof Woof,")
                     .font(.system(size: 22, weight: .bold, design: .serif))
                     .foregroundColor(Color.black)
                 
