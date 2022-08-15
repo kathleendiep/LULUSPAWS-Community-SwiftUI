@@ -67,7 +67,7 @@ struct SignUpContainerView: View {
             return
         }
         
-        SignInViewModel.signUp(username: username, email: email, password:password, petName: petName, humanName: humanName, imageData: imageData, onSuccess: {
+        SignInViewModel.signUp(username: username, email: email, password:password,  imageData: imageData, onSuccess: {
             (user) in
             self.clear()
         }) {

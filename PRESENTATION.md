@@ -1,5 +1,8 @@
 # WoofCommunity - Project Pitch 🦴🐶🐱🏡
+// demo presentation notes
+// https://fellowship.hackbrightacademy.com/materials/ios/resources/ios-ind-requirements/
 
+// https://fellowship.hackbrightacademy.com/materials/wmt3/lectures/ios-demo-prep/ 
 
 ## Presentation Notes 
 
@@ -83,8 +86,3 @@ It took a bit to learn the documentation, and implement and learn to fetch all u
 
 #### Overall, I hope you enjoyed my demo and please feel free to check out the Github repo. 
 
-//  https://fellowship.hackbrightacademy.com/materials/ios/resources/ios-ind-requirements/
-
-
-// demo presentation notes
-// https://fellowship.hackbrightacademy.com/materials/wmt3/lectures/ios-demo-prep/ 

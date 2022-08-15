@@ -104,8 +104,6 @@ struct PopupView: View {
                 Text("LULUS PAWS 🦴🏡")
                     .font(.system(size: 30, weight: .bold, design: .rounded))
                     .padding(.top, 20)
-                Text("check out our pupventures with some furry cute friends")
-                    .font(.footnote)
                 
                 Image("WoofPageHomePage")
                     .resizable()
