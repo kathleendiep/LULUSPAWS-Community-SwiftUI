@@ -143,18 +143,9 @@ struct SignUpContainerView: View {
               // FIELDS
                         FormField(value: $username, icon: "person.crop.circle.fill", placeholder: "Username")
                         
-                        
                         FormField(value: $email, icon: "mail", placeholder: "Email")
                         
-                                        
                         FormField(value: $password, icon: "key", placeholder: "Password", isSecure: true)
-                        
-                        
-                        //                    FormField(value: $petName, icon: "pawprint.circle", placeholder: "Pet's name")
-                        //
-                        //                    FormField(value: $humanName, icon: "pawprint.circle", placeholder: "Hooman's name")
-                        
-                        //                    Button(action: {
                         
                         NavigationLink(destination: SignInView(), isActive: $isLinkActive){
                             Button(action: { signUp()

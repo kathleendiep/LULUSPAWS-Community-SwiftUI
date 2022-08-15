@@ -31,7 +31,6 @@ class UsersService: ObservableObject {
         
         // fetch id of users
 //        UsersService.UsersProfileId(userId: userId).collection("users").getDocuments{ [self]
-        // goes to Firestore db
         SignInViewModel.storeRoot.collection("users").getDocuments{
             
             (snapshot, error) in
@@ -62,38 +61,3 @@ class UsersService: ObservableObject {
     }
 }
 
-
-
-// load all users
-//func getAllUsers() {
-//
-//    let db = Firestore.firestore()
-//
-//    db.collection("users").getDocuments { (snapshot, error) in
-//
-//
-//        guard let snap = snapshot else {
-//            print("Error")
-//            return
-//        }
-//
-//        // Update the SOT property in main UI
-//        DispatchQueue.main.async {
-//
-////                var users = [User]()
-//            for doc in snap.documents {
-//                let dict = doc.data()
-//                guard let decoder = try? User.init(fromDictionary: dict)
-//                else {
-//                    return
-//                }
-//
-//                // adds to users array
-//                self.users.append(decoder)
-//
-//            }
-//        }
-//    }
-//}
-//
-//

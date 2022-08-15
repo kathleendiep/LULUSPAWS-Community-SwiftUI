@@ -60,6 +60,7 @@ struct Profile: View {
                                 Text("Edit Profile")
                                     .font(.title)
                                     .modifier(ButtonModifiers())
+                                    .frame(width: 300)
                             }.padding(.horizontal)
                         }
                         if selection == 0 {

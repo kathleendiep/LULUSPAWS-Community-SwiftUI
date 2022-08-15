@@ -13,6 +13,16 @@ import FirebaseStorage
 import Combine
 import FirebaseFirestoreSwift
 
+// FIREBASE STRUCTURE
+/*
+ > users > userId >
+ Firestore.firestore().collection("users").document(userId)
+ 
+ > posts > documentId(userId) > posts > document().documentID
+ //  Firestore.firestore().collection("posts").document(userId).collection("posts").document().documentID
+ 
+ */
+
 class PostViewModel: ObservableObject {
     
     // MARK: - Properties
@@ -50,11 +60,8 @@ class PostViewModel: ObservableObject {
         
         guard let userId = Auth.auth().currentUser?.uid else { return }
         
-        //        let postId = self.PostsUserId(userId: userId).collection("posts").document().documentID
-        
         // This is just the post id
         let postId = PostViewModel.PostsUserId(userId: userId).collection("posts").document().documentID
-        
         
         // this appends to postId
         let storagePostRef = StorageService.storagePostId(postId: postId)

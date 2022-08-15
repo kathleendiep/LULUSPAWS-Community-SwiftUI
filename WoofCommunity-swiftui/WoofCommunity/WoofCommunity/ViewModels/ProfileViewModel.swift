@@ -83,7 +83,7 @@ class ProfileViewModel: ObservableObject {
         let metadata = StorageMetadata()
         metadata.contentType = "image/jpg"
         
-        StorageService.editProfile(userId: userId, username: username, bio: bio, petName: petName, humanName: humanName,       location: location, instagram: instagram, twitter: twitter,  imageData: imageData, metaData: metadata, storageProfileImageRef: storageProfileUserId, onError: onError)
+        StorageService.editProfile(userId: userId, username: username, bio: bio, petName: petName, humanName: humanName, location: location, instagram: instagram, twitter: twitter,  imageData: imageData, metaData: metadata, storageProfileImageRef: storageProfileUserId, onError: onError)
         
     }
     

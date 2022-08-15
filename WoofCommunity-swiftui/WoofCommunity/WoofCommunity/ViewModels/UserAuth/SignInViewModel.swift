@@ -28,6 +28,7 @@ class SignInViewModel: NSObject, ObservableObject {
     
     // goes to Firestore db
     static func getUserId(_ userId: String) -> DocumentReference {
+        // Firestore.firestore().collection("users).document(userId)
         return storeRoot.collection("users").document(userId)
     }
     
@@ -58,9 +59,8 @@ class SignInViewModel: NSObject, ObservableObject {
             }
         }
     }
-
     
-    static func signUp(username: String, email: String, password: String, petName: String, humanName: String, imageData: Data, onSuccess: @escaping (_ user: User) -> Void, onError: @escaping(_ errorMessage: String) -> Void) {
+    static func signUp(username: String, email: String, password: String, imageData: Data, onSuccess: @escaping (_ user: User) -> Void, onError: @escaping(_ errorMessage: String) -> Void) {
         
         auth.createUser(withEmail: email, password: password) {
             ( authData, error ) in
@@ -69,6 +69,7 @@ class SignInViewModel: NSObject, ObservableObject {
                 onError(error!.localizedDescription)
                 return
             }
+            
             guard let userId = authData?.user.uid else {return}
             
             let storageProfileUserId = StorageService.storageProfileId(userId: userId)

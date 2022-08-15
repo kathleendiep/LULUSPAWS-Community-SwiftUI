@@ -92,7 +92,7 @@ struct PopupView: View {
     var body: some View {
         ZStack {
             Color.white.opacity(0.5)
-                .frame(width: 300, height: 500)
+                .frame(width: 300, height: 300)
                 .clipShape(RoundedRectangle(cornerRadius: 30, style: .continuous))
                 .shadow(color: Color.black.opacity(0.1), radius: 10, x: 0, y: 10)
                 .blur(radius: 1)
@@ -102,8 +102,8 @@ struct PopupView: View {
             VStack(alignment: .leading, spacing: 16) {
                 
                 Text("LULUS PAWS 🦴🏡")
-                    .font(.system(size: 24, weight: .bold, design: .rounded))
-
+                    .font(.system(size: 30, weight: .bold, design: .rounded))
+                    .padding(.top, 20)
                 Text("check out our pupventures with some furry cute friends")
                     .font(.footnote)
                 
@@ -111,12 +111,14 @@ struct PopupView: View {
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width:200, height: 200)
+                    .padding(.leading, 40)
+                
             }
             .padding()
-            .frame(width: 300, height: 400)
+            .frame(width: 300, height: 100)
             .foregroundColor(Color.black.opacity(0.8))
+           
         }
-        
     }
 }
 

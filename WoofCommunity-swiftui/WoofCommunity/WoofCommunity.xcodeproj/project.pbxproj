@@ -154,14 +154,13 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		810AD2A928809C920046B8A2 /* Services */ = {
+		810AD2A928809C920046B8A2 /* Storage */ = {
 			isa = PBXGroup;
 			children = (
 				8198FCEF2880FCD50033421C /* StorageService.swift */,
-				818C2A91288873D30050F477 /* UsersService.swift */,
 				81392D3728872F5F00B83CFE /* SessionStore.swift */,
 			);
-			path = Services;
+			path = Storage;
 			sourceTree = "<group>";
 		};
 		8166FD6D2885FF59008D7627 /* Nav */ = {
@@ -206,6 +205,15 @@
 				818B87B82894964A00C55EBB /* Furniture.swift */,
 			);
 			path = Old;
+			sourceTree = "<group>";
+		};
+		81A2AB3328AAE837007F7791 /* UserAuth */ = {
+			isa = PBXGroup;
+			children = (
+				818C2A91288873D30050F477 /* UsersService.swift */,
+				8166FD612885ED89008D7627 /* SignInViewModel.swift */,
+			);
+			path = UserAuth;
 			sourceTree = "<group>";
 		};
 		81A89CCA289DCDAF00391066 /* Explore */ = {
@@ -253,8 +261,8 @@
 		81AFA233287E1DA80099D8FB /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				810AD2A928809C920046B8A2 /* Services */,
-				8166FD612885ED89008D7627 /* SignInViewModel.swift */,
+				810AD2A928809C920046B8A2 /* Storage */,
+				81A2AB3328AAE837007F7791 /* UserAuth */,
 				81D2E9642891B99C00F9BFF2 /* MainViewModel.swift */,
 				81D2E9702891EDE900F9BFF2 /* SearchViewModel.swift */,
 				81BB5D1E288F57A800835BE2 /* ProfileViewModel.swift */,
