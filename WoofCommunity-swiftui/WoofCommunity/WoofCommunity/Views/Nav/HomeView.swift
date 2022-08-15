@@ -13,7 +13,7 @@ struct HomeView: View {
     
     var body: some View {
         NavigationView{
-           
+            
             CustomTabView()
                 .navigationTitle("")
                 .navigationBarTitleDisplayMode(.inline)
@@ -34,22 +34,22 @@ struct CustomTabView: View {
             
             TabView(selection: $selectedTab) {
                 Main()
-                                .tag("house.fill")
-                            Explore()
-                                .tag("map.fill")
-                            UserProfile()
-                                .tag("magnifyingglass")
-                            Add()
-                                .tag("plus.rectangle.fill.on.rectangle.fill")
-                            Profile()
-                                .tag("person.crop.circle.fill")
+                    .tag("house.fill")
+                Explore()
+                    .tag("map.fill")
+                Search()
+                    .tag("magnifyingglass")
+                Add()
+                    .tag("plus.rectangle.fill.on.rectangle.fill")
+                Profile()
+                    .tag("person.crop.circle.fill")
             }
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
             .ignoresSafeArea(.all, edges: .bottom)
             
             HStack(spacing:0) {
                 ForEach(tabs, id: \.self) {
-                 image in TabButton(image: image, selectedTab: $selectedTab)
+                    image in TabButton(image: image, selectedTab: $selectedTab)
                     
                     // equal spacing
                     if image != tabs.last {
@@ -64,7 +64,7 @@ struct CustomTabView: View {
             .shadow(color: Color.black.opacity(0.15), radius: 5, x: 5, y: 5)
             .shadow(color: Color.black.opacity(0.15), radius: 5, x: -5, y: -5)
             .padding(.horizontal)
-         
+            
         }
         .ignoresSafeArea(.keyboard, edges: .bottom)
         .background(Color.black.opacity(0.05).ignoresSafeArea(.all, edges: .all))
@@ -82,7 +82,7 @@ struct TabButton: View {
             Image(systemName: "\(image)")
                 .foregroundColor(selectedTab == image ? Color.gray: Color.black)
                 .padding()
-
+            
         }
     }
 }

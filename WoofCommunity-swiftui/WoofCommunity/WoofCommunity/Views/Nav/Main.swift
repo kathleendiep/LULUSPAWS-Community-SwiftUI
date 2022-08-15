@@ -38,7 +38,6 @@ struct MainFeed : View {
         }
     }
     
-    
     var body: some View{
         
         ScrollView{

@@ -28,9 +28,8 @@ struct UserProfile: View {
     var body: some View {
         ScrollView{
 
-                VStack(){
+                VStack{
                     
-                    // everytime value changes, make sure to search users
                     SearchBar(value: $value).padding()
                         .onChange(of: value, perform: {
                             new in
@@ -42,28 +41,22 @@ struct UserProfile: View {
                     if !isLoading {
                         
                             ProfileSummaryCard(users: users)
-                            Divider().background(Color.black)
-                        
 
                     }
-                    
-                  
+                    Divider().background(Color.black)
+                    Spacer()
                 }
                 .frame(width: 400, alignment: .center)
-            
-           
+
         }.navigationTitle("User Search")
     }
 }
 
 
 struct ProfileSummaryCard: View {
-    
-//    @State private var value: String = ""
+
     @State var users: [User] = []
-//    @State var isLoading = false
-    
-    
+
     var body: some View {
         
         VStack{
