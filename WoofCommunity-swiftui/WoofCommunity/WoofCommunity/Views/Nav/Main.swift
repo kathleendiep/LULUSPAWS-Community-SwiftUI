@@ -74,49 +74,7 @@ struct MainFeed : View {
                     }
                     UserProfile()
                     
-                    VStack {
-                        
-                        ForEach(users, id: \.id) {
-                            
-                            (user) in
-                            
-                            NavigationLink {
-                                UsersProfileView(user: user)
-                            } label: {
-                                HStack{
-                                    VStack(spacing: 50){
-                                        HStack {
-                                            VStack(alignment: .center) {
-                                                WebImage(url: URL(string: user.profileImageUrl)!)
-                                                    .resizable()
-                                                    .scaledToFit()
-                                                    .clipShape(Circle())
-                                                    .frame(width:100,height:100, alignment: .leading)
-                                            }
-                                            VStack(alignment: .leading) {
-                                                Text("\(user.humanName)")
-                                                    .font(.system(size: 18, weight: .bold, design: .rounded))
-                                                Text("@\(user.username)".uppercased())
-                                                    .font(.system(size: 12, weight: .regular, design: .rounded))
-                                            }
-                                            Spacer()
-                                            VStack(alignment: .leading) {
-                                                Text("\(user.petName)")
-                                                    .font(.system(size: 18, weight: .bold, design: .rounded))
-                                                Text("is my pet".uppercased())
-                                                    .font(.system(size: 12, weight: .regular, design: .rounded))
-                                            }
-                                            Spacer()
-                                        }
-                                        .padding()
-                                        .frame(width: 360)
-                                        .foregroundStyle(LinearGradient(colors: [.blue, .indigo], startPoint: .top, endPoint: .bottom))
-                                        .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 12, style: .continuous))
-                                    }
-                                }
-                            }
-                        }
-                    }
+          
                     Spacer()
                 }
                 .edgesIgnoringSafeArea(.all)
