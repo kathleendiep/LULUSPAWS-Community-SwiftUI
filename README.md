@@ -1,6 +1,6 @@
 # WoofCommunity - Project Pitch 🦴🐶🐱🏡
 
-![LULUSPAWSApp](https://user-images.githubusercontent.com/53194460/178334753-381eb888-8657-497c-9e64-1b215c63fe0d.png)
+![LULUSPAWSApp]((https://user-images.githubusercontent.com/53194460/184999303-44fc5903-45c8-4cf1-a9c5-158f3e731478.png))
 
  [Checkout my app demo here!](https://www.youtube.com/)
  
@@ -34,7 +34,6 @@ People AND pets thrive on connection, and what better way than to have technolog
 
 ### Sprint 1
 #### Main Goal
-
 - define MVP/design MVP
 - MVVM
 - Research
@@ -43,7 +42,6 @@ People AND pets thrive on connection, and what better way than to have technolog
 - MapKit
 
 ### Sprint 2
-
 #### Main Goal
 - Review Profile, Location - see if I need help to master & implement it 
 - add in API
@@ -62,6 +60,6 @@ People AND pets thrive on connection, and what better way than to have technolog
 
 
 ## Let's connect!:
-[ www.kathleendiep.com ](www.kathleendiep.com)
-[ LinkedIn ](https://www.linkedin.com/in/kathleen-diep/ )
+- [ www.kathleendiep.com ](www.kathleendiep.com)
+- [ LinkedIn ](https://www.linkedin.com/in/kathleen-diep/ )
 
