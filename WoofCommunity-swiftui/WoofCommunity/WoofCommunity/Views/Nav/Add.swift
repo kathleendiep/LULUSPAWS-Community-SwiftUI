@@ -87,6 +87,7 @@ struct Add: View {
                         //                        Text("Upload A Post").font(.largeTitle)
                         if postImage != nil {
                             postImage!.resizable()
+                                .scaledToFit()
                                 .frame(width: 300, height:200)
                                 .onTapGesture {
                                     self.showingActionSheet = true
@@ -94,6 +95,7 @@ struct Add: View {
                             
                         } else {
                             Image(systemName: "photo.fill").resizable()
+                                .scaledToFit()
                                 .frame(width: 200, height:200)
                                 .onTapGesture {
                                     self.showingActionSheet = true

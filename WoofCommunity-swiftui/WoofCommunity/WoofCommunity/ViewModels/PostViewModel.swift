@@ -34,7 +34,6 @@ class PostViewModel: ObservableObject {
     static var Timeline = SignInViewModel.storeRoot.collection("timeline")
     
     
-    
     // to fetch data
     //    @Published var user: User?
     //    @Published var users = [User]()
@@ -97,150 +96,60 @@ class PostViewModel: ObservableObject {
     }
     
 }
-    // MARK: - LOAD/FETCH
-    /*
-     - 1) access this
-     SignInViewModel.storeRoot.collection("allPosts")
-     
-     - 2) getDocuments
-     .getDocuments
-     
-     - 3) Check for error
-     
-     - 4) Read through documents dictionary
-     
-     - 5) appendTo initiated array (then add to actual published array later)
-     
-     - 6) make a ViewModel for the Main or profile page and call function to add DATA to Published array
-     
-     - 7) access this in the view
-     ForEach(self.profileViewModel.posts, id: \.postId ) {
-         (post) in
-     }
-     */
-    
+
+//
+//     MARK: - LOAD/FETCH
+//    /*
+//     - 1) access this
+//     SignInViewModel.storeRoot.collection("allPosts")
+//
+//     - 2) getDocuments
+//     .getDocuments
+//
+//     - 3) Check for error
+//
+//     - 4) Read through documents dictionary
+//
+//     - 5) appendTo initiated array (then add to actual published array later)
+//
+//     - 6) make a ViewModel for the Main or profile page and call function to add DATA to Published array
+//
+//     - 7) access this in the view
+//     ForEach(self.profileViewModel.posts, id: \.postId ) {
+//         (post) in
+//     }
+//     */
+//
 //    static func getAllPosts(onSuccess: @escaping (_ post: [Post]) -> Void ) {
-//        
+//
 //        SignInViewModel.storeRoot.collection("allPosts").getDocuments {
 //            (querySnapshot, err) in
-//            
+//
 //            guard let snap = querySnapshot else {
 //                print("error")
 //                return
 //            }
-//            
+//
 //            var posts = [Post]()
-//            
+//
 //            for document in snap.documents {
 //                let dict = document.data()
-//                
+//
 //                guard let decoded = try? Post.init(fromDictionary: dict) else {return}
-//                
+//
 //                // will only show other users id
 //                if decoded.id != Auth.auth().currentUser?.uid {
 //                    posts.append(decoded)
 //                }
-//                
+//
 //                onSuccess(posts)
-//                
+//
 //            }
-//            
-//            
+//
+//
 //        }
 //    }
-// 
+//
 //}
- 
-/*
- // MARK: - ALL POSTS METHOD 2
- func getData() {
-
-     let db = Firestore.firestore()
-
-     db.collection("allPosts").getDocuments { snapshot, error in
-
-         // Check for errors
-         if error == nil {
-             // No errors
-
-             if let snapshot = snapshot {
-
-                 DispatchQueue.main.async {
-                     for doc in snapshot.documents {
-                         let dict = doc.data()
-                         guard let decoder = try? Post.init(fromDictionary: dict)
-                         else {
-                             return
-                         }
-                         self.allPosts.append(decoder)
-                     }
-                 }
-             }
-         }
-     }
- }
-
-
-// MARK: - ALL POSTS METHOD 1 - NOPE
-
-static func getAllPosts(postId: String, onSuccess: @escaping(_ allPosts: [Post]) -> Void) {
-
-    // 1) Access the collecton
-    // 2) get document
-    // Firestore.firestore().collection("allPosts")
-    PostViewModel.AllPosts.getDocuments {
-        (snapshot, error) in
-
-        //  3) Check for error
-        guard let snap = snapshot else {
-            print("Error")
-            return
-        }
-
-        // initiate the posts
-        var allPosts = [Post]()
-
-        // 4) Read through doucments dictionary
-        for doc in snap.documents {
-            let dict = doc.data()
-            guard let decoder = try? Post.init(fromDictionary: dict)
-            else {
-                return
-            }
-            // 5) appendTo array
-            allPosts.append(decoder)
-        }
-        onSuccess(allPosts)
-    }
-}
- 
-
-
-
-// MARK: #3
-//    static func loadAllUsersPosts(userId: String, onSuccess: @escaping(_ posts: [Post]) -> Void) {
 //
-//        PostViewModel.PostsUserId(userId: userId).collection("posts").getDocuments{
-//            (snapshot, error) in
-//
-//            guard let snap = snapshot else {
-//                print("Error")
-//                return
-//            }
-//            // initiate the posts
-//            var posts = [Post]()
-//
-//            for doc in snap.documents {
-//                let dict = doc.data()
-//                guard let decoder = try? Post.init(fromDictionary: dict)
-//                else {
-//                    return
-//                }
-//                posts.append(decoder)
-//            }
-//            onSuccess(posts)
-//
-//
-//        }
-//    }
-*/
+///*

@@ -1,6 +1,12 @@
 # WoofCommunity - Project Pitch 🦴🐶🐱🏡
 
-An app to connect & create a Community with Local Pet Lovers (Dogs & Cats) through forums, chat, etc! 
+![LULUSPAWSApp](https://user-images.githubusercontent.com/53194460/178334753-381eb888-8657-497c-9e64-1b215c63fe0d.png)
+
+ [Checkout my app demo here!](https://www.youtube.com/)
+ 
+ 
+## Description
+An app to connect & create a Community with Local Pet Lovers through profiles, posts, and more!
 
 ## Background
 🐶🐱 Pets have statistically brought joy to many, especially during the Pandemic, many have added a furry friend to their lives, including myself.
@@ -11,23 +17,18 @@ People AND pets thrive on connection, and what better way than to have technolog
     - I want to:
         - able to connect with local community of pet lovers.
         - make a profile that shows our personal information so that others can get to know us a little bit.
-            - Icon - shows contact info - to message elsewhere (Maybe Instagram, Twitter, or Discord) 
-        - search for local events and pet friendly places using Yelp API
+        - search for users 
+        - post your furry friend and share with the LULUSPAWS community! 
 
 ## Tech stack
 
 - SwiftUI
-- Firebase
+- Firebase Database
+- User Authentication
+- SDWebImageSwiftUI 
+- Post Photos 
+- Search Users  
 - MapKit
-- CoreLocation
-
-### Dependencies
-##### - API:
-- Yelp
-- AdoptAPet
-
-
-
 
 ## Roadmap
 
@@ -58,3 +59,9 @@ People AND pets thrive on connection, and what better way than to have technolog
 ## WIREFRAME
 ##### note: sketched wireframe of ideas for MVP & stretch goals
 ![WoofCommunityWireframe](https://user-images.githubusercontent.com/53194460/178334753-381eb888-8657-497c-9e64-1b215c63fe0d.png)
+
+
+## Let's connect!:
+[ www.kathleendiep.com ](www.kathleendiep.com)
+[ LinkedIn ](https://www.linkedin.com/in/kathleen-diep/ )
+

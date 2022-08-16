@@ -31,86 +31,86 @@ struct ProfileHeader: View {
             
             if user != nil {
                 Text(user!.username).font(.headline).bold().padding(.leading)
+                
+                // icons
+                HStack{
+                    VStack{
+                        Link(destination: URL(string: "www.twitter.com/\(user!.twitter)")!) {
+                            Image("Twitter")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 50.0, height: 50.0)
+                        }
+                    }.padding(.top, 4)
+                    
+                    VStack{
+                        Link(destination: URL(string: "www.instagram.com/\(user!.instagram)")!) {
+                            Image("Instagram")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 50.0, height: 50.0)
+                        }
+                    }.padding(.top, 4)
+                }
             }
-            // icons
-            HStack{
-                VStack{
-                    Link(destination: URL(string: "www.twitter.com/\(user!.username)")!) {
-                        Image("Twitter")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 50.0, height: 50.0)
-                    }
-                }.padding(.top, 4)
-           
-                VStack{
-                    Link(destination: URL(string: "www.instagram.com/\(user!.username)")!) {
-                        Image("Instagram")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 50.0, height: 50.0)
-                    }
-                }.padding(.top, 4)
-        }
-        
-        if user != nil {
             
-            VStack{
+            if user != nil {
                 
-                HStack{
-                    VStack(alignment: .leading) {
-                        Text("\(postsCount)")
-                            .font(.system(size: 18, weight: .bold, design: .rounded))
-                        Text("POSTS".uppercased())
-                            .font(.system(size: 12, weight: .regular, design: .rounded))
-                    }
-                    Spacer()
+                VStack{
                     
-                    VStack(alignment: .leading) {
-                        Text("\(user!.humanName)")
-                            .font(.system(size: 18, weight: .bold, design: .rounded))
-                        Text("HOOMAN NAME".uppercased())
-                            .font(.system(size: 12, weight: .regular, design: .rounded))
+                    HStack{
+                        VStack(alignment: .leading) {
+                            Text("\(postsCount)")
+                                .font(.system(size: 18, weight: .bold, design: .rounded))
+                            Text("POSTS".uppercased())
+                                .font(.system(size: 12, weight: .regular, design: .rounded))
+                        }
+                        Spacer()
+                        
+                        VStack(alignment: .leading) {
+                            Text("\(user!.humanName)")
+                                .font(.system(size: 18, weight: .bold, design: .rounded))
+                            Text("HOOMAN NAME".uppercased())
+                                .font(.system(size: 12, weight: .regular, design: .rounded))
+                        }
+                        Spacer()
+                        VStack(alignment: .leading) {
+                            Text("\(user!.petName)")
+                                .font(.system(size: 18, weight: .bold, design: .rounded))
+                            Text("PET NAME".uppercased())
+                                .font(.system(size: 12, weight: .regular, design: .rounded))
+                        }
+                        Spacer()
                     }
-                    Spacer()
-                    VStack(alignment: .leading) {
-                        Text("\(user!.petName)")
-                            .font(.system(size: 18, weight: .bold, design: .rounded))
-                        Text("PET NAME".uppercased())
-                            .font(.system(size: 12, weight: .regular, design: .rounded))
-                    }
-                    Spacer()
-                }
-                .padding()
-                .frame(width: 360)
-                .foregroundStyle(LinearGradient(colors: [.blue, .indigo], startPoint: .top, endPoint: .bottom))
-                .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 12, style: .continuous))
-                
-                // Bio & location
-                HStack{
-                    VStack(alignment: .leading) {
-                        Text("Located in".uppercased())
-                            .font(.system(size: 12, weight: .regular, design: .rounded))
-                        Text("\(user!.location)")
-                            .font(.system(size: 18, design: .rounded))
-                    }
-                    Spacer()
+                    .padding()
+                    .frame(width: 360)
+                    .foregroundStyle(LinearGradient(colors: [.blue, .indigo], startPoint: .top, endPoint: .bottom))
+                    .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 12, style: .continuous))
                     
-                    VStack(alignment: .leading) {
-                        Text("Bio".uppercased())
-                            .font(.system(size: 12, weight: .regular, design: .rounded))
-                        Text("\(user!.bio)")
-                            .font(.system(size: 18, design: .rounded))
+                    // Bio & location
+                    HStack{
+                        VStack(alignment: .leading) {
+                            Text("Located in".uppercased())
+                                .font(.system(size: 12, weight: .regular, design: .rounded))
+                            Text("\(user!.location)")
+                                .font(.system(size: 18, design: .rounded))
+                        }
+                        Spacer()
+                        
+                        VStack(alignment: .leading) {
+                            Text("Bio".uppercased())
+                                .font(.system(size: 12, weight: .regular, design: .rounded))
+                            Text("\(user!.bio)")
+                                .font(.system(size: 18, design: .rounded))
+                        }
+                        Spacer()
+                        
                     }
-                    Spacer()
+                    .padding()
+                    .frame(width: 360)
+                    .foregroundStyle(LinearGradient(colors: [.blue, .indigo], startPoint: .top, endPoint: .bottom))
+                    .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 12, style: .continuous))
                     
-                }
-                .padding()
-                .frame(width: 360)
-                .foregroundStyle(LinearGradient(colors: [.blue, .indigo], startPoint: .top, endPoint: .bottom))
-                .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 12, style: .continuous))
-        
-            
                 }
                 
             }

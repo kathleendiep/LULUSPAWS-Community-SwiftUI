@@ -110,12 +110,6 @@ struct EditProfile: View {
                         Text("pick a photo!")
                             .font(.caption)
                     } else {
-                        Image(systemName: "person.circle.fill")
-                            .resizable()
-                            .clipShape(Circle())
-                            .frame(width: 100, height: 100)
-                            . padding(.top, 20)
-
                         WebImage(url: URL(string: session.session!.profileImageUrl))
                             .resizable()
                             .clipShape(Circle())
