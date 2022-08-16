@@ -15,6 +15,9 @@ struct ProfileHeader: View {
     var body: some View {
         
         VStack {
+            
+            Spacer()
+            
             if user != nil {
                 WebImage(url: URL(string: user!.profileImageUrl)!)
                     .resizable()
@@ -29,6 +32,25 @@ struct ProfileHeader: View {
             if user != nil {
                 Text(user!.username).font(.headline).bold().padding(.leading)
             }
+            // icons
+            HStack{
+                VStack{
+                    Link(destination: URL(string: "www.twitter.com/\(user!.username)")!) {
+                        Image("Twitter")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 50.0, height: 50.0)
+                    }
+                }.padding(.top, 4)
+           
+                VStack{
+                    Link(destination: URL(string: "www.instagram.com/\(user!.username)")!) {
+                        Image("Instagram")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 50.0, height: 50.0)
+                    }
+                }.padding(.top, 4)
         }
         
         if user != nil {
@@ -88,25 +110,7 @@ struct ProfileHeader: View {
                 .foregroundStyle(LinearGradient(colors: [.blue, .indigo], startPoint: .top, endPoint: .bottom))
                 .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 12, style: .continuous))
         
-                // icons
-                HStack{
-                    VStack{
-                        Link(destination: URL(string: "www.twitter.com/\(user!.username)")!) {
-                            Image("Twitter")
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(width: 50.0, height: 50.0)
-                        }
-                    }.padding(.top, 10)
-               
-                    VStack{
-                        Link(destination: URL(string: "www.instagram.com/\(user!.username)")!) {
-                            Image("Instagram")
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(width: 50.0, height: 50.0)
-                        }
-                    }.padding(.top, 60)
+            
                 }
                 
             }

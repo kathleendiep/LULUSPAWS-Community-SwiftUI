@@ -53,10 +53,15 @@ struct EditProfile: View {
     }
     
     func clear(){
+        
         self.bio = ""
         self.username = ""
-        //        self.imageData = Data()
-        //        self.profileImage = Image(systemName: "person.circle.fill")
+        self.humanName = ""
+        self.petName = ""
+        self.location = ""
+        self.instagram = ""
+        self.twitter = ""
+
     }
     
     func edit() {
