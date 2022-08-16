@@ -1,6 +1,6 @@
-# WoofCommunity - Project Pitch 🦴🐶🐱🏡
+# WoofCommunity - iOS project  🦴🐶🐱🏡
 
-![LULUSPAWSApp]((https://user-images.githubusercontent.com/53194460/184999303-44fc5903-45c8-4cf1-a9c5-158f3e731478.png))
+![LULUSPAWSApp](https://user-images.githubusercontent.com/53194460/184999303-44fc5903-45c8-4cf1-a9c5-158f3e731478.png)
 
  [Checkout my app demo here!](https://www.youtube.com/)
  
@@ -30,29 +30,6 @@ People AND pets thrive on connection, and what better way than to have technolog
 - Search Users  
 - MapKit
 
-## Roadmap
-
-### Sprint 1
-#### Main Goal
-- define MVP/design MVP
-- MVVM
-- Research
-- learn Firebase
-- learn CoreLocaton
-- MapKit
-
-### Sprint 2
-#### Main Goal
-- Review Profile, Location - see if I need help to master & implement it 
-- add in API
-- Research
-- Finish up MVP 
-
-### Sprint 3
-
-#### Main Goal
-- Stretch Goals 
-- Finish up design 
 
 ## WIREFRAME
 ##### note: sketched wireframe of ideas for MVP & stretch goals
