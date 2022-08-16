@@ -70,7 +70,7 @@ struct ProfileHeader: View {
                         Text("Located in".uppercased())
                             .font(.system(size: 12, weight: .regular, design: .rounded))
                         Text("\(user!.location)")
-                            .font(.system(size: 18, weight: .bold, design: .rounded))
+                            .font(.system(size: 18, design: .rounded))
                     }
                     Spacer()
                     
@@ -78,7 +78,7 @@ struct ProfileHeader: View {
                         Text("Bio".uppercased())
                             .font(.system(size: 12, weight: .regular, design: .rounded))
                         Text("\(user!.bio)")
-                            .font(.system(size: 18, weight: .bold, design: .rounded))
+                            .font(.system(size: 18, design: .rounded))
                     }
                     Spacer()
                     
@@ -87,8 +87,7 @@ struct ProfileHeader: View {
                 .frame(width: 360)
                 .foregroundStyle(LinearGradient(colors: [.blue, .indigo], startPoint: .top, endPoint: .bottom))
                 .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 12, style: .continuous))
-                
-                
+        
                 // icons
                 HStack{
                     VStack{
@@ -98,8 +97,8 @@ struct ProfileHeader: View {
                                 .aspectRatio(contentMode: .fit)
                                 .frame(width: 50.0, height: 50.0)
                         }
-                    }.padding(.top, 60)
-                    
+                    }.padding(.top, 10)
+               
                     VStack{
                         Link(destination: URL(string: "www.instagram.com/\(user!.username)")!) {
                             Image("Instagram")

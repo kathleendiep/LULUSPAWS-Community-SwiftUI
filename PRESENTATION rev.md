@@ -7,8 +7,9 @@
 ## Presentation Notes 
 
 ### ABOUT ME
+      - 🎥: 5 second 
 Hello everyone, my name is Kathleen and thanks for attending my app demo.
-
+      - 🎥: 15 second 
     My passion for Software Engineering started when I built an e-commerce website for my business. I really enjoy developing projects through code and previously worked as a freelance web developer and am a full stack bootcamp graduate. 
     
     software developer | entrepreneur  | full stack web development bootcamp 
@@ -16,7 +17,7 @@ Hello everyone, my name is Kathleen and thanks for attending my app demo.
 ### APP BACKGROUND
 
 Today I'd like to share my app, LULUSPAWS Community. 
-
+      - 🎥: Shows Home Page > Goes to Home view 
 This app allows users to connect a community of Pet Lovers through creating personal profiles and posts of their furry friends. 
 
 ##  REVIEW: TECH STACK & FEATURES

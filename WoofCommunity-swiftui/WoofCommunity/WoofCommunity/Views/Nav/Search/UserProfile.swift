@@ -43,16 +43,17 @@ struct UserProfile: View {
                             ProfileSummaryCard(users: users)
 
                     }
+                
                     Divider().background(Color.black)
                     Spacer()
+                
                 }
                 .frame(width: 400, alignment: .center)
-                .padding(.bottom, 100)
+                .padding(.bottom, 200)
 
         }.navigationTitle("User Search")
     }
 }
-
 
 struct ProfileSummaryCard: View {
 
@@ -103,7 +104,6 @@ struct ProfileSummaryCard: View {
                 }
             }
         }
-
     }
 }
 

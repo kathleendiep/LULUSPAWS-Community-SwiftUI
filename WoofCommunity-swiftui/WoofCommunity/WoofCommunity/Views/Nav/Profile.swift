@@ -51,9 +51,6 @@ struct Profile: View {
                 ScrollView{
                     VStack{
                         ProfileHeader(user: self.session.session, postsCount: profileViewModel.posts.count)
-                        VStack(alignment: .leading){
-                            Text(session.session?.bio ?? "")      .font(.system(size: 12, weight: .regular, design: .rounded))
-                        }
                         
                         NavigationLink(destination: EditProfile(session:self.session.session), isActive: $isLinkActive){
                             Button(action: {self.isLinkActive = true}){
