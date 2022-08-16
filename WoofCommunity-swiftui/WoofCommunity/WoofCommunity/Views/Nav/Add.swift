@@ -82,9 +82,9 @@ struct Add: View {
                     .blur(radius: 20)
                     .offset(x: 200, y: -200)
                 
-                VStack(alignment: .leading) {
-                    VStack(spacing: 5) {
-                        Text("Upload A Post").font(.largeTitle)
+                VStack(){
+                    VStack(alignment: .center, spacing: 5) {
+                        //                        Text("Upload A Post").font(.largeTitle)
                         if postImage != nil {
                             postImage!.resizable()
                                 .frame(width: 300, height:200)
@@ -94,11 +94,11 @@ struct Add: View {
                             
                         } else {
                             Image(systemName: "photo.fill").resizable()
-                                .frame(width: 300, height:200)
+                                .frame(width: 200, height:200)
                                 .onTapGesture {
                                     self.showingActionSheet = true
                                 }
-                            Text("+ photo")
+                            Text("+ add photo")
                             
                         }
                     }

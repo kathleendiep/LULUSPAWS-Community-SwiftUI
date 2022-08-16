@@ -60,16 +60,18 @@ struct MainFeed : View {
                             .foregroundColor(Color(#colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1)).opacity(0.4))
                             .blur(radius: 8)
                         
-                        PopupView()
+                        WelcomePopupView()
+//                        PopupView()
                         
                     }
                     
                     VStack(alignment: .leading) {
                         
                         Header(user: self.session.session)
+                            .padding(.top, 2)
                         Text("Checkout some users")
                             .font(.system(size: 28, weight: .bold, design: .serif))
-                            .padding(.top, 5)
+                            .padding(.bottom, -10)
                     }
                     
                     UserProfile()
@@ -98,7 +100,6 @@ struct PopupView: View {
                 .blur(radius: 1)
                 .padding()
             
-            
             VStack(alignment: .leading, spacing: 16) {
                 
                 Text("LULUS PAWS 🦴🏡")
@@ -108,7 +109,7 @@ struct PopupView: View {
                 Image("WoofPageHomePage")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(width:200, height: 200)
+                    .frame(width:180, height: 175)
                     .padding(.leading, 40)
                 
             }

@@ -13,6 +13,7 @@ struct ProfileHeader: View {
     var postsCount: Int
     
     var body: some View {
+        
         VStack {
             if user != nil {
                 WebImage(url: URL(string: user!.profileImageUrl)!)
@@ -61,13 +62,30 @@ struct ProfileHeader: View {
                 .frame(width: 360)
                 .foregroundStyle(LinearGradient(colors: [.blue, .indigo], startPoint: .top, endPoint: .bottom))
                 .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 12, style: .continuous))
-            }
-            .animation(.easeIn)
-            
+                
+                // Bio & location
+                HStack{
+                    VStack(alignment: .leading) {
+                        Text("Bio".uppercased())
+                            .font(.system(size: 12, weight: .regular, design: .rounded))
+                        Text("\(user!.bio)")
+                            .font(.system(size: 18, weight: .bold, design: .rounded))
+                    }
+                    
+                    VStack(alignment: .leading) {
+                        Text("Located in".uppercased())
+                            .font(.system(size: 12, weight: .regular, design: .rounded))
+                        Text("\(user!.location)")
+                            .font(.system(size: 18, weight: .bold, design: .rounded))
+                    }
+                    Spacer()
+                    
+                }
+                
+                
                 // icons
                 HStack{
                     VStack{
-                        // todo: user!.twitter user!.instagram
                         Link(destination: URL(string: "www.twitter.com/\(user!.username)")!) {
                             Image("Twitter")
                                 .resizable()
@@ -86,6 +104,9 @@ struct ProfileHeader: View {
                     }.padding(.top, 60)
                 }
                 
+            }
+            
+
             }
         }
     }

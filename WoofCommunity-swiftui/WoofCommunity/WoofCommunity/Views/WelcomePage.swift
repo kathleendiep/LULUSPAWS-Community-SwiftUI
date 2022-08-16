@@ -50,7 +50,8 @@ struct WelcomeThemeLayout: View {
                 .blur(radius: 20)
                 .offset(x: 200, y: -200)
             
-            ZStack {
+            VStack {
+                
                 WelcomePopupView()
                 
                 // SIGN IN/UP BUTTON
@@ -73,13 +74,6 @@ struct WelcomeThemeLayout: View {
                     }
                 }.padding()
             }
-            NavigationLink {
-                SignInView()
-            } label: {
-                Text("Sign In")
-                    .font(.title)
-                    .modifier(ButtonModifiers())
-            }.frame(width: 300)
         
         }
     }
@@ -102,20 +96,21 @@ struct WelcomePopupView: View {
                 .padding()
             
             
-            VStack(alignment: .leading, spacing: 16) {
+            VStack(alignment: .leading) {
                 
                 Text("LULUS PAWS 🦴🏡")
                     .font(.system(size: 30, weight: .bold, design: .rounded))
                     .padding(.top, 20)
-                Text("check out our pupventures with some furry cute friends")
-                    .font(.footnote)
-                
+                Text("Connect and check out")
+                    .font(.system(size: 20, design: .rounded))
+                Text("some furry furiends")
+                    .font(.system(size: 15, design: .rounded))
                 Image("WoofPageHomePage")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width:200, height: 200)
-                    .padding(.leading, 40)
-                
+                    .padding(.leading, 30)
+                    .padding(.top, -50)
             }
             .padding()
             .frame(width: 300, height: 100)

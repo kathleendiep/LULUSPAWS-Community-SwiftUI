@@ -105,12 +105,12 @@ struct EditProfile: View {
                         Text("pick a photo!")
                             .font(.caption)
                     } else {
-                        Image(systemName: "person.circle.fill")
-                            .resizable()
-                            .clipShape(Circle())
-                            .frame(width: 100, height: 100)
-                            . padding(.top, 20)
-                        
+//                        Image(systemName: "person.circle.fill")
+//                            .resizable()
+//                            .clipShape(Circle())
+//                            .frame(width: 100, height: 100)
+//                            . padding(.top, 20)
+//
                         WebImage(url: URL(string: session.session!.profileImageUrl))
                             .resizable()
                             .clipShape(Circle())
@@ -119,7 +119,7 @@ struct EditProfile: View {
                             .onTapGesture{
                                 self.showingActionSheet = true
                             }
-                        Text("pick a photo!")
+                        Text("+ profile photo")
                     }
                 }
                 
@@ -128,11 +128,12 @@ struct EditProfile: View {
                     FormField(value: $bio, icon: "book.fill", placeholder: "bio")
                     FormField(value: $humanName, icon: "person.fill", placeholder: "Hooman's Name")
                     FormField(value: $petName, icon: "pawprint.circle", placeholder: "Pet name")
-                    FormField(value: $location, icon: "", placeholder: "Location")
+                    FormField(value: $location, icon: "map", placeholder: "Location")
                     Text("Any Socials to connect?")
                     Text("Please enter just username ex: luluspaws__ ")
-                    FormField(value: $twitter, icon: "", placeholder: "Twitter")
-                    FormField(value: $instagram, icon: "", placeholder: "Instagram")
+                    Text("ex: luluspaws__ ")
+                    FormField(value: $twitter, icon: "desktopcomputer", placeholder: "Twitter")
+                    FormField(value: $instagram, icon: "camera.metering.center.weighted", placeholder: "Instagram")
                 }
                 
                 Button(action: edit){
