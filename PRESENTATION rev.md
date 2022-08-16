@@ -7,82 +7,65 @@
 ## Presentation Notes 
 
 ### ABOUT ME
-Hello everyone, my name is Kathleen! 
+Hello everyone, my name is Kathleen and thanks for attending my app demo.
 
-    My passion for Software Engineering started when I built an e-commerce website for my business. I really enjoy developing projects through code and previously worked as a freelance web developer and am a full stack web development bootcamp grad. 
+    My passion for Software Engineering started when I built an e-commerce website for my business. I really enjoy developing projects through code and previously worked as a freelance web developer and am a full stack bootcamp graduate. 
     
-    software developer | entrepreneur  
+    software developer | entrepreneur  | full stack web development bootcamp 
 
 ### APP BACKGROUND
+
 Today I'd like to share my app, LULUSPAWS Community. 
 
-LULUSPAWS community is an app to allow users to connect & create a community with Pet Lovers through creating and sharing personal profiles and posts of their furry friends. 
+This app allows users to connect a community of Pet Lovers through creating personal profiles and posts of their furry friends. 
 
 ##  REVIEW: TECH STACK & FEATURES
 With this app, I used 
 - SwiftUI. 
-
-I wanted to take the challenge of learning databases with ios apps. 
-
+      - 🎥: Showing Home > Profile >  Posts > 
+I wanted to take the challenge of learning databases with ios apps so that users can create profile, posts, and search. 
+      - 🎥: end at search > searching 
 I decided on FireBase as the database, because it allows real sync of data, quicker builds, thorough documentation, and made the Authentication process easier. 
 
-### Firebase Database
-- 🎥: Signup - when user signs up 
-    - Users will be able to signup, signin, make profiles, and posts. 
-    - To handle this, 
-    - I created 2 view model files. 
-        - 1. One being, StorageService - to save the firebase db to firebase storage 
-        - 2. 2nd being AuthViewModel - this is the functions to create/sign in users to database and save it to Firestorage 
-    
 #### User Authentication
-      - 🎥: SignIn - sign up, and press enter 
-    - in the ViewModel, I created a function to allow users to be able to save username, email, and imageData to storage and database files:
-                 Auth.auth().createUser 
+      - 🎥: Logout -> SignUp - sign up, and press enter 
+    - First, Let's sign up. 
+        - in order for this to happen, 
+            - I created 2 view model files. 
+                - 1. 1st - being StorageService to save data to the FirebaseStorage
+                - 2. 2nd - being AuthViewModel - after reading the Firebase documentation, i learned that Firebase has built in Authorization functions like create user & signin, which would be included in this file
 
             - 2. SignInViewModel
             - 🎥: SignIn - Sign in 
                 - now that the user is created, let's sign in. 
-            Firebase Database requires a collection & document id in order to save data. A challenge is making sure to match collection with the correct document id, 
-                - I organized this by naming the collection: users & document after the userId which is uniquely auto generated. 
-                          -   Firestore.firestore().collection("users).document(userId)
-                - User will then be able to sign in if their userId goes through authentification process.
-                    - Auth.auth().signIn() 
-               
+            Firebase requires a collection & document id in order to save user login data. The challenge was making sure to set up and organize the collection with the correct unique document id.
+            
 ### User Profile 
-- 🎥: Home Page > Show the profile, then cut to the new profile with user info
-- From there a user will be able to edit their profile with their info 
-    -  I made a ProfileViewModel: 
-        - 1. There is a save/edit profile function
-            -  they will be able to edit their info based from User model
-        - Some challenges I faced with user profile:  
-                - I took on challenge to read through learn and implement SDWebImageSwiftUI - SwiftUI Image Loading Framework to load photos 
+- 🎥: Home Page > Show the profile > Edit >  then cut to the new profile with user info
+- From there a user will be able to edit their profile based on the User model that I set up in the viewmodel.
+                - I took on challenge to read through learn and implement SDWebImageSwiftUI - this framework allows the user to upload photos from their iphone. 
 
 ### User Posts
-- 🎥: Show Profile & Adding it here, Add a post and show on profile on the second 
-
-- Another feature, is that a user can share posts about their pet. 
-
+- 🎥: Show Profile & highlight adding posts 
+- Another feature, is that a user can share posts. 
 - Representing relationship between Users, Post, and Profile was a challenge, but I solved it by:
-    - making a PostViewModel 
-    - & creating a function
-        - to make sure userId is current user 
-        - then we follow the steps to:
-            - 0. add to Firebase.firestore() db 
-            - 1. add to posts collection 
-            - 2. documentId 
-            - 3. saves to our firebase storage
-- Then posts should appear on our profile, because I added a loadUserPosts function onAppear to show users post 
+    - including a function that follows:
+            - 1. makes sure userId is the current user 
+            - 2. add to Firebase db 
+            - 3. then add to posts collection and the corresponding documentId 
+            - 4. this then should save to our firebase storage so that we can fetch it later
+            
+- 🎥: > show on profile on the second
+- It was tricky to fetch all posts on profile, but I added a function onAppear to show users post 
 
 ### Search Users  
-- 🎥: Search and then go to their profile 
-- Users will be able to search via username 
-- It was tricky to make a function to searchUser in the user collection in firebase. 
-- A solution to this was to add whereField("username") is equal to users input in search bar 
+- 🎥: Search, results, and then go to their profile 
+- Users will be able to search via username, and it was tricky to filter the results, but after trial and error, I came up with a solution to capture the users input in search bar and match to usernames array.
 
-### MapKit 
-- 🎥: Showing MapKit 
-- I was able to implement MapKit and Corelocation, and get User's location. 
-- In the future, I'd like to tweak the MapKit to allow users to pop up based on a location. 
+        ### MapKit 
+        - 🎥: Showing MapKit 
+        - I was able to implement MapKit and Corelocation, and get User's location. 
+        - In the future, I'd like to tweak the MapKit to allow users to pop up based on a location. 
 
 ### FEATURES
 - SwiftUI
@@ -95,5 +78,5 @@ I decided on FireBase as the database, because it allows real sync of data, quic
 - MapKit
 
 
-#### This concludes my ios app demo on LULUSPAWS. Overall, I hope you enjoyed my demo and please feel free to check out the Github repo. 
+#### This concludes my ios app demo on LULUSPAWS. I hope you enjoyed my demo and please feel free to check out the Github repo. Thank you again for your time! 
 
