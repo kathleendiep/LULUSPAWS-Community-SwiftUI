@@ -32,6 +32,7 @@ struct ProfileHeader: View {
         }
         
         if user != nil {
+            
             VStack{
                 
                 HStack{
@@ -66,13 +67,6 @@ struct ProfileHeader: View {
                 // Bio & location
                 HStack{
                     VStack(alignment: .leading) {
-                        Text("Bio".uppercased())
-                            .font(.system(size: 12, weight: .regular, design: .rounded))
-                        Text("\(user!.bio)")
-                            .font(.system(size: 18, weight: .bold, design: .rounded))
-                    }
-                    
-                    VStack(alignment: .leading) {
                         Text("Located in".uppercased())
                             .font(.system(size: 12, weight: .regular, design: .rounded))
                         Text("\(user!.location)")
@@ -80,7 +74,19 @@ struct ProfileHeader: View {
                     }
                     Spacer()
                     
+                    VStack(alignment: .leading) {
+                        Text("Bio".uppercased())
+                            .font(.system(size: 12, weight: .regular, design: .rounded))
+                        Text("\(user!.bio)")
+                            .font(.system(size: 18, weight: .bold, design: .rounded))
+                    }
+                    Spacer()
+                    
                 }
+                .padding()
+                .frame(width: 360)
+                .foregroundStyle(LinearGradient(colors: [.blue, .indigo], startPoint: .top, endPoint: .bottom))
+                .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 12, style: .continuous))
                 
                 
                 // icons
@@ -105,38 +111,6 @@ struct ProfileHeader: View {
                 }
                 
             }
-            
-
-            }
         }
     }
-
-
-//
-//struct ProfileHeader_Previews: PreviewProvider {
-//    static var previews: some View {
-//        
-//        ProfileHeader()
-//    }
-//}
-//
-//HStack{
-//    Spacer()
-//    VStack{
-//        Text("Posts").font(.footnote)
-//        Text("\(postsCount)").font(.title).bold()
-//    }.padding(.top, 60)
-//
-//    Spacer()
-//    VStack{
-//        Text("name").font(.footnote)
-//        Text("\(user!.humanName)").font(.title).bold()
-//    }.padding(.top, 60)
-//    Spacer()
-//    VStack{
-//        Text("Woof, I'm").font(.footnote)
-//        Text("\(user!.petName)").font(.title).bold()
-//
-//    }.padding(.top, 60)
-//    Spacer()
-//}
+}
