@@ -22,7 +22,6 @@ struct MainFeed : View {
     @ObservedObject var postCardViewModel = PostCardViewModel()
     @ObservedObject var postViewModel = PostViewModel()
     @StateObject var mainViewModel = MainViewModel()
-    // append the user fetch here
     @State var users: [User] = []
     @State var posts: [Post] = []
     
@@ -120,7 +119,6 @@ struct PopupView: View {
         }
     }
 }
-
 
 //MARK: Header
 struct Header: View {

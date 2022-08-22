@@ -13,7 +13,7 @@ import FirebaseStorage
 import Combine
 import FirebaseFirestoreSwift
 
-// FIREBASE STRUCTURE
+// MARK: - FIREBASE STRUCTURE NOTES:
 /*
  > users > userId >
  Firestore.firestore().collection("users").document(userId)
@@ -32,11 +32,7 @@ class PostViewModel: ObservableObject {
     static var AllPosts = SignInViewModel.storeRoot.collection("allPosts")
     
     static var Timeline = SignInViewModel.storeRoot.collection("timeline")
-    
-    
-    // to fetch data
-    //    @Published var user: User?
-    //    @Published var users = [User]()
+
     @Published var allPosts = [Post]()
     
     static func PostsUserId(userId: String) -> DocumentReference {
@@ -52,7 +48,6 @@ class PostViewModel: ObservableObject {
      - Create and add to an array
      @Published var posts = [Post]()
      - then fetch the data
-     
      */
     
     static func uploadPost(caption: String, imageData: Data, onSuccess: @escaping(_ post: Post)-> Void, onError: @escaping (_ errorMessage: String) -> Void) {
@@ -98,7 +93,7 @@ class PostViewModel: ObservableObject {
 }
 
 //
-//     MARK: - LOAD/FETCH
+//     MARK: - LOAD/FETCH - NOTES
 //    /*
 //     - 1) access this
 //     SignInViewModel.storeRoot.collection("allPosts")
@@ -120,36 +115,3 @@ class PostViewModel: ObservableObject {
 //     }
 //     */
 //
-//    static func getAllPosts(onSuccess: @escaping (_ post: [Post]) -> Void ) {
-//
-//        SignInViewModel.storeRoot.collection("allPosts").getDocuments {
-//            (querySnapshot, err) in
-//
-//            guard let snap = querySnapshot else {
-//                print("error")
-//                return
-//            }
-//
-//            var posts = [Post]()
-//
-//            for document in snap.documents {
-//                let dict = document.data()
-//
-//                guard let decoded = try? Post.init(fromDictionary: dict) else {return}
-//
-//                // will only show other users id
-//                if decoded.id != Auth.auth().currentUser?.uid {
-//                    posts.append(decoded)
-//                }
-//
-//                onSuccess(posts)
-//
-//            }
-//
-//
-//        }
-//    }
-//
-//}
-//
-///*

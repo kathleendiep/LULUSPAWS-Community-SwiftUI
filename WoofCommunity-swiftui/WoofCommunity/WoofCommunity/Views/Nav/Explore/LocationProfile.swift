@@ -49,11 +49,9 @@ struct LocationProfile: View {
                     .foregroundStyle(Color.pink.opacity(0.6))
                     .blur(radius: 20)
                     .offset(x: 200, y: -200)
-                
-              
+
                 VStack(){
-                    
-                    
+
                     // everytime value changes, make sure to search users
                     SearchBar(value: $value).padding()
                         .onChange(of: value, perform: {
@@ -68,9 +66,7 @@ struct LocationProfile: View {
                         ForEach(users, id: \.id){
                             
                             user in
-                            
-                            
-                            
+
                             HStack{
                                 VStack(alignment: .leading) {
                                     NavigationLink {
@@ -95,8 +91,7 @@ struct LocationProfile: View {
                         }
                         
                     }
-                    
-                  
+
                 }
             }
         }.navigationTitle("User Search")

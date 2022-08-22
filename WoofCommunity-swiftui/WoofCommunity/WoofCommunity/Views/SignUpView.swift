@@ -13,12 +13,6 @@ struct SignUpView: View {
     }
 }
 
-struct SignUpView_Previews: PreviewProvider {
-    static var previews: some View {
-        SignUpView()
-    }
-}
-
 struct SignUpContainerView: View {
     
     // MARK: - Properties
@@ -140,7 +134,7 @@ struct SignUpContainerView: View {
                         }
                     }
           
-              // FIELDS
+                        // FIELDS
                         FormField(value: $username, icon: "person.crop.circle.fill", placeholder: "Username")
                         
                         FormField(value: $email, icon: "mail", placeholder: "Email")
@@ -181,7 +175,6 @@ struct SignUpContainerView: View {
             .padding(.leading, 20)
  
         }
-  
     }
 }
 

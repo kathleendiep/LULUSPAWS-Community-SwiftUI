@@ -28,7 +28,7 @@ struct Profile: View {
     var body: some View {
         VStack{
             ZStack{
-                //background
+
                 Color.white
                 
                 RoundedRectangle(cornerRadius: 30, style: .continuous)
@@ -49,6 +49,7 @@ struct Profile: View {
                     .foregroundStyle(Color.pink.opacity(0.6))
                     .blur(radius: 20)
                     .offset(x: 200, y: -200)
+                
                 ScrollView{
                     VStack{
                         ProfileHeader(user: self.session.session, postsCount: profileViewModel.posts.count)

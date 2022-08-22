@@ -33,7 +33,6 @@ struct SignInContainerView: View {
     var body: some View {
         
         ZStack {
-            //background
             Color.white
             
             RoundedRectangle(cornerRadius: 30, style: .continuous)

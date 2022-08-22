@@ -79,12 +79,6 @@ struct WelcomeThemeLayout: View {
     }
 }
 
-
-struct WelcomePage_Previews: PreviewProvider {
-    static var previews: some View {
-        WelcomePage()
-    }
-}
 struct WelcomePopupView: View {
     var body: some View {
         ZStack {
@@ -94,7 +88,6 @@ struct WelcomePopupView: View {
                 .shadow(color: Color.black.opacity(0.1), radius: 10, x: 0, y: 10)
                 .blur(radius: 1)
                 .padding()
-            
             
             VStack(alignment: .leading) {
                 

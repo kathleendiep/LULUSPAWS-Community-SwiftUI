@@ -36,10 +36,9 @@ struct Search: View {
             VStack{
                 UserProfile()
             }
-            
         }
-        
     }
+    
 }
 
 

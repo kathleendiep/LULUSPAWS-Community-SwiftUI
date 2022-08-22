@@ -12,7 +12,6 @@ import FirebaseAuth
 
 // to show posts in the profile
 // collection.document
-
 class ProfileViewModel: ObservableObject {
     
     @Published var posts: [Post] = []
@@ -86,37 +85,5 @@ class ProfileViewModel: ObservableObject {
         StorageService.editProfile(userId: userId, username: username, bio: bio, petName: petName, humanName: humanName, location: location, instagram: instagram, twitter: twitter,  imageData: imageData, metaData: metadata, storageProfileImageRef: storageProfileUserId, onError: onError)
         
     }
-    
-   
-    // MARK: - DELETE
-    
-//    func deletePost(userId: String){
-        /*
-         - figure out what to do with the rest
-         */
-//     let db = Firestore.firestore()
 
-//    Firestore.firestore().collection("posts").document(userid)
-//        PostViewModel.PostsUserId(userId: userId).delete
-//        let postId = PostViewModel.PostsUserId(userId: userId).collection("posts").document().documentID
-        
-//        PostViewModel.PostsUserId(userId: userId).delete {
-//            (err) in
-//
-//            if err != nil {
-//
-//                print(err!.localizedDescription)
-//
-//                self.posts.removeAll { (post) in
-//                    return post.id == userId
-//                }
-//
-//            }
-//
-//        }
-//
-//    }
-//
-    
-    
 }

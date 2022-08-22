@@ -56,7 +56,6 @@ class UsersService: ObservableObject {
                 }
                 onSuccess(users)
             }
-      
         }
     }
 }

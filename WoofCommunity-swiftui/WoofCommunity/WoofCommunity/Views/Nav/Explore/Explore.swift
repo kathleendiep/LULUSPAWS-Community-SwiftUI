@@ -96,13 +96,6 @@ struct ExploreMap : View {
     }
 }
 
-
-// sets the MapView
-/*
- 
- 
- - class Coordinator: make sure to set locationManager
- */
 struct MapView : UIViewRepresentable {
     
     // assign the parent coordinator
@@ -238,12 +231,9 @@ struct MapView : UIViewRepresentable {
             over.lineWidth = 3
             return over
         }
-        
-        
+ 
     }
-    
-    
-    
+  
 }
 
 

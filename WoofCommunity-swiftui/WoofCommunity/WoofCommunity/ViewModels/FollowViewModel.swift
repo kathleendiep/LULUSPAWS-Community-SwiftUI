@@ -69,8 +69,7 @@ class FollowViewModel: ObservableObject {
                 doc.reference.delete()
                 
                 self.updateFollowCount(userId: userId, followingCount: followingCount, followersCount: followersCount)
-  
-                
+
             }
             
         }
@@ -83,12 +82,7 @@ class FollowViewModel: ObservableObject {
                 
                 self.updateFollowCount(userId: userId, followingCount: followingCount, followersCount: followersCount)
   
-                
             }
-            
         }
-        
     }
-    
-  
 }

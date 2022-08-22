@@ -4,6 +4,7 @@
 //
 //  Created by Kathleen Diep on 7/18/22.
 //
+
 import Foundation
 import Firebase
 import FirebaseAuth
@@ -26,7 +27,6 @@ class SignInViewModel: NSObject, ObservableObject {
         return auth.currentUser != nil
     }
     
-    // goes to Firestore db
     static func getUserId(_ userId: String) -> DocumentReference {
         // Firestore.firestore().collection("users).document(userId)
         return storeRoot.collection("users").document(userId)
