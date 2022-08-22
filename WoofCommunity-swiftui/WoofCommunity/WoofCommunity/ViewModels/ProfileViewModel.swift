@@ -12,6 +12,7 @@ import FirebaseAuth
 
 // to show posts in the profile
 // collection.document
+
 class ProfileViewModel: ObservableObject {
     
     @Published var posts: [Post] = []
@@ -74,7 +75,6 @@ class ProfileViewModel: ObservableObject {
     // StorageService.editProfile
     static func saveProfile(username: String, bio: String, petName: String, humanName: String, location: String, instagram: String, twitter: String, imageData: Data, onSuccess: @escaping(_ post: Post)-> Void, onError: @escaping (_ errorMessage: String) -> Void) {
     
-        
         guard let userId = Auth.auth().currentUser?.uid else {return}
         
         let storageProfileUserId = StorageService.storageProfileId(userId: userId)

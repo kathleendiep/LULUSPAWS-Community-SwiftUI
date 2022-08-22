@@ -10,19 +10,12 @@ import Firebase
 import FirebaseAuth
 import FirebaseStorage
 
-/*
- 
- - StorageService - adds to storage
- - UsersService -
- */
-
 class StorageService {
     
     static var storage = Storage.storage()
     
     static var storageRoot = storage.reference()
     
-    // storage
     static var storageProfile = storageRoot.child("profile")
     
     static var storagePost = storageRoot.child("posts")

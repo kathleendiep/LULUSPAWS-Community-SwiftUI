@@ -6,57 +6,22 @@
 //
 
 import Foundation
-import CoreLocation
-
-/*
- TODO:
- - go on iphone and see if it locates
- 
- - longitude, latitude
- - updatedMap within certain radius
- 
- Option
- - corelocation - accessing from phone
- - db of zipcodes with longitude/latitude
-
- 
- - handle app settings
- 
- */
-
-/*
-- create Views
-- create ViewModel
-- create Utilities - Storage
- - adding photo, email, username
- 
- */
-
 
 struct User: Identifiable, Encodable, Decodable {
     
-    var id: String? // document type ID from db
+    var id: String?
     var email: String
     var profileImageUrl: String
     var username: String
     var bio: String
     var searchName: [String]
-   
     var petName: String
     var humanName: String
     var profileDogImageUrl: String
     var location: String
     var twitter: String
     var instagram: String
-    
-    // MARK: - Location
-    // automatically find
-    // todo: funfact
-//    var location: CLLocationCoordinate2D
-    /*
-    let exampleLocation = CLLocation(latitude: longitude:)
-     
-     */
+
 }
 
 

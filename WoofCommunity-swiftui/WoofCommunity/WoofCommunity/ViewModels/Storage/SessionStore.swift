@@ -14,6 +14,7 @@ class SessionStore: ObservableObject {
     
     // MARK: - Properties
     var didChange = PassthroughSubject<SessionStore, Never>()
+    
     // see if user changed
     @Published var session: User? {didSet{self.didChange.send(self)} }
     var handle: AuthStateDidChangeListenerHandle?
@@ -35,7 +36,6 @@ class SessionStore: ObservableObject {
                         self.session = decodedUser
                     }
                 }
-                //todo: find a way to return user
             }
             else {
                 self.session = nil

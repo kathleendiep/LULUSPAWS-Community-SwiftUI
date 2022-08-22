@@ -4,6 +4,7 @@
 //
 //  Created by Kathleen Diep on 7/18/22.
 //
+//
 
 import SwiftUI
 import FirebaseAuth
@@ -100,7 +101,6 @@ struct Profile: View {
                 }
             }
         }
-        
     }
 }
 
