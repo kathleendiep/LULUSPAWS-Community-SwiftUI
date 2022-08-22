@@ -68,9 +68,3 @@ struct PostCard: View {
         }
     }
 }
-//
-//struct PostCard_Previews: PreviewProvider {
-//    static var previews: some View {
-//        PostCard()
-//    }
-//}

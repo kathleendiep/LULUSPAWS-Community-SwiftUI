@@ -112,7 +112,6 @@ struct ProfileHeader: View {
                     .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 12, style: .continuous))
                     
                 }
-                
             }
         }
     }

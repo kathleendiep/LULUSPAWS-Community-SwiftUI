@@ -19,9 +19,3 @@ struct ButtonModifiers: ViewModifier {
             .cornerRadius(5.0)
     }
 }
-// TODO: color theme here
-//Button(action: {}){
-//    Text("Sign In").font(.title)
-//        .modifier(ButtonModifiers())
-//
-//}

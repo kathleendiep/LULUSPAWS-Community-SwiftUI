@@ -54,9 +54,3 @@ struct FollowButton: View {
         }
     }
 }
-
-//struct FollowButton_Previews: PreviewProvider {
-//    static var previews: some View {
-//        FollowButton()
-//    }
-//}
